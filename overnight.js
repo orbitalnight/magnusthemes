@@ -18,16 +18,16 @@ tHE WORST PART IS THAT I CAN'T EXTERNALISE THIS SHIT fuck u @staff
         var breakPoint3 = window.matchMedia("screen and (max-width:780px)");
         var breakPoint2 = window.matchMedia("screen and (max-width:880px)");
         var breakPoint1 = window.matchMedia("screen and (max-width:1000px) and (min-width:880px)");
-        breakPoint1.addListener(WidthChangeOne);
-        WidthChangeOne(breakPoint1);
-        breakPoint2.addListener(WidthChangeTwo);
-        WidthChangeTwo(breakPoint2);
-        breakPoint3.addListener(WidthChangeThree);
-        WidthChangeThree(breakPoint3);
+        breakPoint1.addListener(widthChangeOne);
+        widthChangeOne(breakPoint1);
+        breakPoint2.addListener(widthChangeTwo);
+        widthChangeTwo(breakPoint2);
+        breakPoint3.addListener(widthChangeThree);
+        widthChangeThree(breakPoint3);
     }
     // the functions that work when the breakpoints are hit
     // breakpoint 1: screen less than 1000px aka one column sidebar
-    function WidthChangeOne(breakPoint1){
+    function widthChangeOne(breakPoint1){
         if (breakPoint1.matches) {
             $("footer").hide();
             $("footer").append($("a.copy").clone());
@@ -40,7 +40,7 @@ tHE WORST PART IS THAT I CAN'T EXTERNALISE THIS SHIT fuck u @staff
     }
     // breakpoint 2: screen less than 880px 
     // aka one column layout and automatic infinite scrolling
-    function WidthChangeTwo(breakPoint2){
+    function widthChangeTwo(breakPoint2){
         if (breakPoint2.matches) {
             $("footer").removeClass("ln ln-wallet");
             $("footer").prepend($("a.copy").clone());
@@ -59,7 +59,7 @@ tHE WORST PART IS THAT I CAN'T EXTERNALISE THIS SHIT fuck u @staff
     }
     // breakpoint 3: screen less than 780px aka mobile navigation can die
     // (this part of the script is a mess don't bother trying to read it)
-    function WidthChangeThree(breakPoint3){
+    function widthChangeThree(breakPoint3){
         if (breakPoint3.matches){
             $("#bar").find("#sub").prev("a.ln").attr("href","#");
             $("<div />").append(
