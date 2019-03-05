@@ -1,0 +1,403 @@
+/* ======
+nocturne.css
+magnusthemes@tumblr
+
+do not copy/steal
+====== */
+
+/* ------ custom browser styling ------- */
+
+/* animation */
+
+@-webkit-keyframes fadein {from {opacity:0;} to {opacity:1;}}
+@keyframes fadein {from {opacity:0;} to {opacity:1;}}
+
+/* scrollbar */
+ 
+::-webkit-scrollbar {
+    height:15px; 
+    width:15px;
+}
+
+::-webkit-scrollbar-thumb {
+    border:5px solid transparent;
+    background-clip:padding-box;
+    border-radius:15px;
+}
+
+/* tooltip */
+
+.ui-tooltip {position:absolute; z-index:214748364789;}
+ 
+.ui-tooltip-content {
+    max-width:250px;
+    margin:5px 20px;
+    padding:7px 10px;
+    text-transform:uppercase;
+    border:0px solid transparent;
+    border-radius:0px;
+}
+
+/* tumblr controls */
+ 
+iframe#tumblr_controls, .iframe-controls--desktop {
+    top:5px!important;
+    right:5px!important;
+    position:fixed!important;
+    -webkit-transform:scale(0.6,0.6);
+    -webkit-transform-origin:100% 0;
+    transform:scale(0.6,0.6);
+    transform-origin:100% 0;
+    z-index:2147483647!important;
+    transition:0.5s ease-in-out;
+    opacity:0.8;
+}
+ 
+iframe#tumblr_controls:hover, .iframe-controls--desktop:hover {opacity:1;}
+#tumblr_lightbox img, .tmblr-lightbox img {opacity:0;}
+#vignette, .vignette {opacity:0!important;}
+ 
+/* ------ basic styling ------- */
+ 
+body, html {margin:0; padding:0; width:100%; height:100%;}
+
+img {border:none;}
+blockquote img {max-width:100%!important; height:auto!important;}
+
+big {font-size:1.2empx; line-height:170%;}
+small, sup, sub {font-size:0.9empx; line-height:160%;}
+
+h1 {font-size:1.50em;}
+h2 {font-size:1.35em;}
+h3 {font-size:1.20em;}
+
+ol {counter-reset:order;}
+
+ul li, ol li {
+    display:block;
+    list-style-type:none;
+    margin-left:0px;
+    position:relative;
+}
+
+/* ------ captions ------ */
+
+.posts img, .posts iframe {max-width:100%;}
+.text img, .photo img {display:block;}
+
+.reblog_head {margin-top:1em;}
+ 
+span.reblog_user::after {
+    content:"deactivated";
+    margin-left:5px;
+    opacity:0;
+    visibility:hidden;
+    position:absolute;
+    transition:0.4s ease-in-out;
+}
+ 
+.reblog_head:hover span.reblog_user::after {visibility:visible; opacity:1;}
+ 
+img.tumblr_avatar {
+    vertical-align:middle;
+    width:16px;
+    height:16px;
+    margin-right:6px;
+    margin-bottom:3px;
+    display:inline-block;
+    border-radius:3px;
+}
+
+/* ------ photo/video/audio ------ */
+
+.spotify_audio_player {
+    height:80px!important;
+    width:100%!important;
+}
+
+.bandcamp_audio_player {
+    height:120px!important;
+    width:100%!important;
+}
+ 
+.albumart {
+    position:absolute; 
+    width:80px; 
+	height:70px; 
+    padding:5px;
+    margin:15px;
+}
+ 
+.artinside {
+    background:url(https://static.tumblr.com/p0knose/7A1nhv7rk/default-cover.png) no-repeat;
+    background-size:70px 70px;
+    width:70px; 
+    height:70px;
+    position:relative;
+    z-index:1;
+}
+ 
+.artover {
+    background:url(https://static.tumblr.com/p0knose/DVWng1n7g/album-overlay.png) no-repeat;
+    background-size:auto 72px;
+    width:80px; 
+    height:72px;
+    z-index:2;
+    position:absolute;
+    margin:0px;
+}
+   
+.playercontainer {
+    position:absolute;
+    opacity:0.6;
+    z-index:3;
+    margin:35px;
+    padding:4px;
+    transition:0.6s ease-in-out;
+}
+ 
+.posts:hover .playercontainer {opacity:0.9; margin:30px;}
+.posts:hover .tplayer {margin:5px 10px;}
+ 
+.tplayer {
+    width:20px;
+    height:30px;
+    overflow:hidden;
+    position:relative;
+    z-index:3;
+    margin:0px 5px;
+    transition:0.5s ease-in-out;
+}
+
+.tumblr_audio_player {
+    max-width:500px!important;
+    margin-left:-7px!important;
+    margin-top:2px!important;
+}
+
+.tumblr_video_container {width:auto!important; height:auto!important;}
+[photoset-layout] {grid-gap:4px;}
+[photoset-layout] div {cursor:pointer;}
+
+/* ------ permalink page ------ */
+
+#permapage .oi, .relate i.oi {
+    font-size:16px; 
+    display:inline-block;
+    vertical-align:middle; 
+    margin-right:10px;
+}
+
+#permasource .permacell {
+    display:inline-block;
+    text-align:left;
+    width:45%;
+    margin:0 10px;
+    white-space: nowrap;
+}
+
+.permacell img {
+    display:inline-block;
+    vertical-align:middle;
+    width:40px;
+    border-radius:3px;
+}
+
+.permacell div {
+    display:inline-block;
+    vertical-align:middle;
+    text-transform:uppercase;
+    margin-left:10px;
+    line-height:15px;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    max-width:calc(100% - 50px);
+    padding-bottom:2px;
+}
+
+.permacell span {display:block;}
+
+/* related posts */
+
+.relate > *, .feature > * {transition:0.5s ease-in-out;}
+.ct > * {margin:0;}
+
+.relate > img, .feature > img {
+    object-fit:cover;
+    display:block;
+    width:100%;
+    height:100%;
+}
+
+.relate .ax {margin-left:25px; padding-bottom:60px!important;}
+.relate .ax .oi {position:absolute; margin-left:-25px;}
+
+/* notes */
+
+.postnotes {text-align:center;}
+ol.notes {display:block; list-style:none; padding:15px;}
+
+ol.notes li {
+    display:inline-block;
+    vertical-align:middle;
+    line-height:0;
+    margin:0px;
+}
+
+ol.notes li:before {content:""; display:none;}
+ol.notes span.action, ol.notes li blockquote {display:none;}
+ 
+ol.notes li img {
+    width:40px;
+    height:40px;
+    margin:0px;
+    transition:0.3s ease-in-out;
+    border-radius:3px;
+    display:block;
+    filter:grayscale(100%) blur(0px);
+    -webkit-filter:grayscale(100%) blur(0px);
+}
+
+ol.notes li a:hover img {
+    opacity:0.3;
+    filter:grayscale(100%) blur(1px);
+    -webkit-filter:grayscale(100%) blur(1px);
+}
+    
+ol.notes li a:hover:before {opacity:1;} 
+
+.more_notes_link_container a::before {
+    content:"+";
+    font-size:20px;
+    display:inline-block;
+    width:30px;
+    height:30px;
+    transition:0.4s ease-in-out;
+}
+
+.more_notes_link_container a:hover::before {
+    transform:rotate(360deg);
+    -webkit-transform:rotate(360deg);
+    -ms-transform:rotate(360deg);
+}
+
+/* ------ index page permalinks ------ */
+
+.buttonz {float:right;}
+.ilike .like_button {position:absolute; top:0; opacity:0; z-index:999;}
+
+.likez, .reblogz {
+    margin:0px 5px 0px 0px;
+    display:inline-block;
+    vertical-align:middle;
+}
+
+/* ------ sidebar ------ */
+
+aside {
+    display:inline-block;
+    width:250px;
+    vertical-align:top;
+    margin-top:60px;
+}
+
+.iside {margin:0 -1px; width:250px; display:block;}
+
+.currently .thead, .iconz .thead {
+    font-weight:bold;
+    text-align:right;
+    text-transform:uppercase;
+    vertical-align:top;
+    width:40px;
+    padding:10px 15px;
+}
+
+.currently .tcontent, .iconz .tcontent {
+    width:165px;
+    padding:10px 15px 10px 0;
+}
+ 
+.iconz .tcontent {vertical-align:middle;}
+.iconz img {width:40px; height:40px; border-radius:100%; display:block;}
+ 
+.iconz a {
+    font-weight:bold;
+    display:block;
+    text-transform:uppercase;
+    border-bottom:0px solid transparent;
+}
+ 
+.proj {padding:15px;}
+.pline {margin:-5px 5px 10px 15px;}
+.sideimg {width:250px; margin:-15px -16px 15px; display:block;}
+ 
+.affiliates {text-align:center; padding:10px; font-size:0px;}
+
+.affiliates a {
+    width:50px;
+    height:50px;
+    margin:0;
+    display:inline-block;
+    border-radius:100%;
+    -webkit-transform:scale(0.8);
+    -ms-transform:scale(0.8);
+    transform:scale(0.8);
+}
+ 
+.aff {
+    width:50px;
+    height:50px;
+    margin:0px;
+    transition:0.3s ease-in-out;
+    border-radius:100%;
+    display:block;
+    filter:grayscale(0%);
+    -webkit-filter:grayscale(0%);
+}
+
+.affiliates a:hover {
+    -webkit-transform:scale(1);
+    -ms-transform:scale(1);
+    transform:scale(1);
+}
+
+.affiliates a:hover .aff {
+    opacity:0.3;
+    filter:grayscale(100%);
+    -webkit-filter:grayscale(100%);
+}
+
+/* ------ navigation ------ */
+ 
+.dropdown {
+    margin:0px 5px;
+    max-height:45px;
+    padding:0px;
+    width:auto;
+    vertical-align:top;
+    overflow:hidden;
+    position:relative;
+    display:inline-block;
+    transition:0.6s ease-in-out;
+}
+ 
+.dropdown span:hover {cursor:pointer; transition-delay:0s;}
+ 
+#jan span {
+    display:inline-block;
+    margin:0px 6px;
+    height:20px;
+    line-height:30px;
+    vertical-align:top;
+    text-transform:uppercase;
+}
+ 
+#jan img {
+    width:25px;
+    height:25px;
+    display:inline-block;
+    vertical-align:top;
+    padding:2px;
+    background:rgba(0, 0, 0, 0.1);
+    border-radius:100%;
+}
