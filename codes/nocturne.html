@@ -331,17 +331,20 @@ main {
     animation:fadein 1s;
 }
 
-.text a, .sourcez a, .boxcont a:not(.rhys), .permacell a, #permatags a {
-    padding-bottom:1px;
-    box-shadow:inset 0 -1px 0 {color:Post Borders};
-    background-size:0 1px;
+.text a, .sourcez a, .boxcont a:not(.rhys), .permacell a, #permatags a, .llc, .boxt {
     background-repeat:no-repeat;
     background-position:left bottom;
     background-image:linear-gradient(to right,{color:Accent 1},{color:Accent 2});
     transition-duration:0.5s;
 }
+	
+.text a, .sourcez a, .boxcont a:not(.rhys), .permacell a, #permatags a {
+    padding-bottom:1px;
+    box-shadow:inset 0 -1px 0 {color:Post Borders};
+    background-size:0 1px;
+}
 
-.text a:hover, .sourcez a:hover, .boxcont a:not(.rhys):hover, #permatags a:hover {
+.text a:hover, .sourcez a:hover, .boxcont a:not(.rhys):hover, #permatags a:hover, .llc, .boxt {
     background-size:100% 1px; 
     box-shadow:inset 0px 0px 0px transparent;
 }
@@ -446,16 +449,13 @@ a.reblog_user:hover, .reblog_head a:hover {
 .llc {
     display:inline-block;
     font:500 16px/150% 'Montserrat', sans-serif;
-    padding:15px;
+    padding:15px 15px 16px;
     margin:0 0 -1px;
     font-size:16px;
 }
- 
-.llp .llc {border-bottom:1px solid {color:accent 1};}
-.headt .llc {border-bottom:1px solid {color:accent 1};}
 
 .llp,.llc {transition:0.5s ease-in-out;}
-.llp:hover .llc {margin-left:60px; padding:15px 30px; border-color:{color:accent 2};}
+.llp:hover .llc {margin-left:60px; padding:15px 30px 16px;}
  
 /* ------ ask posts ------- */
  
@@ -843,8 +843,7 @@ aside {
  
 .boxt {
     display:inline-block;
-    border-bottom:1px solid {color:accent 1};
-    padding:15px 10px;
+    padding:15px 10px 16px;
     margin-bottom:-1px;
 }
  
@@ -1290,6 +1289,7 @@ footer table {display:block; width:100%;}
  
 <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
 <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
+	
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fitvids/1.2.0/jquery.fitvids.min.js"></script>
 <script src="https://static.tumblr.com/0podkko/jfMplm3f8/modified_photosets.js"></script>
 <script src="https://static.tumblr.com/p0knose/Hf2ordt7v/jquery.sticky-kit.min.js"></script>
