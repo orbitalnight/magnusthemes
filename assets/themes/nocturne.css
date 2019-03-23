@@ -64,8 +64,8 @@ body, html {margin:0; padding:0; width:100%; height:100%;}
 img {border:none;}
 blockquote img {max-width:100%!important; height:auto!important;}
 
-big {font-size:1.2empx; line-height:170%;}
-small, sup, sub {font-size:0.9empx; line-height:160%;}
+big {font-size:1.2em; line-height:170%;}
+small, sup, sub {font-size:0.9em; line-height:160%;}
 
 h1 {font-size:1.50em;}
 h2 {font-size:1.35em;}
