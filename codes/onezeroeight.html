@@ -1,0 +1,1057 @@
+<!DOCTYPE html xmlns="https://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html>
+ 
+<!--
+all-in-one page - OneZeroEight
+code by aeroelastical/magnusthemes
+(updated 13/01/2019)
+
+look out for instructions in the code to customize the page (:
+
+to convert hex colours to rgba for transparency:
+https://hex.colorrrs.com/
+-->
+ 
+<head>
+ 
+<title>{Title}</title> <!-- you can change the page title here -->
+<link rel="shortcut icon" href="{Favicon}">
+<link rel="alternate" type="application/rss+xml" href="{RSS}">
+
+<link href="https://static.tumblr.com/p0knose/fW7nwe95q/normalize.css" rel="stylesheet" type="text/css">
+
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:200i,300,300i,400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+ 
+<style type="text/css">
+
+/****** CUSTOM STYLES ******/
+
+/* --- scrollbar --- */
+ 
+::-webkit-scrollbar {
+    width:7px; height:7px;
+    background:#fff; /* scrollbar background */
+}
+ 
+::-webkit-scrollbar-thumb {
+    background:#c6c6c6;  /* scrollbar color */
+    border:2px solid #fff; /* scrollbar background */
+    border-radius:3px;
+}
+
+/* --- text selection --- */
+
+::selection {
+    background:#363636; /* text selection background */
+    color:#757575; /* text selection colour */
+}
+
+::-webkit-selection {
+    background:#363636; /* text selection background */
+    color:#757575; /* text selection colour */
+}
+
+::-moz-selection {
+    background:#363636; /* text selection background */
+    color:#757575; /* text selection colour */
+}
+ 
+/* --- tooltips --- */
+
+#s-m-t-tooltip {
+    background:rgba(0, 0, 0, 0.6);
+    /* this is the tooltips background, you can change this to a hex code or convert to rgba for transparency effect */
+    
+    border:1px solid #000; /* tooltips border */
+    color:#fff; /* tooltips color */
+    max-width:250px;
+    z-index:21474836479;
+    margin:5px 20px;
+    padding:3px 5px;
+    border-radius:0px;
+    letter-spacing:0.5px;
+	font:normal 9px/150% 'Source Sans Pro', sans-serif;
+	text-transform:uppercase;
+}
+
+/****** BASIC STYLES ******/
+ 
+body {
+    background-image:url('');
+    /* your background image goes in between the inverted commas above */
+   
+    word-wrap:break-word;
+    overflow:auto;
+    margin:0px;
+    color:#707070; /* base text color */
+    background-color:#ffffff; /* background color */
+    background-attachment:fixed;
+    background-repeat:repeat;
+    font-family:'Source Sans Pro', sans-serif;
+    letter-spacing:0.3px;
+    font-size:11px;
+    line-height:160%;
+
+	/* delete the below lines if you don't want antialiasing */
+	-webkit-font-smoothing:antialiased;
+	-moz-osx-font-smoothing:grayscale;
+}
+ 
+b, bold, strong {font-weight:700; color:#444444; /* bold color */}
+i, italic, em {font-style:italic; color:#555555; /* italic color */}
+ 
+a {
+    text-decoration:none;
+    color:#999999; /* links color */
+    transition:0.3s linear;
+}
+ 
+a:hover {color:#656565; /* links hover color */}
+ 
+img {border:none;}
+
+/****** SCROLL TO TOP BUTTON ******/
+
+#scrollToTop {
+    border:1px solid #eee; /* scroll to top button border color */
+    background:#fff; /* scroll to top button background color */
+    color:#c6c6c6; /* scroll to top button triangle color */
+    bottom:50px; /* change this to 5px if you delete the music player */
+    position:fixed;
+    left:5px;
+    width:40px;
+    height:40px;
+    font-size:25px;
+    line-height:40px;
+    text-align:center;
+    z-index:2147483647;
+    transition:0.5s ease-in-out;
+}
+
+#scrollToTop:hover {
+    background:#111; /* scroll to top button hover background color */
+    color:#c6c6c6; /* scroll to top button hover triangle color */
+    border-color:#c6c6c6; /* scroll to top button hover border color */
+}
+
+/****** MUSIC PLAYER ******/
+
+#music {
+    position:fixed;
+    left:5px;
+    bottom:5px;
+    width:20px;
+    height:20px;
+    overflow:hidden;
+    padding:10px;
+    background:#fff; /* music player background color */
+    border:1px solid #eee; /* music player border color */
+    z-index:2147483647;
+    transition:0.5s ease-in-out;
+}
+ 
+#music:hover {
+    width:40px;
+    padding:10px 0px;
+    background:#111; /* music player hover background color */
+    border-color:#c6c6c6; /* music player hover border color */
+}
+ 
+#music:hover img {margin-left:-30px;}
+#music:hover .billy {opacity:1; margin-left:-17.5px;}
+ 
+#music img {
+    position:absolute;
+    z-index:9999999;
+    margin:3px 2px;
+    transition:0.5s ease-in-out;
+}
+ 
+.billy {
+    position:absolute;
+    width:50px;
+    opacity:0;
+    height:20px;
+    margin-top:5px;
+    margin-left:30px;
+    overflow:hidden;
+    transition:0.5s ease-in-out;
+}
+
+/****** CONTAINER ******/
+
+main {
+    position:relative;
+    margin:50px auto;
+    width:660px;
+    padding:20px;
+    border:1px solid #eee; /* main container border color */
+    background:#fff; /* main container background color */
+}
+
+/****** LINKS BAR ******/
+
+nav {
+	position:absolute;
+    text-transform:uppercase;
+    padding:5px 10px;
+	margin:0px 0px;
+	width:640px;
+    height:25px;
+    z-index:2147483647;
+    display:block;
+    text-align:center;
+    background:#f6f6f6; /* navigation bar normal background color */
+    border-bottom:1px solid #eee; /* navigation bar bottom border */
+    letter-spacing:0.5px;
+    font-size:9px;
+    font-family:'Source Sans Pro', sans-serif;
+    transition:0.5s ease-in-out;
+}
+
+nav.sticky {
+    position:fixed;
+    top:0px;
+    width:682px;
+    margin:0px -21px;
+    background:#111; /* navigation bar scrolled background color */
+    border-color:#c6c6c6;/* navigation bar scrolled bottom border color */
+}
+
+nav a {
+    margin:0px 5px;
+    line-height:15px;
+    display:inline-block;
+    padding:5px;
+    height:15px;
+    color:#888; /* navigation bar links original color */
+    border-bottom:2px solid transparent;
+}
+
+nav.sticky a {color:#eee; /* scrolled navigation bar links color */}
+
+nav a:hover {
+    padding-bottom:2px;
+    border-bottom:1px solid #c6c6c6; /* navigation bar links hover border color */
+}
+
+a.slider {cursor:help;}
+
+/****** HEADER ******/
+
+header {width:660px; display:block; position:relative;}
+header img {margin:0px; display:block; width:660px; }
+
+.headerbox {
+    position:absolute;
+    z-index:1;
+    display:block;
+    width:210px;
+    height:75px;
+    background:#000; /* header box background color */
+    opacity:0.8;
+    padding:5px 20px;
+    text-align:center;
+    top:10px; bottom:0;
+    left:0; right:0;
+    margin:auto;
+}
+
+.maint {
+    text-transform:lowercase;
+    padding:10px;
+    height:20px;
+	font:italic 200 15px/20px 'Source Sans Pro', sans-serif;
+    border-bottom:1px solid #666; /* header box line color */
+    color:#ffffff; /* main title color */
+	-webkit-font-smoothing:subpixel-antialiased;
+	-moz-osx-font-smoothing:unset;
+}
+
+.subt {
+    color:#d6d6d6; /* main subtitle color */
+    font:9px/15px 'Source Sans Pro', sans-serif;
+    text-transform:uppercase;
+    letter-spacing:0.5px;
+    padding:10px 0px;
+    height:15px;
+}
+
+/****** BASIC PANEL STYLES ******/
+
+/* --- titles --- */
+
+.title {
+    display:block;
+    padding:10px;
+    text-transform:lowercase;
+	font:italic bold 14px/150% 'Playfair Display', serif;
+    border-bottom:1px solid #eee; /* panel headings bottom border */
+    text-align:center;
+}
+
+.title span {
+    padding:12px;
+    border-bottom:1px solid #c6c6c6; /* panel headings accent border */
+}
+
+/* --- dividers --- */
+
+hr {
+    margin:3px 0px;
+    border:0px;
+    height:1px;
+    background:#eee; /* colour of panel dividers */
+    color:#eee; /* colour of panel dividers */
+}
+
+/****** ABOUT PANEL ******/
+
+#about {display:block; padding:20px; margin-top:35px;}
+
+/* --- sidebar --- */
+
+aside {
+    display:inline-block;
+    vertical-align:top;
+    width:175px;
+    padding:10px;
+    margin-left:5px;
+}
+
+.asideimg {width:175px; display:block;} /* image */
+
+/* information lines */
+
+.ainfo {
+    display:block;
+    margin:5px;
+    padding:4px 0px;
+    width:165px;
+    text-align:left;
+    text-transform:uppercase;
+    font-size:9px;
+    line-height:150%;
+    color:#aaa; /* information bars text color */
+    border-bottom:1px solid #eee; /* information bars bottom border */
+}
+
+.ainfo span {
+    display:inline-block;
+    padding:5px;
+    margin:-5px 0px;
+    border-bottom:1px solid #c6c6c6; /* information bars label border color */
+}
+
+/* quote */
+
+.aquote {
+    padding:5px 6px 25px 6px;
+	text-transform:lowercase;
+	font:italic 10px 'Source Sans Pro', sans-serif;
+    border-bottom:1px solid #eee; /* quote bottom border color */
+}
+
+.aquote span {
+    height:15px;
+    float:right;
+    display:inline-block;
+    padding:5px 10px 5px 33px;
+    margin-bottom:-1px;
+    overflow:hidden;
+	text-transform:uppercase;
+    color:#969696; /* quote source text color */
+    border-bottom:1px solid #c6c6c6;/* quote source bottom border color */
+	font:normal 9px/15px 'Source Sans Pro', sans-serif;
+}
+
+.aquote span::before {
+    content:"";
+    width:15px;
+    height:1px;
+    background:#c6c6c6; /* quote source line color */
+    margin:8px 0 0 -25px;
+    position:absolute;
+}
+
+/* --- content panel --- */
+
+.acontent {
+    display:inline-block;
+    padding:10px;
+    width:395px;
+    text-align:justify;
+    vertical-align:top;
+}
+
+/* subheadings */
+
+.ahead {
+    padding:5px;
+    text-align:center;
+    margin:5px 0px 10px 0px;
+    text-transform:lowercase;
+    font:italic bold 12px 'Playfair Display';
+    color:#969696; /* about panel section title text color */
+    border-bottom:1px solid #eee; /* about panel section title bottom border color */
+}
+
+.ahead span {
+    margin:-5px 0px;
+    padding:5px;
+    border-bottom:1px solid #c6c6c6; /* about panel section title accent border color */
+}
+
+/* text styles */
+
+.acontent a {
+    border-bottom:1px solid #eee; /* about links bottom border color */
+}
+
+.acontent a:hover, #opus:hover {
+    border-color:#c6c6c6; /* about links hover bottom border color */
+}
+
+.acontent p {margin-bottom:15px;}
+.acontent ul, .acontent ol {margin-left:0px;}
+
+.acontent ul li {
+    list-style-type:none;
+    margin-left:30px;
+    display:block;
+}
+
+.acontent ul li::before {
+    margin-top:8px;
+    content:"";
+    width:15px;
+    height:1px;
+    background:#c6c6c6; /* about panel list items line color */
+    position:absolute;
+    margin-left:-25px;
+}
+
+/****** BLOGROLL PANEL ******/
+
+#blogroll {display:block; padding:20px; width:620px;}
+
+.bcontent {
+    margin-top:10px;
+    padding:0px 10px;
+    width:600px;
+    max-height:580px;
+    text-align:center;
+    overflow:auto;
+}
+
+.bcontent::-webkit-scrollbar {width:5px; height:5px;}
+.bcontent::-webkit-scrollbar-track-piece {
+    background:#f6f6f6; /* blogroll scrollbar track color */
+}
+
+.bcontent::-webkit-scrollbar-thumb {
+    border:1px solid #fff; /* main container background color */
+}
+
+.bcontent img {
+    padding:4px;
+    margin:5px;
+    border:1px solid #eee; /* blogroll images border color */
+    background:#f6f6f6; /* blogroll images background color */
+    width:50px;
+    height:50px;
+    position:relative;
+    transition:0.3s linear;
+}
+
+.bcontent a:hover img {
+    background:#111; /* blogroll image hover background color */
+    border-color:#c6c6c6; /* blogroll image hover border color */
+    margin:0px;
+    width:60px;
+    height:60px;
+}
+
+/****** NAVIGATION PANEL ******/
+
+#navigation {padding:20px; position:relative; display:block;}
+#navcont {padding:10px; width:600px;}
+
+.nblock {float:left; width:170px; padding:5px; margin:10px;}
+
+/* --- block titles --- */
+
+.ntitle {
+    padding:5px;
+    text-align:center;
+	letter-spacing:0.2px;
+    text-transform:lowercase;
+	font:italic bold 11px/15px 'Playfair Display', serif;
+    color:#969696; /* navigation block title text color */
+    background:#f9f9f9; /* navigation block title background color */
+    border-bottom:1px solid #e6e6e6; /* navigation block title bottom border color */
+}
+
+.ntitle span {
+    padding:6px;
+    border-bottom:1px solid #c6c6c6; /* navigation block title accent border color */
+}
+
+/* --- tag links --- */
+
+.nblock a {
+    display:block;
+    padding:3px 6px;
+    padding-left:30px;
+    font-size:10px;
+    line-height:14px;
+    color:#aaaaaa; /* navigation block tags color */
+    letter-spacing:0.3px;
+    transition:0.3s linear;
+}
+
+.nblock a::before {
+    content:"";
+    position:absolute;
+    margin-left:-24px;
+    width:15px;
+    height:1px;
+    background:#c6c6c6; /* navigation block tags line color */
+    display:block;
+    margin-top:7px;
+    transition:0.3s linear;
+}
+
+.nblock a:hover {
+    background:#111; /* navigation block tags hover background color */
+    color:#e6e6e6; /* navigation block tags hover text color */
+    padding-left:40px;
+    font-style:italic;
+}
+
+.nblock a:hover::before {width:25px; margin-left:-34px;}
+
+/* --- extra links bar --- */
+
+#navbar {
+    width:600px;
+    padding:5px 10px;
+    margin-top:5px;
+    font-size:10px;
+    text-align:center;
+    text-transform:uppercase;
+    border-bottom:1px solid #eee;/* extra links bar bottom border color */
+}
+
+#navbar a {
+    letter-spacing:0.1px;
+    margin:-5px 5px;
+    padding:7px;
+    color:#a6a6a6; /* extra links text color */
+    border-bottom:1px solid #c6c6c6; /* extra links bottom border color */
+	transition:0.3s ease-in-out;
+}
+
+#navbar a:hover {
+    padding:7px 10px;
+    letter-spacing:1px;
+    border-color:#111; /* extra links hover border color */
+    color:#c6c6c6; /* extra links hover text color */
+    background:#f9f9f9; /* extra links hover background color */
+}
+
+/****** FAQ PANEL ******/
+
+#help {padding:20px; display:block; position:relative;}
+.hside {display:inline-block;vertical-align:top;width:175px;padding:10px;}
+.hcont {display:inline-block; width:415px; margin-left:5px;}
+
+.hcontent {
+    display:block;
+    vertical-align:top;
+    padding:10px;
+    width:395px;
+    text-align:justify;
+    line-height:150%;
+}
+
+.hhead {
+    color:#969696; /* "askbox" text color */
+    border-bottom:1px solid #eee; /* "askbox" bottom border color */
+    font:italic bold 12px/150% 'Playfair Display', serif;
+    text-transform:lowercase;
+    margin:5px 0px 10px 0px;
+    text-align:center;
+	padding:5px;
+}
+
+.hhead span {
+	padding:6px; 
+	border-bottom:1px solid #c6c6c6; /* "askbox" accent border color */
+}
+
+.hcontent a {border-bottom:1px solid #eee; /* Q&A links border color */}
+.hcontent a:hover {border-color:#c6c6c6; /* Q&A links hover border color */}
+
+/* --- q&a styles --- */
+
+.question {
+    padding:5px;
+    border-bottom:1px solid #eee; /* question bottom border color */
+    text-align:left;
+}
+
+.question span {
+    padding:6px;
+    border-bottom:1px solid #c6c6c6; /* question accent border color */
+	font-style:italic;
+}
+
+.answer {padding:5px 15px; margin-bottom:5px;}
+
+/* --- sidebar styles --- */
+
+.hsideimg {width:175px; display:block;}
+
+.hside a {
+    display:block;
+    padding:5px;
+    margin-top:5px;
+    text-align:center;
+    font-size:10px;
+    text-transform:uppercase;
+    border-bottom:1px solid #eee; /* ask/submit links bottom border */
+    color:#aaaaaa; /* ask/submit links text color */
+    transition:0.3s ease-in-out;
+}
+
+.hside a span {
+    padding:7px;
+    border-bottom:1px solid #c6c6c6; /* ask/submit links accent border */
+    transition:0.3s ease-in-out;
+}
+
+.hside a:hover {
+    background:#111; /* ask/submit links hover background color */
+    border-color:#c6c6c6; /* ask/submit links hover bottom border color */
+}
+
+#hnav {cursor:help;}
+
+.hside a:hover span {
+    padding:7px 10px;
+    letter-spacing:1px;
+    color:#eeeeee; /* ask/submit links hover text color */
+}
+
+/* --- askbox panel styles --- */
+
+.hguide {padding:5px;}
+
+.hguide li {
+    list-style-type:none;
+    margin-left:30px;
+	line-height:150%;
+    display:block;
+}
+
+.hguide li::before {
+    margin-top:9px;
+    content:"";
+    width:15px;
+    height:1px;
+    background:#c6c6c6; /* guidelines line color */
+    position:absolute;
+    margin-left:-25px;
+}
+
+/****** FAMILY PANEL ******/
+
+#family {padding:20px; display:block; position:relative;}
+.fcontent {padding:10px; display:block; text-align:center;}
+
+/* --- per item --- */
+
+.fitem {
+    width:110px;
+    height:150px;
+    display:inline-block;
+    position:relative;
+    margin:3px;
+}
+
+.fitem img {
+    width:110px;
+    height:150px;
+    display:block;
+    position:absolute;
+    transition:0.5s ease-in-out;
+}
+
+/* overlays */
+
+.foverlay {
+    background:rgba(0,0,0,0.8); /* family members info panel backgrounds */
+    position:absolute;
+    border-top:1px solid transparent;
+    border-bottom:1px solid transparent;
+    opacity:0;
+    padding:5px;
+    width:90px;
+    display:block;
+    height:0px;
+    top:0; bottom:0;
+    left:0; right:0;
+    margin:auto;
+    vertical-align:middle;
+    overflow:hidden;
+    transition:0.5s ease-in-out;
+}
+
+.fitem:hover .foverlay {
+    opacity:1;
+    height:95px;
+    border-color:#c6c6c6; /* family members info panel border color */
+}
+
+/* item title */
+
+.fhead {
+    font-size:10px;
+    text-transform:uppercase;
+    text-align:center;
+    line-height:150%;
+    padding:5px;
+    letter-spacing:0.1px;
+    color:#f6f6f6; /* family members name text color */
+    border-bottom:1px solid #666; /* family members info panel lines color */
+}
+
+.fhead a {
+    color:#f6f6f6; /* family members linked name text color */
+    border-bottom:1px solid #97c5e0; /* family members linked name bottom border */
+}
+
+.fhead a:hover {
+    color:#97c5e0; /* family members linked name hover color */
+    border-bottom:1px solid #454545; /* family members linked name hover bottom border */
+}
+
+/* item subtitle */
+
+.ft {
+    font-size:9px;
+    text-transform:lowercase;
+    text-align:center;
+    padding:3px 0px;
+    letter-spacing:0.2px;
+	font:italic 9px/130% 'Source Sans Pro', sans-serif;
+    color:#bbb; /* family members rank/show text color */
+    border-bottom:1px solid #555; /* family members info panel lines color */
+}
+
+/* item description */
+
+.fdesc {
+    padding:5px 3px;
+    text-transform:uppercase;
+    text-align:center;
+    letter-spacing:0.2px;
+    font:9px/10px 'Source Sans Pro', sans-serif;
+    color:#d6d6d6; /* family members description color */
+}
+ 
+</style>
+
+<!-- SCRIPTS - DO NOT TOUCH -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+
+<script src="https://static.tumblr.com/p0knose/AoGpl9g97/jquery.style-my-tooltips.js"></script>
+<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/orbitalnight/magnusthemes@master/assets/themes/onezeroeight.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+    $("[title]").style_my_tooltips({
+        tip_follows_cursor:true,
+        tip_delay_time:100,
+        tip_fade_speed:250,
+        attribute:"title"
+    });
+    $('#navcont').masonry({
+        itemSelector:".nblock",
+    }, function(){ 
+        $('#navcont').masonry({ 
+            appendedContent:$(this) 
+        });
+    });
+});
+</script>
+ 
+</head>
+<body>
+
+<!-- this is the music player code, delete if you don't want it -->
+<div id="music"><div class="billy">
+    <!-- put your billy code below this line -->
+    
+    <!-- put your billy code above this line -->
+</div><img src="https://static.tumblr.com/2b2izpj/kkKnp050e/grey.gif"/></div>
+<!-- end of music player code -->
+
+<a href="javascript:;" id="scrollToTop" title="back to top">▴</a>
+ 
+<main>
+
+<!-------------------------------------------------------------------->
+<!------------------------------ HEADER ------------------------------>
+<header>
+<img src="https://i.imgur.com/QBl30wl.png">
+<!-- the url above is your header image url, the image width is 660px and it can be any height you like -->
+    
+    <div class="headerbox"><div class="maint">
+        title goes here 
+        <!-- this is your title, keep it to 1 line -->
+    </div><div class="subt">
+        put a short quote here or something idk
+        <!-- this is your subtitle, keep it to 1 line -->
+    </div></div>
+    
+</header><!--head-->
+    
+<nav>
+    <a href="/">home</a>
+    <a href="#" class="slider" data-slide="#about">about</a>
+    <a href="#" class="slider" data-slide="#blogroll">blogroll</a>
+    <a href="#" class="slider" data-slide="#navigation">navigation</a>
+    <a href="#" class="slider" data-slide="#help">inbox</a>
+    <a href="#" class="slider" data-slide="#family">family</a>
+    <a href="/archive">archive</a>
+
+    <!-- DO NOT DELETE THE CREDIT LINK PLS THANK -->
+    <a href="https://magnusthemes.tumblr.com" title="magnusthemes">credit</a>
+	<!-- DO NOT DELETE THE CREDIT LINK PLS THANK -->
+
+<!-- above are your navigation bar links
+you can change the names but do not change the IDs and URLs -->
+</nav>
+<!-------------------------- END OF HEADER --------------------------->
+<!-------------------------------------------------------------------->
+
+
+
+<!-------------------------------------------------------------------->
+<!-------------------------------------------------------------------->
+<!-- below are your panels, you can delete the ones you don't want --->
+<!-------------------------------------------------------------------->
+<!-------------------------------------------------------------------->
+
+
+
+<!-------------------------------------------------------------------->
+<!---------------------------- ABOUT PANEL --------------------------->
+    <section id="about">
+        <div class="title"><span>
+            about <!-- panel title goes here -->
+        </span></div>
+        <div class="acontent">
+    <!-- your biography goes here!-->
+            you can put your bio text here
+    <!--
+    to make a list, use <li></li>
+    to make a section header, use <div class="ahead"><span>title</span></div>
+    to end a section, use </p>
+    bold: <b></b>
+    italic: <i></i>
+    underline: <u></u>
+    strikethrough: <strike></strike>
+    link: <a href="url"></a>
+    -->    
+        </div>
+        <aside>
+        <img class="asideimg" src="https://i.imgur.com/5rUfahI.png">        
+        <!-- the url above is your about sidebar image, the image is 175px in width -->
+        
+            <!-- 
+            these are for the name/age/location things, you can copy and paste to add more, however please keep the text short
+            -->
+            <div class="ainfo"><span>label:</span> information</div>
+            
+            <!-- add more info lines above this line -->
+            
+            <!-- this is the space for a quote, you can delete if you don't want one or change it into your status or something idk -->
+            <div class="aquote">
+                your quote goes here, you can make it any length you want
+            <br><span>
+                quote source
+            </span></div>
+            <!-- quote space ends here -->
+            
+        </aside><!-- aside -->
+    </section><!-- about -->
+<!------------------------ END OF ABOUT PANEL ------------------------>
+<!-------------------------------------------------------------------->
+
+
+<hr><!-- divider -->
+
+
+<!-------------------------------------------------------------------->
+<!----------------------------- BLOGROLL ----------------------------->
+<!-- 
+blogroll panel will only show up if you are using this code on a primary blog! 
+-->    
+    {block:Following}
+    <section id="blogroll">
+    <div class="title"><span>
+        blogroll <!-- panel title goes here -->
+    </span></div>
+    <div class="bcontent">
+        {block:Followed}<a href="{FollowedURL}" title="{FollowedName}">
+        <img src="{FollowedPortraitURL-64}">
+        </a>{/block:Followed}
+    </div><!--bcontent-->
+    </section><!-- blogroll -->
+    {/block:Following}
+<!------------------------- END OF BLOGROLL -------------------------->
+<!-------------------------------------------------------------------->
+
+
+<hr><!-- divider -->
+
+
+<!-------------------------------------------------------------------->
+<!------------------------- NAVIGATION PANEL ------------------------->
+    
+    <section id="navigation">
+    <div class="title"><span>
+        navigation <!-- panel title goes here -->
+    </span></div>
+            
+    <!-- this is the section for the extra links, you can delete it if you don't want it -->
+    <div id="navbar">
+    <!-- these are where your extra links go
+    use <a href="url">link name</a> to add more -->
+        <a href="/">extra link 1</a>
+        <a href="/">extra link 2</a>
+        <a href="/">extra link 3</a>
+        <a href="/">extra link 4</a>
+        <a href="/">extra link 5</a>
+        <a href="/">extra link 6</a>
+    </div><!--navbar-->
+    <!-- end of extra links section -->
+            
+    <div id="navcont">
+    <!-- THIS IS WHERE THE TAG BLOCKS GO (under this line) -->
+    
+    <!-- this is the start of 1 block of tags, you can copy and paste to the end for more -->
+        <div class="nblock">
+        <div class="ntitle"><span>tag block title</span></div>
+        <!-- remember to change the tags to your actual navigation -->
+            <a href="/tagged/tag-url">tag name</a>
+            <a href="/tagged/tag-url">tag name</a>
+            <a href="/tagged/tag-url">tag name</a>
+            <a href="/tagged/tag-url">tag name</a>
+            <a href="/tagged/tag-url">tag name</a>
+            <a href="/tagged/tag-url">tag name</a>
+        <!-- you can add more tags by copy-pasting links from above -->
+        </div>
+    <!-- end of 1 tag block -->
+        
+    <!-- TAG BLOCKS GO ABOVE THIS LINE -->    
+    </div><!--navcont-->
+    </section><!--navigation-->
+<!--------------------- END OF NAVIGATION PANEL ---------------------->
+<!-------------------------------------------------------------------->
+
+
+<hr><!-- divider -->
+
+
+<!-------------------------------------------------------------------->
+<!------------------------- FAQ/INBOX PANEL -------------------------->
+    <section id="help">
+        <div class="title"><span>
+        help desk <!-- this is the panel title -->
+        </span></div><div class="hside">
+        
+        <img class="hsideimg" src="https://i.imgur.com/5rUfahI.png">
+        <!-- the url above is the image, it is 175px width -->
+        
+        <a id="hnav"><span class="hask">askbox</span>
+        <span class="hsect">f.a.q.</span></a>
+        
+        <a href="/submit"><span>submit</span></a>
+        <!-- you can delete this submit link if you want -->
+        
+        </div>
+        
+        <div class="hcont">
+        <div id="htext" class="hcontent">
+        <!-- paste the question blocks below this line -->
+            
+            <!-- this is 1 question block, copy and paste for more -->
+            <div class="question"><span>
+            this is a question <!-- your question goes here -->
+            </span></div><div class="answer">
+            this is an answer <!-- your answer goes here -->
+            </div>
+            <!-- this is 1 question block, copy and paste for more -->
+            
+        </div><!-- paste the question blocks above this line -->
+        <div id="hbox" class="hcontent">
+            <div class="hhead"><span>askbox</span></div>
+            <div class="hguide">
+            
+                <li>you can put guidelines here</li>
+                <li>make sure you put them in between these li tags</li>
+                <li>you can also delete these if you don't want them</li>
+            
+            </div>
+            <p>
+            <iframe frameborder="0" scrolling="no" width="100%" height="255" src="https://www.tumblr.com/ask_form/{Name}.tumblr.com" style="background-color:transparent; overflow:hidden;" id="ask_form"></iframe><!--[if IE]><script type="text/javascript">document.getElementById('ask_form').allowTransparency=true;</script><![endif]-->
+            </p>
+        </div><!--hbox-->
+        </div><!--hcont-->
+    </section><!--help-->
+<!---------------------- END OF FAQ/INBOX PANEL ---------------------->
+<!-------------------------------------------------------------------->
+
+
+<hr><!-- divider -->
+
+
+<!-------------------------------------------------------------------->
+<!--------------------------- FAMILY PANEL --------------------------->
+    
+    <section id="family">
+        <div class="title"><span>
+        Family <!-- this is the panel title-->
+        </span></div><div class="fcontent">
+        <!-- this is where the member boxes go (under this line) -->
+        
+        <!-- this is 1 member box, you can copy and paste for more -->
+        <div class="fitem">
+        <img src="https://i.imgur.com/fOilZFH.png">
+        <!-- above is the image url, the size of image is 110x150 -->
+        
+            <div class="foverlay">
+            <!-- remember to change the information below! -->
+            <!-- to have the name linked to a url, put the person's name inside <a href="url"></a> tags -->
+                <div class="fhead">person's name</div>
+                <div class="ft">show/group/rank</div>
+                <div class="fdesc">put a short description here (4 lines, no scrollbar)</div>
+            </div></div>
+        <!-- copy and paste until here for another member box -->
+        
+        <!-- member boxes go above this line -->
+        </div><!--fcontent-->
+    </section><!--family-->
+<!------------------------ END OF FAMILY PANEL ----------------------->
+<!-------------------------------------------------------------------->
+    
+</main><!-- CONTAINER -->
+ 
+</body>
+</html>
