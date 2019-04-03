@@ -915,7 +915,6 @@ ol.notes::-webkit-scrollbar-track-piece {background:transparent; box-shadow:0 0 
     background:linear-gradient(45deg, {color:Accent Alt}, {color:Accent Change});
 }
 
-.mac .sidetop span.typcn {display:none;}
 .mac .sidetop, .mac .permabar {text-align:center;}
 
 .sidetop {
@@ -929,15 +928,6 @@ ol.notes::-webkit-scrollbar-track-piece {background:transparent; box-shadow:0 0 
     height:10px;
     overflow:hidden;
     padding:9px;
-}
-
-.sidetop span.typcn {
-	display:inline-block;
-	font-size:12px; 
-	line-height:12px; 
-	vertical-align:top; 
-	margin-right:2px; 
-	margin-left:3px; 
 }
  
 img.side {width:170px; display:block; margin:0px;}
@@ -968,8 +958,6 @@ img.side {width:170px; display:block; margin:0px;}
 :-moz-placeholder {color:{color:permalink text}; opacity:1;}
 ::-moz-placeholder {color:{color:permalink text}; opacity:1;}
 :-ms-input-placeholder {color:{color:permalink text};}
-
-.sidetop .typcn-zoom {float:left;}
  
 /* ------ description ------ */
  
@@ -1229,23 +1217,23 @@ $(document).ready(function(){
     {block:ifsidebarpixelimage}<img src="{image:sidebar pixel}"/>{/block:ifsidebarpixelimage}
     <div class="sidebar">
         <div class="sidetop">
-        <div class="permabuttons">
-            <a class="close">X</a>
-            <a class="mini"><div class="inner"></div></a>
-            <a class="zoom"><div class="min"></div></a>
-        </div>
-        <span class="typcn typcn-world"></span> {Title}
+            <div class="permabuttons">
+                <a class="close">X</a>
+                <a class="mini"><div class="inner"></div></a>
+                <a class="zoom"><div class="min"></div></a>
+            </div>
+            {Title}
         </div>
         <img class="side" src="{image:sidebar}">
     </div>
     <div class="sidebar">
         <div class="sidetop">
-        <div class="permabuttons">
-            <a class="close">X</a>
-            <a class="mini"><div class="inner"></div></a>
-            <a class="zoom"><div class="min"></div></a>
-        </div>
-        <span class="typcn typcn-user-outline"></span> <span id="time"></span>
+            <div class="permabuttons">
+                <a class="close">X</a>
+                <a class="mini"><div class="inner"></div></a>
+                <a class="zoom"><div class="min"></div></a>
+            </div>
+            <span id="time"></span>
         </div>
         <div class="desc">
             <div class="just">
@@ -1265,12 +1253,12 @@ $(document).ready(function(){
 <div id="right">
     <div class="sidebar">
         <div class="sidetop">
-        <div class="permabuttons">
-            <a class="close">X</a>
-            <a class="mini"><div class="inner"></div></a>
-            <a class="zoom"><div class="min"></div></a>
-        </div>
-        <span class="typcn typcn-th-menu-outline"></span> {Name}
+            <div class="permabuttons">
+                <a class="close">X</a>
+                <a class="mini"><div class="inner"></div></a>
+                <a class="zoom"><div class="min"></div></a>
+            </div>
+            {Name}
         </div>
         <div class="menu">
             <a href="/"><span class="typcn typcn-home-outline"></span><span>Index</span></a>
@@ -1285,15 +1273,14 @@ $(document).ready(function(){
     </div>
     <div class="sidebar">
         <div class="sidetop">
-        <div class="permabuttons">
-            <a class="close">X</a>
-            <a class="mini"><div class="inner"></div></a>
-            <a class="zoom"><div class="min"></div></a>
-        </div>
-		<span class="typcn typcn-zoom"></span>
-        <form action="/search" method="get" class="sb">
-            <input type="text" name="q" value="" placeholder="search..." id="sub"/>
-        </form>
+            <div class="permabuttons">
+                <a class="close">X</a>
+                <a class="mini"><div class="inner"></div></a>
+                <a class="zoom"><div class="min"></div></a>
+            </div>
+            <form action="/search" method="get" class="sb">
+                <input type="text" name="q" value="" placeholder="search..." id="sub"/>
+            </form>
         </div>
         {block:HasPages}
         <div class="nav">
@@ -1306,12 +1293,12 @@ $(document).ready(function(){
     {block:ifupdatestext}
     <div class="sidebar">
         <div class="sidetop">
-        <div class="permabuttons">
-            <a class="close">X</a>
-            <a class="mini"><div class="inner"></div></a>
-            <a class="zoom"><div class="min"></div></a>
-        </div>
-        <span class="typcn typcn-cog-outline"></span> more information
+            <div class="permabuttons">
+                <a class="close">X</a>
+                <a class="mini"><div class="inner"></div></a>
+                <a class="zoom"><div class="min"></div></a>
+            </div>
+            more information
         </div>
         <div class="updt">
             {text:updates text}
