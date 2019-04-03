@@ -3,20 +3,18 @@
  
 <!--
 Theme - Midnight Sun
-code by aeroelastical/magnusthemes
+code by kaitsuki/magnusthemes
  
-ver. 3.0.2 (24022019)
+ver. 3.0.1 (17042018)
 -->
  
 <head>
 
-<link href='https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,300,300italic,400italic,700,700italic|Muli:300,400,600' rel='stylesheet'>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/typicons/2.0.9/typicons.min.css" rel="stylesheet"/>
-
-<link href="https://static.tumblr.com/p0knose/Omep7ai4p/londonmidland.css" rel="stylesheet">
+<link href='https://fonts.googleapis.com/css?family=IBM Plex Sans:400,300,300italic,400italic,700,700italic|Muli:300,400,600' rel='stylesheet'>
 <link href="https://static.tumblr.com/p0knose/yKlp5mq5l/normalize.css" rel="stylesheet">
-<link href="https://static.tumblr.com/qudkd6d/OcDnl99gb/style.css" rel="stylesheet"/>
-<link href="https://static.tumblr.com/wupwnyt/qWVoc4phj/resizing.css" rel="stylesheet"/>
+<link href="https://static.tumblr.com/qudkd6d/OcDnl99gb/style.css" rel="stylesheet">
+<link href="https://static.tumblr.com/p0knose/Omep7ai4p/londonmidland.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/typicons/2.0.9/typicons.min.css" rel="stylesheet"/>
  
 <title>{Title}</title>
 <link rel="shortcut icon" href="{Favicon}">
@@ -95,6 +93,9 @@ ver. 3.0.2 (24022019)
 <meta name="select:permalink post size" content="350" title="350px">
 <meta name="select:permalink post size" content="300" title="300px">
 <meta name="select:permalink post size" content="250" title="250px">
+
+<meta name="select:button style" content="windows" title="windows">
+<meta name="select:button style" content="mac" title="mac os">
  
 <style type="text/css">
  
@@ -213,7 +214,7 @@ img {border:none;}
 
 h1, h2, h3 {
 	color:{color:Bold};
-    font:normal 14px 'Muli', sans-serif;
+    font:normal 12px 'Muli', sans-serif;
 }
 
 blockquote img {max-width:100%!important; height:auto!important;}
@@ -448,7 +449,7 @@ img.tumblr_avatar {
  
 .link {
     padding:5px 10px;
-    font:300 16px/150% 'Muli', sans-serif;
+    font:300 15px/150% 'Muli', sans-serif;
     color:{color:post title};
     border-bottom:1px solid {color:post borders};
     text-align:center;
@@ -523,15 +524,6 @@ img.tumblr_avatar {
  
 /* ------ audio posts ------- */
  
-.spotify_audio_player {
-    height:80px!important;
-    width:100%!important;
-}
-.bandcamp_audio_player {
-    height:120px!important;
-    width:100%!important;
-}
-
 .musicinfo {
     margin-left:85px;
     height:50px;
@@ -716,25 +708,45 @@ img.tumblr_avatar {
 .permabar {margin:-5px -4px 4px -4px; padding:9px 10px; height:10px;}
 .permabar a, .indextags a {color:{color:permalink text};}
 .permabar a:hover, .indextags a:hover {color:{color:Accent};}
-.permabuttons {float:right;}
+
+.windows .permabuttons {float:right;}
+.mac .permabuttons {float:left;}
  
 .permabuttons a {
-    padding:0px;
     width:8px;
     height:8px;
+    padding:0px;
     font:8px/8px 'londonmidlandregular', consolas, monospace;
-    border:1px solid {color:permalink buttons};
-    color:{color:permalink buttons};
     text-align:center;
-    margin-left:3px;
-    border-radius:1px;
-    float:right;
     display:block;
     -webkit-font-smoothing:subpixel-antialiased;
     -moz-osx-font-smoothing:unset;
 }
+
+.windows .permabuttons a {
+    border:1px solid {color:permalink buttons};
+    color:{color:permalink buttons};
+    margin-left:3px;
+    border-radius:1px;
+    float:right;
+}
+
+.mac .permabuttons a {
+    border-radius:100%;
+    margin-right:5px;
+    float:left;
+    color:transparent;
+}
+
+.mac .permabuttons a.close {background:#ff5c5c; border:1px solid #e33e41;}
+.mac .permabuttons a.mini {background:#ffbd4c; border:1px solid #e09e3e;}
+.mac .permabuttons a.zoom {background:#00ca56; border:1px solid #14ae46;}
+
+.mac .permabuttons:hover a.close {color:#820005;}
+.mac .permabuttons:hover a.mini {color:#9a5518;}
+.mac .permabuttons:hover a.zoom {color: #006519;}
  
-.permabuttons .inner {
+.windows .permabuttons .inner {
     border:1px solid {color:permalink buttons};
     border-top-width:2px;
     width:4px;
@@ -742,9 +754,13 @@ img.tumblr_avatar {
     margin:1px;
     transition:0.3s ease;
 }
+
+.windows .permabuttons .min::before {content:"_";}
+.mac .permabuttons .inner::before {content:"-";}
+.mac .permabuttons .min::before {content:"+";}
  
-.permabuttons a:hover .inner {border-color:{color:accent};}
-.permabuttons a:hover {color:{color:accent}; border-color:{color:accent}; background:{color:posts};}
+.windows .permabuttons a:hover .inner {border-color:{color:accent};}
+.windows .permabuttons a:hover {color:{color:accent}; border-color:{color:accent}; background:{color:posts};}
  
 /* ------ permalink page ------ */
 
@@ -895,7 +911,12 @@ ol.notes::-webkit-scrollbar-track-piece {background:transparent; box-shadow:0 0 
 
 #portrait {margin-left:calc({select:post size}px + 70px);}
 
-.sidetop,.permabar {background:linear-gradient(45deg, {color:Accent Alt}, {color:Accent Change});}
+.sidetop,.permabar {
+    background:linear-gradient(45deg, {color:Accent Alt}, {color:Accent Change});
+}
+
+.mac .sidetop span.typcn {display:none;}
+.mac .sidetop, .mac .permabar {text-align:center;}
 
 .sidetop {
     margin:-4px -4px 4px -4px;
@@ -923,10 +944,13 @@ img.side {width:170px; display:block; margin:0px;}
  
 /* ------ search box ------ */
 
+.mac form.sb {float:left; text-align:center;}
+
+.windows #sub {float:left; position:absolute;}
+.mac #sub {text-align:center;}
+
 #sub {
     width:100px;
-    float:left;
-    position:absolute;
     outline:none!important;
     height:10px;
     padding:0px;
@@ -1135,13 +1159,9 @@ $(document).ready(function(){
     startTime();
     {block:ifnotinfinitescroll}var infScr=false;{/block:ifnotinfinitescroll}
     {block:ifinfinitescroll}var infScr=true;{/block:ifinfinitescroll}
-    if((!$("#pagination").length)){
+    if((!$("#pagination").length) || (infScr && !$("#manual").length)){
         $("#postmargin").css("padding-right","0");
         $("#portrait").remove();
-    }
-    else if(infScr && !$("#manual").length){
-        $("#postmargin").css("padding-right","0");
-        $("#portrait").hide();
     }
     {block:iflazyload}var lazyload = true;{/block:iflazyload}
     {block:ifnotlazyload}var lazyload = false;{/block:ifnotlazyload}
@@ -1164,9 +1184,7 @@ $(document).ready(function(){
     $container.infiniteScroll({
         path: '#pagination .next',
         append: '.posts'{block:ifmanualload},
-        scrollThreshold:false,
-        button:'#manual'
-        {/block:ifmanualload}
+        button:'#manual'{/block:ifmanualload}
     });
     $container.on( 'last.infiniteScroll', function( event, response, path ) {
         $("#manual").fadeOut();
@@ -1177,7 +1195,7 @@ $(document).ready(function(){
 {/block:IndexPage}
  
 </head>
-<body>
+<body class="{select:button style}">
  
 <div id="topbar"></div>
  
@@ -1188,9 +1206,9 @@ $(document).ready(function(){
     <div class="ava">
         <div class="sidetop">
         <div class="permabuttons">
-            <a>X</a>
-            <a><div class="inner"></div></a>
-            <a>_</a>
+            <a class="close">X</a>
+            <a class="mini"><div class="inner"></div></a>
+            <a class="zoom"><div class="min"></div></a>
         </div>
         </div>
         <img class="side2" src="{PortraitURL-96}">
@@ -1212,9 +1230,9 @@ $(document).ready(function(){
     <div class="sidebar">
         <div class="sidetop">
         <div class="permabuttons">
-            <a>X</a>
-            <a><div class="inner"></div></a>
-            <a>_</a>
+            <a class="close">X</a>
+            <a class="mini"><div class="inner"></div></a>
+            <a class="zoom"><div class="min"></div></a>
         </div>
         <span class="typcn typcn-world"></span> {Title}
         </div>
@@ -1223,9 +1241,9 @@ $(document).ready(function(){
     <div class="sidebar">
         <div class="sidetop">
         <div class="permabuttons">
-            <a>X</a>
-            <a><div class="inner"></div></a>
-            <a>_</a>
+            <a class="close">X</a>
+            <a class="mini"><div class="inner"></div></a>
+            <a class="zoom"><div class="min"></div></a>
         </div>
         <span class="typcn typcn-user-outline"></span> <span id="time"></span>
         </div>
@@ -1248,9 +1266,9 @@ $(document).ready(function(){
     <div class="sidebar">
         <div class="sidetop">
         <div class="permabuttons">
-            <a>X</a>
-            <a><div class="inner"></div></a>
-            <a>_</a>
+            <a class="close">X</a>
+            <a class="mini"><div class="inner"></div></a>
+            <a class="zoom"><div class="min"></div></a>
         </div>
         <span class="typcn typcn-th-menu-outline"></span> {Name}
         </div>
@@ -1268,13 +1286,13 @@ $(document).ready(function(){
     <div class="sidebar">
         <div class="sidetop">
         <div class="permabuttons">
-            <a>X</a>
-            <a><div class="inner"></div></a>
-            <a>_</a>
+            <a class="close">X</a>
+            <a class="mini"><div class="inner"></div></a>
+            <a class="zoom"><div class="min"></div></a>
         </div>
 		<span class="typcn typcn-zoom"></span>
         <form action="/search" method="get" class="sb">
-        <input type="text" name="q" value="" placeholder="search..." id="sub"/>
+            <input type="text" name="q" value="" placeholder="search..." id="sub"/>
         </form>
         </div>
         {block:HasPages}
@@ -1289,9 +1307,9 @@ $(document).ready(function(){
     <div class="sidebar">
         <div class="sidetop">
         <div class="permabuttons">
-            <a>X</a>
-            <a><div class="inner"></div></a>
-            <a>_</a>
+            <a class="close">X</a>
+            <a class="mini"><div class="inner"></div></a>
+            <a class="zoom"><div class="min"></div></a>
         </div>
         <span class="typcn typcn-cog-outline"></span> more information
         </div>
@@ -1310,18 +1328,18 @@ $(document).ready(function(){
         {block:IndexPage}
         <a href="{Permalink}" class="perma" data-hover="{DayOfMonthWithZero}{MonthNumberWithZero}{ShortYear}-{24Hour}{Minutes}_" title="{TimeAgo} | {NoteCount}XP">{DayOfMonthWithZero}{MonthNumberWithZero}{ShortYear}-{24Hour}{Minutes}_</a>
         <div class="permabuttons">
-        	<a href="{ReblogURL}" title="reblog?">X</a>
+        	<a class="close" href="{ReblogURL}" title="reblog?">X</a>
         	{block:RebloggedFrom}
-        	<a href="{ReblogParentURL}" title="via: {ReblogParentName}"><div class="inner"></div></a>
-        	<a href="{ReblogRootURL}" title="source: {ReblogRootName}">_</a>
+        	<a class="mini" href="{ReblogParentURL}" title="via: {ReblogParentName}"><div class="inner"></div></a>
+        	<a class="zoom" href="{ReblogRootURL}" title="source: {ReblogRootName}"><div class="min"></div></a>
         	{/block:RebloggedFrom}
         </div>
         {/block:IndexPage}
         {block:PermalinkPage}
         <div class="permabuttons">
-            <a>X</a>
-            <a><div class="inner"></div></a>
-            <a>_</a>
+            <a class="close">X</a>
+            <a class="mini"><div class="inner"></div></a>
+            <a class="zoom"><div class="min"></div></a>
         </div>
         {/block:PermalinkPage}
     </div>
@@ -1453,7 +1471,7 @@ $(document).ready(function(){
      
     {block:Photoset}
     <div class="pcontain">
-        <div class="photo"><div class="set">
+        <div class="photo">
         	<div class="photo-slideshow" id="photoset_{PostID}" data-layout="{PhotosetLayout}">
         		{block:Photos}
         		<div class="photo-data">
@@ -1463,7 +1481,7 @@ $(document).ready(function(){
         			<a class="tumblr-box" rel="post-{PostID}" href="{PhotoURL-HighRes}"></a>
         		</div>
         		{/block:Photos}
-        	</div></div>
+        	</div>
         </div>
         {block:Caption}
         {block:NotReblog}
@@ -1766,5 +1784,4 @@ $(document).ready(function(){
 </div><!--postmargin-->
  
 </body>
-<!--LAST WARNING AH. NO SCM PLAYER/HYPSTER/WIKPLAYER -->
 </html>
