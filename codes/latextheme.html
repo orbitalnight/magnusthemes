@@ -20,7 +20,7 @@ coded by aeroelastical/magnusthemes
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
  
-{block:Description}<meta name="description" content="{MetaDescription}"/>{/block:Description}
+{block:Description}<meta name="description" content="{MetaDescription}" />{/block:Description}
  
 <style>
  
@@ -152,7 +152,7 @@ a:hover, a:hover u, a:hover underline {border-bottom:1px solid #fff;}
     width:540px;
 }
  
-.posts {margin:8em 0;}
+.posts {margin:120px 0;}
 
 /* photo & video posts */
  
@@ -232,7 +232,7 @@ ol.notes li.note img.avatar {display:none!important;}
 
 /* header & footer */
 
-header,footer {width:540px; margin:8em auto;}
+header,footer {width:540px; margin:120px auto;}
 
 header h1 {margin-bottom:1em;}
 
@@ -247,13 +247,18 @@ footer a, footer span {border-bottom:0 solid transparent!important; margin:0 2em
     #postmargin, header, footer {width:90vw;}
     .musicinfo {width:calc(90vw - 105px);}
 }
+
+@media screen and (min-width:1440px){
+    #postmargin, header, footer {width:700px;}
+    .musicinfo {width:595px;}
+}
  
 {CustomCSS}
 </style>
  
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fitvids/1.2.0/jquery.fitvids.min.js"></script>
 <script src="https://static.tumblr.com/p0knose/Uvepp99oy/modified_photosets.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fitvids/1.2.0/jquery.fitvids.min.js"></script>
  
 <script>
 $(document).ready(function(){
@@ -335,12 +340,12 @@ $(document).ready(function(){
 		<div class="photo">
 		    {block:IndexPage}
 			<a class="photolight" href="{PhotoURL-HighRes}" data-width="{PhotoWidth-HighRes}" data-height="{PhotoHeight-HighRes}" data-lowres="{PhotoURL-500}" data-highres="{PhotoURL-HighRes}">
-				<img src="{PhotoURL-HighRes}" width="{select:post size}">
+				<img src="{PhotoURL-HighRes}">
 			</a>
 		    {/block:IndexPage}
 		    {block:PermalinkPage}
     		{LinkOpenTag}
-    		    <img src="{PhotoURL-HighRes}" width="{select:post size}">
+    		    <img src="{PhotoURL-HighRes}">
     		{LinkCloseTag}
     		{/block:PermalinkPage}
 		</div>
@@ -378,7 +383,7 @@ $(document).ready(function(){
 		{block:Panorama}
 		<div class="photo">
 			<a class="photolight" href="{PhotoURL-HighRes}" data-width="{PhotoWidth-HighRes}" data-height="{PhotoHeight-HighRes}" data-lowres="{PhotoURL-500}" data-highres="{PhotoURL-HighRes}">
-				<img src="{PhotoURL-HighRes}" width="{select:post size}">
+				<img src="{PhotoURL-HighRes}">
 			</a>
 		</div>
 		{block:Caption}
