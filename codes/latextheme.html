@@ -342,11 +342,13 @@ $(document).ready(function(){
 		    {block:IndexPage}
 			<a class="photolight" href="{PhotoURL-HighRes}" data-width="{PhotoWidth-HighRes}" data-height="{PhotoHeight-HighRes}" data-lowres="{PhotoURL-500}" data-highres="{PhotoURL-HighRes}">
 				<img src="{PhotoURL-HighRes}">
+				<meta name="{PhotoAlt}" content="{PhotoAlt}"/>
 			</a>
 		    {/block:IndexPage}
 		    {block:PermalinkPage}
     		{LinkOpenTag}
     		    <img src="{PhotoURL-HighRes}">
+				<meta name="{PhotoAlt}" content="{PhotoAlt}"/>
     		{LinkCloseTag}
     		{/block:PermalinkPage}
 		</div>
@@ -385,6 +387,7 @@ $(document).ready(function(){
 		<div class="photo">
 			<a class="photolight" href="{PhotoURL-HighRes}" data-width="{PhotoWidth-HighRes}" data-height="{PhotoHeight-HighRes}" data-lowres="{PhotoURL-500}" data-highres="{PhotoURL-HighRes}">
 				<img src="{PhotoURL-HighRes}">
+				<meta name="{PhotoAlt}" content="{PhotoAlt}"/>
 			</a>
 		</div>
 		{block:Caption}
