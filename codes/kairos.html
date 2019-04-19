@@ -40,7 +40,7 @@ look out for instructions in the code to customize the page!
 
 :root {
     --accent-one:#FF8697; /* accent color 1 */
-    --accent-two:#FFFFE5; /* accent color 2 */
+    --accent-two:#ffe4c4; /* accent color 2 */
     --accent-text:#fff; /* accent text */
     --bg-color:#fff; /* background */
     --box:#f6f6f6; /* box background color */
@@ -134,12 +134,12 @@ i, italic, em {
 }
  
 a {
-    color:#ababab; /* links color */
+    color:var(--text);
     text-decoration:none;
     transition:0.3s ease-in-out;
 }
  
-a:hover {color:var(--accent-two);}
+a:hover {color:var(--accent-one);}
  
 img {border:none;}
 
@@ -159,11 +159,12 @@ main {
 
 .block {
     overflow:hidden;
+    position:relative;
     padding:2vw;
     display:flex; 
     align-items:center;
     background:var(--box);
-    position:relative;
+    background-position:center center!important;
 }
 
 .row1 {grid-row:span 1;}
@@ -202,9 +203,12 @@ a.nav {
     left:0;
     right:0;
     text-align:center;
-    padding-top:50%;
-    padding-bottom:50%;
+    padding-top:150%;
+    padding-bottom:150%;
+    font-family:"B612 Mono";
 }
+
+a.nav:hover {background:rgba(0,0,0,0.5);}
 
 a.nav span {
     background:var(--bg-color); 
@@ -214,6 +218,7 @@ a.nav span {
     line-height:120%; 
     display:inline-block;
     transition:0.3s ease-in-out;
+    box-shadow:1px 1px 3px rgba(0,0,0,0.15);
 }
 
 .text ~ a.nav span, a.nav:hover span {
@@ -231,6 +236,12 @@ a.nav:hover span {border-color:var(--accent-one);}
 }
 
 /* --- nav link block styles --- */
+
+.block {text-align:center; font-family:"B612";}
+
+.block nav {text-align:left;}
+.block div > a {border-bottom:2px solid transparent;}
+.block div > a:hover {border-bottom-color:var(--accent-two);}
 
 .block nav a {
     display:block;
@@ -462,8 +473,15 @@ YOU WILL NEED TO CHANGE class="block" to the following:
 
 1x1 box - class="block row1 col1" [1 row, 1 column]
 1x2 box - class="block row2 col1" [2 rows, 1 column]
+1x3 box - class="block row3 col1" [3 rows, 1 column]
 2x1 box - class="block row1 col2" [1 row, 2 columns]
 2x2 box - class="block row2 col2" [2 rows, 2 columns]
+2x3 box - class="block row3 col2" [3 rows, 2 columns]
+3x1 box - class="block row1 col3" [1 row, 3 columns]
+3x2 box - class="block row2 col3" [2 row, 3 columns]
+3x3 box - class="block row3 col3" [3 rows, 3 columns]
+
+========================================
 
 To have a block be a full tag block, add 
 
@@ -471,22 +489,32 @@ To have a block be a full tag block, add
     
 after class="block", and delete CONTENT HERE
 
+========================================
+
 Next, you will need to add the tags, if your block is not a full tag block.
 Please replace CONTENT HERE with the code provided below
 
-<div>
-    <h3> category </h3>
-    <nav>
-        <a href="/tagged/tag">your tag</a>
-        <a href="/tagged/tag">your tag</a>
-    </nav>
-</div>
+    <div>
+        <h3> category </h3>
+        <nav>
+            <a href="/tagged/tag">your tag</a>
+            <a href="/tagged/tag">your tag</a>
+        </nav>
+    </div>
 
 Feel free to add more tags by following the example.
 
 =======================================
 
+If you would like to have a block be a full tag block but with a custom image,
+add ftr to the class list (after the row/column classes)
 
+Then replace CONTENT HERE with the code below
+
+    <img src="your image">
+    <a class="nav" href="your tag url"><span>#your tag</span></a>
+
+=======================================
 
 -->
 <!----------------------------------------------------------------------------->
