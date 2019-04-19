@@ -1,0 +1,515 @@
+<!DOCTYPE html xmlns="https://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html>
+ 
+<!--
+navigation page - kairos
+coded by aeroelastical/magnusthemes
+ver. 1.0.1 (19.04.2019)
+
+look out for instructions in the code to customize the page!
+-->
+ 
+<head>
+ 
+<title>{Title} | navigation</title> <!-- you can change the page title here -->
+<link rel="shortcut icon" href="{Favicon}">
+<link rel="alternate" type="application/rss+xml" href="{RSS}">
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href="https://static.tumblr.com/p0knose/fW7nwe95q/normalize.css" rel="stylesheet">
+
+<link href="https://static.tumblr.com/p0knose/L3vpkyfuu/ailerons.css" rel="stylesheet">
+
+<link href='https://fonts.googleapis.com/css?family=B612|B612+Mono:400,400i,700,700i' rel='stylesheet'>
+
+<link href="https://d1azc1qln24ryf.cloudfront.net/114779/Socicon/style-cf.css?u8vidh" rel="stylesheet">
+ 
+<style type="text/css">
+
+@font-face {
+    font-family: 'Ailerons';
+    src: url('https://cdn.jsdelivr.net/gh/orbitalnight/magnusthemes@master/assets/fonts/Ailerons-Typeface.otf');
+}
+
+/* ------ custom styles ------ */
+
+/* change colors here */
+
+:root {
+    --accent-one:#FF8697; /* accent color 1 */
+    --accent-two:#FFFFE5; /* accent color 2 */
+    --accent-text:#fff; /* accent text */
+    --bg-color:#fff; /* background */
+    --box:#f6f6f6; /* box background color */
+    --text:#666666; /* text color */
+}
+
+/* extras */
+
+.tmblr-iframe {display:none!important;}
+
+@-webkit-keyframes fadein {from {opacity:0;} to {opacity:1;}}
+@keyframes fadein {from {opacity:0;} to {opacity:1;}}
+
+
+/* --- scrollbar --- */
+ 
+::-webkit-scrollbar {
+    width:10px; 
+    height:10px;
+}
+ 
+::-webkit-scrollbar-thumb {
+    background:var(--accent-one);
+    border:4px solid var(--bg-color);
+    border-width:0 4px;
+}
+
+::-webkit-scrollbar-track-piece {
+    background:var(--box);
+    border:4px solid var(--bg-color);
+    border-width:0 4px;
+}
+
+/* --- text selection --- */
+
+::selection {
+    background:var(--accent-two);
+    color:var(--accent-text);
+}
+
+::-webkit-selection {
+    background:var(--accent-two);
+    color:var(--accent-text);
+}
+
+::-moz-selection {
+    background:var(--accent-two);
+    color:var(--accent-text);
+}
+ 
+/* --- tooltips --- */
+
+#s-m-t-tooltip {
+    background:#151515; /* tooltips background */
+    color:#dcdcdc; /* tooltips text */
+    max-width:250px;
+    z-index:21474836479;
+    margin:5px 20px;
+    padding:7px 10px;
+    border-radius:0px;
+    letter-spacing:1px;
+    font:normal 10px/200% 'B612', sans-serif;
+    text-transform:uppercase;
+}
+
+/* ------ basic styles ------ */
+ 
+body {
+    word-wrap:break-word;
+    overflow:auto;
+    overflow-x:hidden;
+    margin:0px;
+    letter-spacing:0px;
+    color:var(--text);
+    background-color:var(--bg-color);
+    background-attachment:fixed;
+    background-repeat:repeat;
+    font:12px/200% 'B612 Mono',consolas,monospace;
+	-webkit-font-smoothing:antialiased;
+	-moz-osx-font-smoothing:grayscale;
+}
+ 
+b, bold, strong {
+    font-weight:700; 
+    color:#ffffff; /* bold color */
+}
+
+i, italic, em {
+    font-style:italic;
+    color:#eaeaea; /* italic color */
+}
+ 
+a {
+    color:#ababab; /* links color */
+    text-decoration:none;
+    transition:0.3s ease-in-out;
+}
+ 
+a:hover {color:var(--accent-two);}
+ 
+img {border:none;}
+
+/* ------ grid structure ------ */
+
+main {
+    margin:30px auto 90px;
+  	display:grid;
+  	grid-gap:1.5vw;
+  	grid-auto-rows:10vw;
+  	grid-template-columns:10vw 10vw 10vw 10vw 10vw 10vw;
+  	grid-auto-flow:dense;
+  	justify-content:center;
+    -webkit-animation:fadein 1s;
+    animation:fadein 1s;
+}
+
+.block {
+    overflow:hidden;
+    padding:2vw;
+    display:flex; 
+    align-items:center;
+    background:var(--box);
+    position:relative;
+}
+
+.row1 {grid-row:span 1;}
+.row2 {grid-row:span 2;}
+.row3 {grid-row:span 3;}
+.row4 {grid-row:span 4;}
+.row5 {grid-row:span 5;}
+.row6 {grid-row:span 6;}
+.col1 {grid-column:span 1;}
+.col2 {grid-column:span 2;}
+.col3 {grid-column:span 3;}
+.col4 {grid-column:span 4;}
+.col5 {grid-column:span 5;}
+.col6 {grid-column:span 6;}
+
+/* --- grid box colors --- */
+
+/* --- block default styles --- */
+
+.block > div {width:100%;}
+
+.block h3 {
+    font:normal 22px/25px "Ailerons";
+    color:var(--accent-one); 
+    text-align:center;
+    margin-top:0;
+}
+
+.text {overflow:hidden; text-overflow:ellipsis;}
+
+a.nav {
+    position:absolute;
+    display:block;
+    width:100%;
+    z-index:9;
+    left:0;
+    right:0;
+    text-align:center;
+    padding-top:50%;
+    padding-bottom:50%;
+}
+
+a.nav span {
+    background:var(--bg-color); 
+    color:var(--text);
+    border:1px solid transparent;
+    padding:5px 8px; 
+    line-height:120%; 
+    display:inline-block;
+    transition:0.3s ease-in-out;
+}
+
+.text ~ a.nav span, a.nav:hover span {
+    border:1px solid var(-box);
+    background:var(--accent-one);
+    color:var(--accent-text);
+}
+
+a.nav:hover span {border-color:var(--accent-one);}
+
+.text ~ a.nav:hover span {
+    border-color:var(--accent-two);
+    background:var(--accent-two);
+    color:var(--accent-text);
+}
+
+/* --- nav link block styles --- */
+
+.block nav a {
+    display:block;
+    position:relative;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    padding-left:15px;
+    color:var(--text);
+}
+
+.block nav a::before {
+    content:"";
+    position:absolute;
+    display:block;
+    left:0;
+    height:3px;
+    width:3px;
+    top:50%;
+    margin-top:-1px;
+    background:var(--accent-one);
+    transition:0.6s ease-in-out;
+}
+
+.block nav a:hover {color:var(--accent-one);}
+.block nav a:hover::before {background:var(--accent-two); width:100%;}
+
+/* ------ header ------ */
+
+#top {
+    position:fixed;
+    width:100%;
+    height:5px;
+    left:0;
+    top:0;
+    background:linear-gradient(45deg,var(--accent-one),var(--accent-two));
+    z-index:9999999999999;
+    -webkit-animation:fadein 1s;
+    animation:fadein 1s;
+}
+
+header {
+    width:67.5vw; 
+    margin:90px auto 30px;
+}
+
+header > * {display:inline-block;}
+
+header h1 {
+    font:36px/45px "Ailerons";
+    color:var(--accent-one);
+    margin:0;
+}
+
+header nav {
+    float:right; 
+    line-height:45px; 
+    text-transform:lowercase;
+}
+
+header nav a {
+    position:relative;
+    display:inline-block;
+    margin:0 5px;
+    line-height:100%;
+    padding:5px 4px 5px 0;
+    color:var(--text);
+}
+
+header nav a::after {
+    content:"";
+    display:block;
+    position:absolute;
+    width:3px;
+    height:3px;
+    bottom:6px;
+    right:0px;
+    transition:
+    	width 0.5s ease-in-out, 
+    	padding 0.5s ease-in-out, 
+        bottom 0.3s ease-in-out 0.5s;
+    background:var(--accent-two);
+    border-radius:3px;
+}
+
+header nav a:hover {color:var(--accent-one);}
+
+header nav a:hover::after {
+    width:100%; 
+    bottom:0px;
+    padding:0 2px 0 0;
+}
+
+/* ------ media queries ------ */
+
+@media screen and (min-width:1280px){
+    .block:not(.full):not(.ftr) {padding:4vw;}
+}
+
+@media screen and (max-width:1600px){
+    main {
+        grid-auto-rows:12vw;
+        grid-template-columns:12vw 12vw 12vw 12vw 12vw 12vw;
+    }
+    
+    header {width:79.5vw;}
+}
+
+@media screen and (max-width:1080px){
+    
+    .block:not(.full):not(.ftr) {padding:3vw;}
+    
+    main {
+        grid-gap:1vw;
+      	grid-auto-rows:14vw;
+      	grid-template-columns:14vw 14vw 14vw 14vw 14vw 14vw;
+    }
+    
+    header {width:89vw;}
+}
+
+@media screen and (max-width:840px){
+    header nav {float:none; display:block;}
+    header {width:81vw;}
+    
+    main {
+        grid-template-columns:25vw 25vw 25vw;
+        grid-auto-rows:25vw;
+        grid-gap:3vw;
+    }
+
+    .row1,.row4 {grid-row:span 1;}
+    .row2,.row5 {grid-row:span 2;}
+    .row3,.row6 {grid-row:span 3;}
+    .col1,.col4 {grid-column:span 1;}
+    .col2,.col5 {grid-column:span 2;}
+    .col3,.col6 {grid-column:span 3;}
+    
+    .block:not(.full):not(.ftr) {padding:5vw;}
+}
+
+@media screen and (max-width:640px){
+    main,header {
+        display:block;
+        width:90vw;
+    }
+    
+    .full,.ftr {height:90vw;}
+    .block {margin:2vw 0;}
+}
+ 
+</style>
+
+<!------ Scripts ------>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="https://static.tumblr.com/iuw14ew/VSQma1786/jquery.style-my-tooltips.js"></script>
+<script src="https://static.tumblr.com/p0knose/iRspq6vgs/kairos.js"></script>
+
+<script>
+$(document).ready(function(){
+    var blocks = document.querySelectorAll(".block[data-tag]");
+    var readData, insert;
+    var name = "{Name}";
+    for (var i = 0; i<blocks.length; i++){
+        var block = blocks[i], 
+            $block = $(blocks[i]);
+        var tag = $block.attr("data-tag");
+        bigTagBox(block,name,tag);
+    } //end for 
+});
+</script>
+ 
+</head>
+<body>
+
+<div id="top"></div>
+
+<!----------------------------------------------------------------------------->
+<!--------------------------------- HEADER ------------------------------------>
+<header>
+
+    <!------ page title ------>
+    <h1>
+        <!-- HERE GOES YOUR PAGE TITLE! -->
+        Navigation
+    </h1>
+    <!------ end of page title ------>
+    
+    <!------ navigation ------>
+    <nav id="links">
+        <a href="/">home</a>
+        <a href="/ask">inbox</a>
+        <a href="/archive">archive</a>
+        <a href="http://tumblr.com/">dashboard</a>
+        <!-- 
+        How to add more links:
+        Copy and paste this
+        
+            <a href="URL">LINK TITLE</a>
+        
+        above this comment, then change the URL and text!
+        -->
+    </nav>
+    <!------ end of navigation ------>
+</header>
+<!------------------------------- END HEADER ---------------------------------->
+<!----------------------------------------------------------------------------->
+
+<!----------------------------------------------------------------------------->
+<!------------------------------- START GRID ---------------------------------->
+<main id="grid">
+
+<!----------------------------------------------------------------------------->
+<!------------------------------ INSTRUCTIONS --------------------------------->
+<!----------------------------------------------------------------------------->
+<!--
+This is a modular about page, which means you can have as many blocks as you want in whatever size you want.
+
+This is a basic block structure, you will copy and paste this code to generate a new box.
+
+    <article class="block">
+    
+        CONTENT HERE
+        
+    </article>
+
+YOU WILL NEED TO CHANGE class="block" to the following:
+
+1x1 box - class="block row1 col1" [1 row, 1 column]
+1x2 box - class="block row2 col1" [2 rows, 1 column]
+2x1 box - class="block row1 col2" [1 row, 2 columns]
+2x2 box - class="block row2 col2" [2 rows, 2 columns]
+
+To have a block be a full tag block, add 
+
+    data-tag="tag name"
+    
+after class="block", and delete CONTENT HERE
+
+Next, you will need to add the tags, if your block is not a full tag block.
+Please replace CONTENT HERE with the code provided below
+
+<div>
+    <h3> category </h3>
+    <nav>
+        <a href="/tagged/tag">your tag</a>
+        <a href="/tagged/tag">your tag</a>
+    </nav>
+</div>
+
+Feel free to add more tags by following the example.
+
+=======================================
+
+
+
+-->
+<!----------------------------------------------------------------------------->
+<!-- Put your blocks below this line! -->
+
+    <article class="block row1 col1">
+    </article>
+    
+    <article class="block row2 col2">
+    </article>
+    
+    <article class="block row2 col3">
+    </article>
+    
+    <article class="block row1 col1">
+    </article>
+    
+<!-- PUT YOUR BLOCKS ABOVE THIS LINE -->
+<!----------------------------------------------------------------------------->
+      	
+</main>
+
+<!----------------------------- END OF GRID ----------------------------------->
+ 
+</body>
+</html>
