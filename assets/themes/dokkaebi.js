@@ -58,11 +58,13 @@ $(document).ready(function(){
         x.setAttribute("data-feather", "code");
         z.appendChild(x);
         feather.replace();
-        document.querySelectorAll("footer")[0].appendChild(z);
+        if(!document.body.contains(document.querySelectorAll('footer a[href*="magnusthemes"]')))
+            document.querySelectorAll("footer")[0].appendChild(z);
     }
     else {
         z.innerHTML = "theme";
-        document.querySelectorAll("#links").appendChild(z);
+        if(!document.body.contains(document.querySelectorAll('#links a[href*="magnusthemes"]')))
+            document.querySelectorAll("#links").appendChild(z);
     }
 });
 function dokkaebi(accent){
