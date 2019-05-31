@@ -5,7 +5,7 @@
 Theme - Midnight Sun
 code by aeroelastical/magnusthemes
  
-ver. 3.1.0 (03.04.2019)
+ver. 3.2.0 (01.06.2019)
 -->
  
 <head>
@@ -111,7 +111,7 @@ ver. 3.1.0 (03.04.2019)
 }
  
 ::-webkit-scrollbar-thumb {
-    background:radial-gradient({color:Accent Alt}, {color:Accent});
+    background:{color:Accent};
     border:3px solid transparent;
     background-clip:padding-box;
     border-radius:10px;
@@ -706,7 +706,8 @@ img.tumblr_avatar {
  
 .indextags {margin:4px -4px -5px -4px; text-align:center;}
 .permabar {margin:-5px -4px 4px -4px; padding:9px 10px; height:10px;}
-.permabar a, .indextags a {color:{color:permalink text};}
+.permabar a {color:{color:Accent Text};}
+.indextags a {color:{color:permalink text};}
 .permabar a:hover, .indextags a:hover {color:{color:Accent};}
 
 .windows .permabuttons {float:right;}
@@ -920,7 +921,7 @@ ol.notes::-webkit-scrollbar-track-piece {background:transparent; box-shadow:0 0 
     margin:-4px -4px 4px -4px;
     text-transform:uppercase;
     border-bottom:1px solid {color:post borders};
-    color:{color:permalink text};
+    color:{color:accent text};
     text-align:left;
     letter-spacing:1px;
     font:normal 8px/12px 'londonmidlandregular',consolas,sans-serif;
@@ -948,15 +949,15 @@ img.side {width:170px; display:block; margin:0px;}
     font:8px 'londonmidlandregular',consolas, sans-serif;
     opacity:1;
 	margin-left:2px;
-    color:{color:text};
+    color:{color:accent text};
     text-transform:uppercase;
     letter-spacing:1px;
 }
  
-::-webkit-input-placeholder {color:{color:permalink text};}
-:-moz-placeholder {color:{color:permalink text}; opacity:1;}
-::-moz-placeholder {color:{color:permalink text}; opacity:1;}
-:-ms-input-placeholder {color:{color:permalink text};}
+::-webkit-input-placeholder {color:{color:accent text};}
+:-moz-placeholder {color:{color:accent text}; opacity:1;}
+::-moz-placeholder {color:{color:accent text}; opacity:1;}
+:-ms-input-placeholder {color:{color:accent text};}
  
 /* ------ description ------ */
  
@@ -1014,8 +1015,8 @@ img.side {width:170px; display:block; margin:0px;}
     display:inline-block;
     vertical-align:middle;
     margin:-5px 10px -5px -7px;
-    color:{color:Accent Alt};
-    border:1px solid {color:Accent Alt};
+    color:{color:Accent};
+    border:1px solid {color:Accent};
     transition:0.5s ease-in-out;
     padding:2px;
     font-size:16px;
@@ -1025,20 +1026,11 @@ img.side {width:170px; display:block; margin:0px;}
 
 .menu a span.typcn::before {position:relative;z-index:2;}
 
-.menu a span.typcn::after {
-    content:"";
-    position:absolute;
-    top:50%;
-    height:2px;
-    background:linear-gradient(45deg, {color:Accent Alt}, {color:Accent Change}, rgba({RGBcolor:Posts},0));
-    transition:0.5s ease-in-out;
-    display:block;
-    left:22px;
-    width:0px;
+.menu a:hover span.typcn {
+    background:{color:Accent};
+    border-color:{color:Accent};
+    color:{color:Accent};
 }
-
-.menu a:hover span.typcn {background:{color:Accent Alt};}
-.menu a:hover span.typcn::after {width:calc(100% - 22px);}
  
 /* ------ custom links ------ */
  
@@ -1059,7 +1051,7 @@ img.side {width:170px; display:block; margin:0px;}
     transition:0.3s ease-in-out 0.3s;
 }
  
-.nav a:hover {border-color:{color:Accent Alt}; color:{color:Accent};}
+.nav a:hover {border-color:{color:Accent}; color:{color:Accent};}
  
 .nav a::before, .nav a::after {
     content:"";
