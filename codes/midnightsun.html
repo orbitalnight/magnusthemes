@@ -1140,7 +1140,7 @@ $(document).ready(function(){
     {block:ifinfinitescroll}var infScr=true;{/block:ifinfinitescroll}
     if((!$("#pagination").length) || (infScr && !$("#manual").length)){
         $("#postmargin").css("padding-right","0");
-        $("#portrait").remove();
+        $("#portrait").hide();
     }
     {block:iflazyload}var lazyload = true;{/block:iflazyload}
     {block:ifnotlazyload}var lazyload = false;{/block:ifnotlazyload}
