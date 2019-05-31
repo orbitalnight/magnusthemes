@@ -58,12 +58,12 @@ $(document).ready(function(){
         x.setAttribute("data-feather", "code");
         z.appendChild(x);
         feather.replace();
-        if(!document.body.contains(document.querySelectorAll('footer a[href*="magnusthemes"]')))
+        if(!document.body.contains(document.querySelectorAll('footer a[href*="magnusthemes"]')[0]))
             document.querySelectorAll("footer")[0].appendChild(z);
     }
     else {
         z.innerHTML = "theme";
-        if(!document.body.contains(document.querySelectorAll('#links a[href*="magnusthemes"]')))
+        if(!document.body.contains(document.querySelectorAll('#links a[href*="magnusthemes"]')[0]))
             document.querySelectorAll("#links").appendChild(z);
     }
 });
