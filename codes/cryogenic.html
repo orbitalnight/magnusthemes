@@ -1132,6 +1132,13 @@ $(document).ready(function(){
         e.preventDefault();
     });
     {/block:ifupdatestab}
+	{block:ifnotshowcaptions}
+	{block:IndexPage}
+	$(".posts").initialize(function(){
+		$(".caption").remove();
+	});
+	{/block:IndexPage}
+	{/block:ifnotshowcaptions}
 });
 </script>
 
