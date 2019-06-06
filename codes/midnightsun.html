@@ -10,7 +10,7 @@ ver. 3.2.0 (01.06.2019)
  
 <head>
 
-<link href='https://fonts.googleapis.com/css?family=IBM Plex Sans:400,300,300italic,400italic,700,700italic|Muli:300,400,600' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,300,300italic,400italic,700,700italic|Muli:300,400,600' rel='stylesheet'>
 <link href="https://static.tumblr.com/p0knose/yKlp5mq5l/normalize.css" rel="stylesheet">
 <link href="https://static.tumblr.com/qudkd6d/OcDnl99gb/style.css" rel="stylesheet">
 <link href="https://static.tumblr.com/p0knose/Omep7ai4p/londonmidland.css" rel="stylesheet">
@@ -64,6 +64,7 @@ ver. 3.2.0 (01.06.2019)
 <meta name="if:light theme" content="">
 <meta name="if:infinite scroll" content="">
 <meta name="if:manual load" content="">
+<meta name="if:lazy load" content="">
 <meta name="if:hover captions" content="">
 <meta name="if:show captions" content="">
 <meta name="if:show tags" content="">
@@ -1128,6 +1129,10 @@ img.side {width:170px; display:block; margin:0px;}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/smoothscroll/1.4.6/SmoothScroll.min.js"></script>
 <script src="https://static.tumblr.com/qudkd6d/Az6nkemqr/pxuphotoset.min.js"></script>
 
+{block:iflazyload}
+<script src="https://static.tumblr.com/bmdsqsc/ogWm7q8w1/lazyload.js"></script>
+{/block:iflazyload}
+	
 <script src="https://cdn.jsdelivr.net/gh/orbitalnight/magnusthemes@master/assets/themes/lemillion.js"></script>
  
 <script>
@@ -1140,6 +1145,7 @@ $(document).ready(function(){
         $("#portrait").hide();
     }
     lazyload=false;
+    {block:iflazyload}lazyload=true;{/block:iflazyload}
     Lemillion(lazyload,"{color:Accent}");
     $(".posts").initialize(function(){
         $(this).find('iframe.tumblr_audio_player').load(function(){
