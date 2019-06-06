@@ -1,4 +1,33 @@
 (function($){
+    $.fn.dragTags = function(){
+        return this.each(function(){
+            var $tags = $(this).find(".dragtags");
+            var $tParent = $(this).find(".itag");
+            var inWidth = $tags.innerWidth();
+            var outWidth = $tParent.innerWidth();
+            if (inWidth > outWidth){
+                $tags.css({"cursor":"col-resize"});
+                $tags.draggable({
+                    axis: "x",
+                    scroll: false,
+                    stop: function() {
+                        var margLeft = $(this).css("left").replace(/[^-\d\.]/g, '');
+                        if (margLeft > 0){
+                            $(this).animate({left: 0}, 400, 'easeOutExpo');
+                        }
+                        var outWidth = $(this).outerWidth();
+                        var parentWidth = $(".itag").outerWidth();
+                        if(outWidth > parentWidth) {
+                            if(margLeft < parentWidth-outWidth){
+                               $(this).animate({left: parentWidth-outWidth}, 400, 'easeOutExpo')}
+                       } else {
+                           $(this).animate({left: 0}, 400, 'easeOutExpo');
+                       }
+                   }
+               });
+            } // end if
+        });
+    }
     $.fn.photoLight = function(){
         return this.click(function(){
             var lbArray = [];
@@ -70,6 +99,7 @@ $(document).ready(function(){
 function dokkaebi(accent){
     $(".posts").initialize(function(){
         var $this = $(this);
+        $this.dragTags();
         $this.find(".soundcloud_audio_player").soundCloud({
             accentColour:accent
         });
