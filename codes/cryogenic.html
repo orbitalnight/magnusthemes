@@ -614,6 +614,10 @@ img.singlepic {
     display:inline-block;
     vertical-align:middle;
     color:{color:Text};
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    max-width:calc(({select:post size}px - 100px)/2);
 }
 
 .permasource a:hover {color:{color:Links Hover};}
