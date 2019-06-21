@@ -75,8 +75,8 @@ Icon cheatsheet: https://feathericons.com
  
 <meta name="if:custom text selection" content="1"/>
 <meta name="if:light theme" content="1" />
-<meta name="if:show tags" content=""/>
-<meta name="if:show captions" content="1"/>
+<meta name="if:hide tags" content=""/>
+<meta name="if:hide captions" content=""/>
 <meta name="if:fading images" content=""/>
 <meta name="if:monochrome images" content=""/>
 <meta name="if:infinite scroll" content=""/>
@@ -458,11 +458,11 @@ img.singlepic {
     border-radius:0px;
 }
 
-{block:ifnotshowcaptions}
+{block:ifhidecaptions}
 {block:IndexPage}
 .caption {display:none;}
 {/block:IndexPage}
-{/block:ifnotshowcaptions}
+{/block:ifhidecaptions}
 
 /* text, link, quote posts */
  
@@ -686,11 +686,11 @@ img.singlepic {
 .tags {
     border-top:1px solid {color:Post Dividers};
     padding:15px 25px;
-    {block:ifnotshowtags}
+    {block:ifhidetags}
     {block:IndexPage}
     display:none;
     {/block:IndexPage}
-    {block:ifnotshowtags}
+    {block:ifhidetags}
 }
 
 .text + .tags {
@@ -1170,13 +1170,13 @@ $(document).ready(function(){
         e.preventDefault();
     });
     {/block:ifupdatestab}
-	{block:ifnotshowcaptions}
-	{block:IndexPage}
-	$(".posts").initialize(function(){
-		$(".caption").remove();
-	});
-	{/block:IndexPage}
-	{/block:ifnotshowcaptions}
+    {block:ifhidecaptions}
+    {block:IndexPage}
+    $(".posts").initialize(function(){
+        $(".caption").remove();
+    });
+    {/block:IndexPage}
+    {/block:ifhidecaptions}
 });
 </script>
 
