@@ -3,7 +3,7 @@
  
 <!------
 theme - nocturne 
-ver 2.0.1 (28.02.2019)
+ver 2.1.0 (24.06.2019)
 code by aeroelastical/magnusthemes
 
 customization guide: https://magnusstatics.tumblr.com/28nocturne-guide
@@ -92,6 +92,7 @@ icons cheatsheet: https://socicon.com/chart.php
 <meta name="if:show tags" content="1"/>
 <meta name="if:fading images" content=""/>
 <meta name="if:monochrome images" content=""/>
+<meta name="if:full length top bar content=""/>
 <meta name="if:sticky sidebar" content=""/> 
 <meta name="if:gradient border" content=""/>
 <meta name="if:related posts" content=""/>
@@ -1194,8 +1195,15 @@ header {
 #topbar {
     position:fixed;
     top:0px; 
-	left:0px;
+    {block:iffulllengthtopbar}
+    left:0px;
     width:100%;
+    {/block:iffulllengthtopbar}
+    {block:ifnotfulllengthtopbar}
+    left:50%;
+    width:960px;
+    margin-left:-480px;
+    {/block:ifnotfulllengthtopbar}
     height:45px;
     background:{color:title bar};
     color:{color:blog title};
