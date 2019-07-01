@@ -88,6 +88,9 @@ ver. 1.1.0 [02072019]
 <meta name="select:gutter" content="2px" title="2px">
 <meta name="select:gutter" content="3px" title="3px">
 <meta name="select:gutter" content="4px" title="4px">
+
+<meta name="text:facebook URL" content="">
+<meta name="text:twitter username" content="">
  
 <style type="text/css">
 
@@ -1216,6 +1219,15 @@ label#nav:hover span.mthree {width:15px;}
     transition:0.6s ease-in-out;
 }
 
+#menu [title]:before {
+    background:{color:Accent};
+    color:{color:Accent Text};
+}
+
+#menu [title]:after {
+    border-color:{color:Accent} transparent transparent;
+}
+
 #top [type=checkbox]:checked ~ #menu {
     border-left-color:{color:menu border};
     max-width:calc(100% - 60px);
@@ -1303,7 +1315,7 @@ label#nav:hover span.mthree {width:15px;}
 }
 
 #menu nav span.ic a:after {
-    border-color:transparent transparent {color:tooltips background};
+    border-color:transparent transparent {color:Accent};
     border-width:0 5px 5px;
     top:150%;
 }
@@ -1389,7 +1401,8 @@ body {overflow-x:hidden;}
                     {block:AskEnabled}<a href="/ask" title="{AskLabel}"><span class="oi oi-mail"></span></a>{/block:AskEnabled}
                     {block:SubmissionsEnabled}<a href="/submit" title="{SubmitLabel}"><span class="oi oi-pencil"></span></a>{/block:SubmissionsEnabled}
                     <a href="/archive" title="archives"><span class="oi oi-calendar"></span></a>
-                    <a href="https://magnusthemes.tumblr.com" title="theme by magnusthemes"><span class="oi oi-plane"></span></a>
+                    {block:iffacebookurl}<a href="{text:facebook url}" title="facebook"><span class="oi oi-facebook"></span></a>{/block:iffacebookurl}
+                    {block:iftwitterusername}<a href="http://twitter.com/{text:twitter username}" title="twitter @{text:twitter username}"><span class="oi oi-twitter"></span></a>{/block:iftwitterusername}
                     <form action="/search" method="get">
                         <input type="submit" id="searchy"/>
                         <label for="searchy" title="search">
