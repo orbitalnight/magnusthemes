@@ -6,12 +6,12 @@ Theme - Egoist
 coded by aeroelastical/magnusthemes
 in conjunction with #noJSChallenge
  
-ver. 1.1.0 [02072019]
+ver. 1.1.1 [08072019]
 -->
  
 <head>
 
-<link href='https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:200,300,400' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:200,300,400:700' rel='stylesheet'>
 <link href="https://static.tumblr.com/p0knose/yKlp5mq5l/normalize.css" rel="stylesheet">
 <link href="https://static.tumblr.com/p0knose/jClpdx7qn/cssonlyphotosets.css" rel="stylesheet">
 <link href="https://static.tumblr.com/p0knose/GQToiq7ub/outicons.css" rel="stylesheet"/>
@@ -63,6 +63,9 @@ ver. 1.1.0 [02072019]
 <meta name="if:hide tags" content="">
 <meta name="if:fading images" content="">
 <meta name="if:monochrome images" content="">
+
+<meta name="select:title style" content="lgt" title="light">
+<meta name="select:title style" content="bld" title="bold">
 
 <meta name="select:font size" content="16px" title="16px">
 <meta name="select:font size" content="15px" title="15px">
@@ -627,7 +630,7 @@ img.tumblr_avatar {
  
 .quote {
     padding:5px 0px;
-    font:300 28px/150% 'Yanone Kaffeesatz', sans-serif;
+    font:28px/150% 'Yanone Kaffeesatz', sans-serif;
     color:{color:Post Title};
     letter-spacing:0px;
     text-align:center;
@@ -642,7 +645,7 @@ img.tumblr_avatar {
     box-shadow:0 0 0 0 {color:posts}, inset 0 0 75px 75px {color:posts};
     padding:10px 20px;
     margin:1em 0;
-    font:300 22px 'Yanone Kaffeesatz',sans-serif;
+    font:22px 'Yanone Kaffeesatz',sans-serif;
 }
 
 .llc::before {font-size:24px; display:inline-block; margin-right:5px;}
@@ -656,8 +659,11 @@ img.tumblr_avatar {
 .tcontain > h1 {
     text-align:center;
     color:{color:Post Title};
-    font:300 24px 'Yanone Kaffeesatz',sans-serif;
+    font:24px 'Yanone Kaffeesatz',sans-serif;
 }
+
+.lgt .quote, .lgt .llc, .lgt .tcontain > h1 {font-weight:300;}
+.bld .quote, .bld .llc, .bld .tcontain > h1 {font-weight:700;}
  
 /* ------ ask posts ------- */
  
@@ -1006,10 +1012,13 @@ header > div {
 }
 
 header h1 {
-    font:200 32px/45px "Yanone Kaffeesatz",sans-serif;
+    font:32px/45px "Yanone Kaffeesatz",sans-serif;
     display:block;
     margin:5px 0 15px;
 }
+
+.lgt header h1 {font-weight:200;}
+.bld header h1 {font-weight:700;}
 
 header h1 a {
     color:{color:Post Title};
@@ -1385,7 +1394,7 @@ body {overflow-x:hidden;}
 </style>
  
 </head>
-<body>
+<body class="{select:title style}">
 
 <aside>
     <section id="top">
