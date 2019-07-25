@@ -591,20 +591,24 @@ img.singlepic {
     {block:ifroundedposts}border-radius:20px;{/block:ifroundedposts}
 }
 
-.llp span.wrap {display:block;}
+.llp span.wrap {
+    display:block; 
+    position:relative;
+    padding-left:35px; 
+}
 
 .llp span.wrap.h {
     font:normal 400 12px/20px "Noto Sans KR",sans-serif;
-    padding-left:35px;
 }
 
 .llp .ftr {
     width:18px;
     height:18px;
-    margin-right:12px;
+    left:0;
+    top:6px;
     display:inline-block;
     vertical-align:middle;
-    margin-top:-3px;
+    position:absolute;
 }
 
 .llp:hover {
@@ -1506,6 +1510,11 @@ $(document).ready(function(){
         name = "{Name}";
     dokkaebi(accent);
     $(".permasource .or").text(name);
+    $('a[href*="t.umblr.com/redirect"]').initialize(function(){
+        let orgURL = $(this).attr("href").split("?z=")[1].split("&t=")[0];
+        let replaceURL = decodeURIComponent(orgURL);
+        $(this).attr("href", replaceURL);
+    });
     {block:iffeaturedpoststag}
     var tag = "{text:featured posts tag}";
     highlight(name,tag);
