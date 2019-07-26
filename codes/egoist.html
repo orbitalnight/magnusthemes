@@ -3,10 +3,10 @@
  
 <!--
 Theme - Egoist
-coded by aeroelastical/magnusthemes
+coded by choihangyuls/magnusthemes
 in conjunction with #noJSChallenge
  
-ver. 1.1.1 [08072019]
+ver. 1.1.2 [26072019]
 -->
  
 <head>
@@ -59,6 +59,7 @@ ver. 1.1.1 [08072019]
  
 <meta name="if:custom text selection" content="1">
 <meta name="if:light theme" content="1">
+<meta name="if:center theme" content="">
 <meta name="if:hide captions" content="">
 <meta name="if:hide tags" content="">
 <meta name="if:fading images" content="">
@@ -312,6 +313,7 @@ big {
 #postmargin {
     position:relative;
     padding:0 60px;
+    {block:ifnotcentertheme}
     margin:-60px 0 0 60px;
     {block:IndexPage}
     width:calc({select:post size}px*1.5 + 50px);
@@ -321,12 +323,33 @@ big {
     width:{select:permalink post size}px;
     {/block:PermalinkPage}
     border-right:1px solid {color:Post Borders};
+    {/block:ifnotcentertheme}
+    {block:ifcentertheme}
+    margin:-60px 0 0;
+    width:100%;
+    box-sizing:border-box;
+    {/block:ifcentertheme}
     top:50vh;
     -webkit-animation:fadein 1s;
     animation:fadein 1s;
 }
  
-.posts {margin:60px 0px 0px;}
+.posts {
+	{block:ifnotcentertheme}
+	margin:60px 0px 0px;
+	{/block:ifnotcentertheme}
+	{block:ifcentertheme}
+    margin:60px auto 0;
+    padding-top:60px;
+    {block:IndexPage}
+    width:calc({select:post size}px*1.5 + 50px);
+    min-width:calc({select:post size}px + 300px + 50px);
+    {/block:IndexPage}
+    {block:PermalinkPage}
+    width:{select:permalink post size}px;
+    {/block:PermalinkPage}
+	{/block:ifcentertheme}
+}
 
 .posts::before {
     content:"";
@@ -336,11 +359,17 @@ big {
     padding:0 60px;
     margin:0 -60px 60px;
     background:{color:post borders};
+	{block:ifcentertheme}
+	margin-top:-60px;
+	position:absolute;
+	left:0;
+	{/block:ifcentertheme}
 }
 
 .posts:last-of-type {
-    min-height:calc(50vh - 60px); 
     padding-bottom:60px;
+	box-sizing:border-box;
+    min-height:50vh; 
 }
 
 /* ------ captions ------ */
@@ -999,15 +1028,20 @@ header {
 }
 
 header > div {
-    margin-left:60px;
+    padding:calc(25vh - 30px) 60px 30px 60px;
     {block:IndexPage}
-    width:calc({select:post size}px * 1.5 + 110px);
-    min-width:calc({select:post size}px + 300px + 110px);
+    width:calc({select:post size}px * 1.5 + 50px);
+    min-width:calc({select:post size}px + 300px + 50px);
     {/block:IndexPage}
     {block:PermalinkPage}
-    width:calc({select:permalink post size}px + 60px);
+    width:{select:permalink post size}px;
     {/block:PermalinkPage}
-    padding:calc(25vh - 30px) 0px 30px 60px;
+	{block:ifnotcentertheme}
+    margin-left:60px;
+	{/block:ifnotcentertheme}
+	{block:ifcentertheme}
+    margin:0 auto;
+	{/block:ifcentertheme}
     height:25vh;
 }
 
