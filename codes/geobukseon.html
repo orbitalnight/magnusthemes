@@ -286,8 +286,9 @@ b, bold, strong {color:{color:bold}; font-weight:bold;}
  
 pre, code {
     font-family:consolas,monospace;
-    background:{color:Captions};
-    padding:15px;
+    background:{color:Audio and Asks};
+    {block:ifroundedposts}border-radius:20px;{/block:ifroundedposts}
+    padding:10px 20px;
     display:block;
     font-size:12px;
 }
@@ -297,7 +298,8 @@ pre, code {
 hr {
     border:0px solid transparent;
     border-bottom:1px solid {color:post dividers};
-    margin:1em 0;
+    margin:1em -20px;
+    padding:0 20px;
     height:0px;
     width:100%;
 }
@@ -314,9 +316,9 @@ ol li::before {
     position:absolute;
     margin-left:-8px;
     color:{color:Accent 1};
-	-webkit-transform:translateX(-100%);
-	-ms-transform:translateX(-100%);
-	transform:translateX(-100%);
+    -webkit-transform:translateX(-100%);
+    -ms-transform:translateX(-100%);
+    transform:translateX(-100%);
 }
 
 ul li::before {
