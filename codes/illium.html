@@ -12,7 +12,7 @@ Icon cheatsheet: https://fontawesome.com/icons?d=gallery
 ------>
  
 <!-- fonts --> 
-<link href='https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i|Lato:400,400i,700,700i|Share:700' rel='stylesheet'/>
+<link href='https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i|Lato:400,400i,700,700i,900,900i' rel='stylesheet'/>
 
 <link href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" rel="stylesheet">
 
@@ -311,7 +311,7 @@ ol li::before {
     position:absolute;
     margin-left:-10px;
     color:{color:Accent};
-    font:italic bold 120%/135% 'Share', sans-serif;
+    font:normal 900 120%/135% 'Lato', sans-serif;
 	-webkit-transform:translateX(-100%);
 	-ms-transform:translateX(-100%);
 	transform:translateX(-100%);
@@ -793,7 +793,7 @@ img.singlepic {display:block; border-radius:0px;}
 
 .permalink span.p {
     color:{color:Bold};
-    font:bold 12px/120% "Share";
+    font:900 12px/120% "Lato";
     text-transform:uppercase;
 }
 
@@ -1190,12 +1190,12 @@ ol.notes li.note blockquote a {text-decoration:none;}
 #help {width:130px; overflow:hidden;}
 
 #title {
-    font:bold 12px "Share";
+    font:900 13px "Lato";
     text-align:right;
     float:right;
     position:relative;
     color:{color:Blog Title};
-    text-transform:uppercase;
+    text-transform:lowercase;
     margin-top:10px;
     letter-spacing:0;
 }
@@ -1351,7 +1351,12 @@ ol.notes li.note blockquote a {text-decoration:none;}
     100% {transform:rotateX(-380deg) rotateY(380deg);}
 }
 
-.bn {text-transform:uppercase; font:bold 11px "Lato"; color:{color:Blog Title}; letter-spacing:3px;}
+.bn {
+	text-transform:lowercase; 
+    font:900 14px "Lato"; 
+    color:{color:Blog Title}; 
+    letter-spacing:0px;
+}
 
 .hp {
     padding:0 3px;
