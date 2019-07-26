@@ -465,6 +465,21 @@ span.reblog_user::after {
     color:{color:Accent 1};
     margin-right:10px;
 }
+	
+.tmblr-attribution a {
+	{block:ifroundedposts}border-radius:20px;{/block:ifroundedposts}
+	background:{color:Audio and Asks};
+	color:{color:Post Title};
+    display:block;
+    border:0;
+    padding:10px 20px;
+    font-weight: 00;
+}
+	
+.tmblr-attribution a:hover {
+	background:rgba({RGBcolor:Accent 2},0.15);
+	color:{color:Accent 2};
+}
 
 .text p.rm {
     background-image:linear-gradient(to bottom, rgba({RGBcolor:Posts},0), {color:Posts});
@@ -508,6 +523,7 @@ p.rm {
 
 .text img:not(.tumblr_avatar) {
     display:block;
+	{block:ifroundedposts}border-radius:20px;{/block:ifroundedposts}
 }
 	
 .posts .text img:not(.tumblr_avatar){
