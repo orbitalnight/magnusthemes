@@ -439,17 +439,16 @@ footer {
 .tumblr_parent > div:not(.reblog_head) *:last-child {margin-bottom:0;}
 
 .reblog_user, 
-.reblog_head a,
-.reblog_head::after {
+.reblog_head a {
     border-bottom:none;
     display:inline-block;
     vertical-align:middle;
     text-transform:lowercase;
     border-bottom:0px solid transparent;
     font:500 13px/16px "Noto Sans KR";
+    color:{color:Post Title};
 }
 
-.reblog_user, .reblog_head a {color:{color:Post Title};}
 a.reblog_user:hover, .reblog_head a:hover {color:{color:Links Hover};}
 
 span.reblog_user::after {
@@ -656,7 +655,6 @@ img.tumblr_avatar {
     display:inline-block;
 }
 
-.question .reblog_head::after {content:" inquired";}
 .question .reblog_head {margin-top:0; margin-bottom:1em;}
 
 /* audio posts */
