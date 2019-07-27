@@ -6,7 +6,7 @@
 <!------
 Theme - Turtleship
 Code by choihangyuls/magnusthemes
-ver. 1.1.0 (25/07/2019)
+ver. 1.1.1 (27/07/2019)
 
 Icon cheatsheet: https://feathericons.com
 ------>
@@ -80,6 +80,7 @@ Icon cheatsheet: https://feathericons.com
 <!-- booleans -->
 
 <meta name="if:rounded posts" content=""/>
+<meta name="if:light font" content=""/>
 <meta name="if:custom text selection" content="1"/>
 <meta name="if:light theme" content="1" />
 <meta name="if:hide tags" content=""/>
@@ -268,6 +269,7 @@ body {
     color:{color:text};
     letter-spacing:0.2px;
     font:400 13px/170% 'Noto Sans KR', sans-serif;
+    {block:iflightfont}font-weight:300;{/block:iflightfont}
     text-align:justify;
     -webkit-font-smoothing:antialiased;
     -moz-osx-font-smoothing:grayscale;
