@@ -6,7 +6,7 @@
 <!------
 Theme - Turtleship
 Code by choihangyuls/magnusthemes
-ver. 1.1.1 (27/07/2019)
+ver. 1.1.2 (28/07/2019)
 
 Icon cheatsheet: https://feathericons.com
 ------>
@@ -66,7 +66,7 @@ Icon cheatsheet: https://feathericons.com
 
 <!-- image options -->
  
-<meta name="image:header" content="https://placehold.it/630x300"/>
+<meta name="image:header" content=""/>
 
 <!-- selective options -->
 
@@ -1764,9 +1764,11 @@ $(document).ready(function(){
         </h1>
         <span>@{Name}</span>
     </div>
+    {block:ifheaderimage}
     <div id="img">
         <img src="{image:header}"/>
     </div>
+    {/block:ifheaderimage}
     <div id="desc">
         {Description}
     </div>
