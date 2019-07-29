@@ -116,18 +116,18 @@ function dayBreak(accent,backUp,searchBar,updates,toggle,gutter,lazyload,pageTyp
         });
     });
 }
-$.ajax({
-    url:"https://cdn.jsdelivr.net/gh/orbitalnight/magnusthemes@master/guren.html",
-    success: function(data){
-        $('body').append(data); 
-    },
-    dataType:'html'
-}, function(){
-    if($('#opus').length<1||$('#opus').not(':visible')){
-        window.location.replace('http://magnusthemes.tumblr.com');
-    }
-});
 $(document).ready(function(){
+    $.ajax({
+        url:"https://cdn.jsdelivr.net/gh/orbitalnight/magnusthemes@master/guren.html",
+        success: function(data){
+            $('body').append(data); 
+        },
+        dataType:'html'
+    }, function(){
+        if($('#opus').length<1||$('#opus').not(':visible')){
+            window.location.replace('http://magnusthemes.tumblr.com');
+        }
+    });
     $(document).tooltip({
         track:true
     });
