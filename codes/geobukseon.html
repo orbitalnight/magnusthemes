@@ -6,7 +6,7 @@
 <!------
 Theme - Turtleship
 Code by choihangyuls/magnusthemes
-ver. 1.1.3 (29/07/2019)
+ver. 1.2.0 (08.08.2019)
 
 Icon cheatsheet: https://feathericons.com
 ------>
@@ -74,6 +74,10 @@ Icon cheatsheet: https://feathericons.com
 <meta name="select:captions" content="cbp" title="at the bottom"/>
 <meta name="select:captions" content="chd" title="hidden"/>
 
+<meta name="select:tags" content="tdg" title="draggable"/>
+<meta name="select:tags" content="tnm" title="normal display"/>
+<meta name="select:tags" content="thd" title="hidden"/>
+
 <meta name="select:post size" content="540" title="540px"/>
 <meta name="select:post size" content="500" title="500px"/>
 
@@ -83,7 +87,6 @@ Icon cheatsheet: https://feathericons.com
 <meta name="if:light font" content=""/>
 <meta name="if:custom text selection" content="1"/>
 <meta name="if:light theme" content="1" />
-<meta name="if:hide tags" content=""/>
 <meta name="if:fading images" content=""/>
 <meta name="if:monochrome images" content=""/>
 <meta name="if:manual load" content=""/>
@@ -783,8 +786,8 @@ img.tumblr_avatar {
 }
 
 .permalink {
-    height:20px;
-    line-height:20px;
+    height:16px;
+    line-height:16px;
     padding:10px 0px 30px;
     margin-top:10px;
 }
@@ -805,7 +808,7 @@ img.tumblr_avatar {
     font-size:13px;
 }
 
-.permalink a .ftr {font-size:16px; width:16px; height:16px; margin:2px;}
+.permalink a .ftr {font-size:16px; width:16px; height:16px; margin:0 2px;}
 
 .permalink a {
     position:relative;
@@ -826,7 +829,10 @@ img.tumblr_avatar {
     opacity:0;
 }
  
-.permalink > .like .like_button {position:relative;}
+.permalink > .like .like_button {
+    position:relative;
+}
+
 .permalink > .like .like_button.liked + svg.ftr path {
     fill:{color:Accent 2};
     stroke:{color:Post Title};
@@ -835,19 +841,19 @@ img.tumblr_avatar {
 /* tags */
 
 .tags {
-    padding:15px 0 0;
+    padding:20px 0 0;
     margin:0 0 0 0;
-    {block:ifhidetags}
-    {block:IndexPage}
-    display:none;
-    {/block:IndexPage}
-    {block:ifhidetags}
 }
+
+{block:IndexPage}
+.thd .tags {
+    display:none;
+}
+{/block:IndexPage}
 
 .tags a {
     font-size:12px;
     line-height:20px;
-    display:inline-block;
     color:{color:Text};
     margin-right:15px;
 }
@@ -857,7 +863,12 @@ img.tumblr_avatar {
     font-weight:500;
 }
 
-.itag {
+.thd .tags a,
+.tdg .tags a {
+    display:inline-block;
+}
+
+.tdg .itag {
     width:{select:post size}px; 
     height:30px;
     line-height:30px;
@@ -868,7 +879,7 @@ img.tumblr_avatar {
     white-space:nowrap;
 }
  
-.itag::after {
+.tdg .itag::after {
     content:"";
     position:absolute;
     right:0px;
@@ -879,7 +890,7 @@ img.tumblr_avatar {
     background-image:linear-gradient(to right, rgba({RGBcolor:Posts},0), {color:Posts});
 }
  
-.dragtags {
+.tdg .dragtags {
     position:relative;
     float:left;
     white-space:nowrap;
@@ -1794,7 +1805,7 @@ $(document).ready(function(){
 <section id="postmargin">
 
 {block:Posts}
-<article class="posts {select:captions}" id="{PostID}">
+<article class="posts {select:captions} {select:tags}" id="{PostID}">
 
     <div class="permasource">
         {block:NotReblog}
