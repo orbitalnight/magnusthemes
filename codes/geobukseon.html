@@ -94,6 +94,7 @@ Icon cheatsheet: https://feathericons.com
 <meta name="if:popup menu" content=""/>
 <meta name="if:social menu" content=""/>
 <meta name="if:stats box" content=""/>
+<meta name="if:info area" content=""/>
 <meta name="if:feature tags" content=""/>
 <meta name="if:members box" content=""/>
 <meta name="if:updates box" content=""/>
@@ -104,6 +105,13 @@ Icon cheatsheet: https://feathericons.com
 <meta name="text:main tag one" content=""/>
 <meta name="text:main tag two" content=""/>
 <meta name="text:main tag three" content=""/>
+
+<meta name="text:info 1 icon" content="map-pin"/>
+<meta name="text:info 1 text" content=""/>
+<meta name="text:info 2 icon" content="map-pin"/>
+<meta name="text:info 2 text" content=""/>
+<meta name="text:info 3 icon" content="map-pin"/>
+<meta name="text:info 3 text" content=""/>
 
 <meta name="text:member box title" content="Members"/>
 <meta name="text:updates box title" content="Upcoming"/>
@@ -198,7 +206,7 @@ Icon cheatsheet: https://feathericons.com
     color:{color:tooltips};
     text-transform:uppercase;
     letter-spacing:0.5px;
-    border-radius:14px;
+    border-radius:3px;
 }
 
 /* tumblr controls */
@@ -1056,6 +1064,41 @@ header {
     text-align:justify;
 }
 
+ul.inf {
+    padding:0px;
+    margin:-10px 10px 10px;
+}
+
+ul.inf li {
+    display:inline-block;
+    padding:0;
+    margin:10px;
+}
+
+ul.inf li::before {
+    content:;
+    display:none;
+}
+
+ul.inf li .ftr {
+    display:inline-block;
+    vertical-align:middle;
+    width:16px;
+    height:16px;
+    margin-right:5px;
+    color:{color:Text};
+}
+
+ul.inf li .ift {
+    display:inline-block;
+    vertical-align:middle;
+    line-height:16px;
+    font-size:10px;
+    color:{color:Text};
+    text-transform:uppercase;
+    letter-spacing:1px;
+}
+
 nav#main {
     margin-bottom:-1px;
     border-bottom:1px solid {color:Post Dividers};
@@ -1157,7 +1200,7 @@ aside#left {
 
 nav.social {
     height:20px;
-    margin:-45px 0 0 -5px;
+    margin:-45px 0 0 -7.5px;
     position:absolute;
     z-index:99999;
 }
@@ -1195,19 +1238,22 @@ nav.side a {
     overflow:hidden;
     text-overflow:ellipsis;
     text-transform:capitalize;
-    margin:0 0 10px -10px;
-    padding:8px 10px;
     font-size:14px;
     font-weight:500;
     position:relative;
-    border-radius:20px;
     color:{color:Post Title};
     z-index:99999;
+    padding:8px 10px;
+    border-radius:20px;
+    margin:0 0 10px -10px;
 }
 
 nav.side a:hover {
     background:rgba({RGBcolor:Accent 1},0.3);
-    color:{color:Accent 1};
+}
+
+nav.side a:hover span.ln {
+    color:transparent;
 }
 
 nav.side a span,
@@ -1241,6 +1287,7 @@ nav.side a:hover img {border-color:{color:Accent 1};}
 
 nav.side a span.ln {
     position:relative;
+    transition:0.3s ease-in-out;
 }
 
 nav.side a span.ln::after {
@@ -1784,6 +1831,28 @@ $(document).ready(function(){
     <div id="desc">
         {Description}
     </div>
+    {block:ifinfoarea}
+    <ul class="inf">
+        {block:ifinfo1text}
+        <li>
+            <span class="ftr" data-feather="{text:info 1 icon}"></span>
+            <span class="ift">{text:info 1 text}</span>
+        </li>
+        {/block:ifinfo1text}
+        {block:ifinfo2text}
+        <li>
+            <span class="ftr" data-feather="{text:info 2 icon}"></span>
+            <span class="ift">{text:info 2 text}</span>
+        </li>
+        {/block:ifinfo2text}
+        {block:ifinfo3text}
+        <li>
+            <span class="ftr" data-feather="{text:info 3 icon}"></span>
+            <span class="ift">{text:info 3 text}</span>
+        </li>
+        {/block:ifinfo3text}
+    </ul>
+    {/block:ifinfoarea}
     <nav id="main">
         <a href="/" class="active">Blog</a>
         {block:AskEnabled}<a href="/ask">Inbox</a>{/block:AskEnabled}
