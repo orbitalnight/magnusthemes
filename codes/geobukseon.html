@@ -206,7 +206,7 @@ Icon cheatsheet: https://feathericons.com
     color:{color:tooltips};
     text-transform:uppercase;
     letter-spacing:0.5px;
-    border-radius:3px;
+    {block:ifroundedposts}border-radius:3px;{/block:ifroundedposts}
 }
 
 /* tumblr controls */
@@ -253,9 +253,9 @@ iframe#tumblr_controls,
 #tumblr_lightbox_right_image, 
 .lightbox-image {
     opacity:1!important;
-    box-shadow:0 0 0 transparent!important;
-    border-radius:20px!important;
     padding:0px!important;
+    box-shadow:0 0 0 transparent!important;
+    {block:ifroundedposts}border-radius:20px!important;{/block:ifroundedposts}
 }
  
 #tumblr_lightbox_caption, 
@@ -1153,7 +1153,7 @@ nav#main.is_stuck {
     width:100%;
     height:100px;
     object-fit:cover;
-    border-radius:10px;
+    {block:ifroundedposts}border-radius:10px;{/block:ifroundedposts}
     transition:0.3s ease-in-out;
     display:block;
 }
@@ -1243,8 +1243,8 @@ nav.side a {
     color:{color:Post Title};
     z-index:99999;
     padding:8px 10px;
-    border-radius:20px;
     margin:0 0 10px -10px;
+    {block:ifroundedposts}border-radius:20px;{/block:ifroundedposts}
 }
 
 nav.side a:hover {
@@ -1413,7 +1413,7 @@ aside#right form {
     height:20px;
     padding:10px;
     background:{color:Sidebar Boxes};
-    border-radius:20px;
+    {block:ifroundedposts}border-radius:20px;{/block:ifroundedposts}
     width:220px;
 }
    
@@ -1454,7 +1454,7 @@ aside#right form button:hover {cursor:pointer;}
 .box {
     margin-bottom:20px;
     overflow:hidden;
-    border-radius:20px;
+    {block:ifroundedposts}border-radius:20px;{/block:ifroundedposts}
     background:{color:Sidebar Boxes};
     color:{color:Sidebar Text};
 }
