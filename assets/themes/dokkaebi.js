@@ -109,6 +109,11 @@ function dokkaebi(accent){
         initPhotosets();
         $this.fitVids({customSelector:"iframe[src*='www.tumblr.com/video']"});
     });
+    $('a[href*="t.umblr.com/redirect"]').initialize(function(){
+        var originalURL = $(this).attr("href").split("?z=")[1].split("&t=")[0];
+        var replaceURL = decodeURIComponent(originalURL);
+        $(this).attr("href", replaceURL);
+    });
 }
 function highlight(name,tag){
     var readData, insert;
