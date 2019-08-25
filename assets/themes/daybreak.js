@@ -101,19 +101,6 @@ function dayBreak(accent,backUp,searchBar,updates,toggle,gutter,lazyload,pageTyp
             $(this).contents().find("head").append("<style type='text/css'> .audio-player {background:transparent !important;} .icon {color:"+accent+"!important;} .progress {display:none!important;}</style>");
         });
         initPhotosets();
-        var permalink;
-        $this.find('a.tumblr_blog[href="/"]').initialize(function(){
-            var $i = $(this);
-            switch(pageType){
-                case 'IndexPage':
-                    permalink = $i.parents(".posts").find("a.ion").attr("href");
-                    break;
-                case 'PermalinkPage':
-                    permalink = window.location.href;
-                    break;
-            }
-            $i.attr("href", permalink);
-        });
     });
 }
 $(document).ready(function(){
