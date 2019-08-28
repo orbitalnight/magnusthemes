@@ -402,7 +402,11 @@ p.rm {
 
 /* photo & video posts */
 
-[photoset-layout] {grid-gap:{select:gutter}px;}
+[photoset-layout] {
+    grid-gap:{select:gutter}px;
+    grid-template-columns:repeat(6,auto);
+}
+
 [photoset-layout] div {cursor:pointer;}
 
 .photo, .video {
