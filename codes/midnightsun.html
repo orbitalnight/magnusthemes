@@ -3,14 +3,14 @@
  
 <!--
 Theme - Midnight Sun
-code by aeroelastical/magnusthemes
+code by choihangyuls/magnusthemes
  
-ver. 3.2.0 (01.06.2019)
+ver. 3.2.1 (09.09.2019)
 -->
  
 <head>
 
-<link href='https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,300,300italic,400italic,700,700italic|Muli:300,400,600' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,300i,400,400i,600,600i,700,700i' rel='stylesheet'>
 <link href="https://static.tumblr.com/p0knose/yKlp5mq5l/normalize.css" rel="stylesheet">
 <link href="https://static.tumblr.com/qudkd6d/OcDnl99gb/style.css" rel="stylesheet">
 <link href="https://static.tumblr.com/p0knose/Omep7ai4p/londonmidland.css" rel="stylesheet">
@@ -45,7 +45,6 @@ ver. 3.2.0 (01.06.2019)
 <meta name="color:permalink buttons" content="#cccccc">
 <meta name="color:chat even" content="#cccccc">
 <meta name="color:chat odd" content="#aaaaaa">
-<meta name="color:borders" content="#cccccc">
 <meta name="color:post title" content="#888888">
 <meta name="color:post borders" content="#eeeeee">
  
@@ -118,12 +117,26 @@ ver. 3.2.0 (01.06.2019)
 }
  
 {block:ifcustomtextselection}
-::selection {color:{color:text selection}; background:{color:text selection background};}
-::-moz-selection {color:{color:text selection}; background:{color:text selection background};}
-::-webkit-selection {color:{color:text selection}; background:{color:text selection background};}
+::selection {
+    color:{color:text selection}; 
+    background:{color:text selection background};
+}
+
+::-moz-selection {
+    color:{color:text selection}; 
+    background:{color:text selection background};
+}
+
+::-webkit-selection {
+    color:{color:text selection}; 
+    background:{color:text selection background};
+}
 {/block:ifcustomtextselection}
  
-.ui-tooltip {position:absolute; z-index:214748364789;}
+.ui-tooltip {
+    position:absolute;
+    z-index:214748364789;
+}
  
 .ui-tooltip-content {
     margin:5px 25px;
@@ -155,9 +168,13 @@ iframe#tumblr_controls, .iframe-controls--desktop {
     transition:0.3s ease-in-out;
 }
  
-iframe#tumblr_controls:hover, .iframe-controls--desktop:hover {opacity: 0.6;}
+iframe#tumblr_controls:hover, 
+.iframe-controls--desktop:hover {
+    opacity:0.6;
+}
  
-#tumblr_lightbox, .tmblr-lightbox {
+#tumblr_lightbox, 
+.tmblr-lightbox {
     background-color:rgba({RGBcolor:background},0.9)!important;
     z-index:214748364789!important;
 }
@@ -165,7 +182,10 @@ iframe#tumblr_controls:hover, .iframe-controls--desktop:hover {opacity: 0.6;}
 #tumblr_lightbox img, .tmblr-lightbox img {opacity:0;}
 #vignette, .vignette {opacity:0!important;}
  
-#tumblr_lightbox_center_image, #tumblr_lightbox_left_image, #tumblr_lightbox_right_image, .lightbox-image {
+#tumblr_lightbox_center_image, 
+#tumblr_lightbox_left_image,
+#tumblr_lightbox_right_image, 
+.lightbox-image {
     box-shadow:3px 3px 0px rgba({RGBcolor:shadows},0.1)!important;
     border:1px solid {color:post borders}!important;
     background:{color:posts}!important;
@@ -174,7 +194,8 @@ iframe#tumblr_controls:hover, .iframe-controls--desktop:hover {opacity: 0.6;}
     opacity:1!important;
 }
  
-#tumblr_lightbox_caption, .lightbox-caption {
+#tumblr_lightbox_caption,
+.lightbox-caption {
     color:{color:text}!important;
     font:normal 16px 'IBM Plex Sans', sans-serif!important;
     text-shadow:0 0 0 transparent!important;
@@ -185,10 +206,17 @@ iframe#tumblr_controls:hover, .iframe-controls--desktop:hover {opacity: 0.6;}
  
 /* ------ basic styles ------ */
  
-html, body {height:100%; margin:0; padding:0; width:100%;}
+html, body {
+    height:100%; 
+    margin:0;
+    padding:0; 
+    width:100%;
+}
  
 body {
-    {block:ifbackgroundimage}background-image:url('{image:background}');{/block:ifbackgroundimage}
+    {block:ifbackgroundimage}
+    background-image:url('{image:background}');
+    {/block:ifbackgroundimage}
     word-wrap:break-word;
     overflow:auto;
     background-attachment:fixed;
@@ -207,17 +235,40 @@ a {
     transition:0.3s ease-in-out;
 }
  
-a:hover {color:{color:links hover};}
-i, italic, em {color:{color:italic}; font-style:italic;}
-b, bold, strong {color:{color:bold}; font-weight:700;}
+a:hover {
+    color:{color:links hover};
+}
+
+i, italic, em {
+    color:{color:italic};
+    font-style:italic;
+}
+
+b, bold, strong {
+    color:{color:bold};
+    font-weight:700;
+}
+
 img {border:none;}
 
 h1, h2, h3 {
-	color:{color:Bold};
-    font:normal 12px 'Muli', sans-serif;
+	color:{color:Post Title};
+	font-size:14px;
 }
 
-blockquote img {max-width:100%!important; height:auto!important;}
+small,sub,sup {
+    font-size:11px;
+    line-height:170%;
+}
+
+big {
+    font-size:14px;
+}
+
+blockquote img {
+    max-width:100%!important;
+    height:auto!important;
+}
  
 blockquote {
     margin:10px;
@@ -246,19 +297,28 @@ hr {
     margin:1em -10px;
 }
 
-u,underline {text-decoration:none; border-bottom:1px solid {color:Accent};}
+u,underline {
+    text-decoration:none; 
+    border-bottom:1px solid {color:Accent};
+}
  
 ol {counter-reset:ordered;}
 ol, ul {padding:0px 0px 0px 20px;}
-ol li, ul li {list-style:none; margin-left:0px; display:block; position:relative;}
+
+ol li, ul li {
+    list-style:none; 
+    margin-left:0px; 
+    display:block;
+    position:relative;
+}
  
 ol:not(.notes) li::before {
     content:counter(ordered, decimal-leading-zero);
     counter-increment:ordered;
     position:absolute;
     margin-left:-5px;
-    color:{color:Borders};
-    font:normal 12px/170% 'Muli', sans-serif;
+    color:{color:Accent Alt};
+    font:normal 8px/275% 'londonmidlandregular', sans-serif;
     -webkit-transform:translateX(-100%);
     -ms-transform:translateX(-100%);
     transform:translateX(-100%);
@@ -271,7 +331,7 @@ ul li::before {
     height:3px;
     width:3px;
     margin-top:8px;
-    background:{color:borders};
+    background:{color:Accent Change};
     margin-left:-7px;
     -webkit-transform:translateX(-100%);
     -ms-transform:translateX(-100%);
@@ -284,7 +344,12 @@ ul li::before {
     padding-left:450px;
     padding-right:150px;
     margin:90px auto 0px;
-    {block:IndexPage}width:calc({select:post size}px + 10px);{/block:IndexPage}{block:PermalinkPage}width:calc({select:permalink post size}px + 10px);{/block:PermalinkPage}
+    {block:IndexPage}
+    width:calc({select:post size}px + 10px);
+    {/block:IndexPage}
+    {block:PermalinkPage}
+    width:calc({select:permalink post size}px + 10px);
+    {/block:PermalinkPage}
 }
  
 .posts {
@@ -301,9 +366,14 @@ ul li::before {
 
 /* ------ photo/video posts ------ */
 
-#bp:hover {border-color:{color:Accent};}
+#bp:hover {
+    border-color:{color:Accent};
+}
  
-.posts img, .posts iframe {max-width:100%;}
+.posts img, 
+.posts iframe {
+    max-width:100%;
+}
  
 .photo {
     transition:0.5s ease-in-out;
@@ -318,18 +388,28 @@ ul li::before {
     {/block:indexpage}{/block:ifmonochromeimages}
 }
  
-{block:iffadingimages}{block:indexpage}
+{block:iffadingimages}
+{block:indexpage}
 .photo {opacity:0.7;}
 .posts:hover .photo {opacity:1;}
-{/block:indexpage}{/block:iffadingimages}
+{/block:indexpage}
+{/block:iffadingimages}
  
 .photo img {display:block;}
 .video {text-align:center;}
-.tumblr_video_container {width:auto!important; height:auto!important;}
+
+.tumblr_video_container {
+    width:auto!important; 
+    height:auto!important;
+}
 
 /* ------ captions ------ */
  
-.container,.tcontain {padding:5px; position:relative;}
+.container,.tcontain {
+    padding:5px; 
+    position:relative;
+}
+
 .text {padding:5px 10px;}
 .esp {margin:0 -5px -5px;}
 .pcontain {position:relative;}
@@ -358,9 +438,16 @@ ul li::before {
 {/block:ifhovercaptions}{/block:ifshowcaptions}
 {/block:IndexPage}
  
-.text *:not(.reblog_head) a, .just a {border-bottom:1px solid {color:post borders}; position:relative;}
+.text a, 
+.just a {
+    border-bottom:1px solid {color:post borders};
+    position:relative;
+}
  
-.text *:not(.reblog_head) a::before, .text *:not(.reblog_head) a::after, .just a::before, .just a::after {
+.text a::before,
+.text a::after, 
+.just a::before,
+.just a::after {
     content:"";
     background:{color:links hover};
     height:1px;
@@ -370,9 +457,24 @@ ul li::before {
     transition:0.3s ease-in-out;
 }
  
+.reblog_head a {
+    border-bottom:0px solid transparent;
+} 
+
+.reblog_head a::before, 
+.reblog_head a::after {
+    display:None;
+}
+ 
 .text a::before, .just a::before {left:0px;}
 .text a::after, .just a::after {right:0px;}
-.text a:hover::before, .just a:hover::before, .text a:hover::after, .just a:hover::after {width:50%;}
+
+.text a:hover::before, 
+.just a:hover::before, 
+.text a:hover::after, 
+.just a:hover::after {
+    width:50%;
+}
 
 .text figure {text-align:center;}
 .text figure img {margin:0 auto;}
@@ -386,7 +488,10 @@ ul li::before {
     border-radius:3px!important;
 }
  
-.tmblr-attribution a::after {content:"›"; float:right;}
+.tmblr-attribution a::after {
+    content:"›"; 
+    float:right;
+}
  
 .tumblr_parent {
     width:100%;
@@ -396,10 +501,18 @@ ul li::before {
     padding:5px 15px;
 }
  
-.tumblr_parent:first-child {padding-top:0px;}
-.tumblr_parent:last-of-type {border-bottom:0px solid transparent; padding-bottom:0px;}
+.tumblr_parent:first-child {
+    padding-top:0px;
+}
+
+.tumblr_parent:last-of-type {
+    border-bottom:0px solid transparent;
+    padding-bottom:0px;
+}
  
-a.reblog_user, span.reblog_user, .reblog_head a {
+a.reblog_user, 
+span.reblog_user, 
+.reblog_head a {
     background:transparent;
     letter-spacing:0px;
     display:inline-block;
@@ -408,7 +521,6 @@ a.reblog_user, span.reblog_user, .reblog_head a {
     font-weight:600;
     line-height:16px;
     margin-bottom:3px;
-    font-family:"Muli";
 }
  
 span.reblog_user::after {
@@ -420,7 +532,11 @@ span.reblog_user::after {
  
 span.reblog_user:hover::after {opacity:0.7;}
  
-a.reblog_user:hover, .reblog_head a:hover {background:transparent; box-shadow:0 0 0 transparent;}
+a.reblog_user:hover, 
+.reblog_head a:hover {
+    background:transparent;
+    box-shadow:0 0 0 transparent;
+}
  
 img.tumblr_avatar {
     vertical-align:middle;
@@ -436,8 +552,8 @@ img.tumblr_avatar {
  
 .quote {
     padding:5px 0px;
-    font:300 16px/150% 'Muli', sans-serif;
-    letter-spacing:0px;
+    font-weight:300;
+    font-size:18px;
     text-align:center;
 }
  
@@ -449,7 +565,9 @@ img.tumblr_avatar {
  
 .link {
     padding:5px 10px;
-    font:300 15px/150% 'Muli', sans-serif;
+    font-weight:300;
+    line-height:150%;
+    font-size:16px;
     color:{color:post title};
     border-bottom:1px solid {color:post borders};
     text-align:center;
@@ -457,20 +575,31 @@ img.tumblr_avatar {
     position:relative;
 }
  
-.jrc, .linkz, .linkz::before {transition:0.6s ease;}
-.linkz:hover .jrc {color:{color:links hover}; letter-spacing:2px;}
+.jrc, 
+.linkz, 
+.linkz::before {
+    transition:0.6s ease;
+}
+
+.linkz:hover .jrc {
+    color:{color:links hover};
+    letter-spacing:2px;
+}
  
 .linkz::before {
     position:absolute;
     content:"";
     bottom:-1px;
     left:50%;
-    background:{color:borders};
+    background:{color:Links Hover};
     width:0px;
     height:1px;
 }
  
-.linkz:hover::before {width:100%; left:0;}
+.linkz:hover::before {
+    width:100%; 
+    left:0;
+}
  
 /* ------ ask posts ------- */
  
@@ -516,8 +645,12 @@ img.tumblr_avatar {
     min-height:30px;
     margin-top:0px;
     background:{color:permalinks and asks};
-    {block:IndexPage}width:calc({select:post size}px - 95px);{/block:IndexPage}
-    {block:PermalinkPage}width:calc({select:permalink post size}px - 95px);{/block:PermalinkPage}
+    {block:IndexPage}
+    width:calc({select:post size}px - 95px);
+    {/block:IndexPage}
+    {block:PermalinkPage}
+    width:calc({select:permalink post size}px - 95px);
+    {/block:PermalinkPage}
     border:1px solid {color:post borders};
     margin-left:64px;
 }
@@ -662,22 +795,35 @@ img.tumblr_avatar {
     word-break:normal;
 }
  
-.dragtags > a {border-bottom:1px solid transparent;}
-.dragtags > a:hover {border-bottom:1px solid {color:Accent};}
+.dragtags > a {
+    border-bottom:1px solid transparent;
+}
+
+.dragtags > a:hover {
+    border-bottom:1px solid {color:Accent};
+}
  
 .permabar, .indextags {
     display:block;
     background:{color:permalinks and asks};
     border-bottom:1px solid {color:post borders};
     border-top:1px solid {color:post borders};
-    font:normal 10px/12px 'Muli', sans-serif;
+    font-size:10px;
+    line-height:12px;
     color:{color:permalink text};
 	-webkit-font-smoothing:antialiased;
 	-moz-osx-font-smoothing:grayscale;
 }
 
-.permabar a {font:8px "londonmidlandregular",consolas,sans-serif;}
-.perma {display:inline-block; position:relative; overflow:hidden;}
+.permabar a {
+    font:8px "londonmidlandregular",consolas,sans-serif;
+}
+
+.perma {
+    display:inline-block;
+    position:relative; 
+    overflow:hidden;
+}
  
 .perma::after {
     content:"";
@@ -690,7 +836,10 @@ img.tumblr_avatar {
     transition:0.3s ease-in-out;
 }
  
-.perma:hover::after {transform:translate3d(100%, 0, 0); background:{color:Links};}
+.perma:hover::after {
+    transform:translate3d(100%, 0, 0);
+    background:{color:Links};
+}
  
 .perma::before {
     content:attr(data-hover);
@@ -702,13 +851,34 @@ img.tumblr_avatar {
     transition:0.3s ease-in-out 0.3s;
 }
  
-.perma:hover::before {width:100%;}
+.perma:hover::before {
+    width:100%;
+}
  
-.indextags {margin:4px -4px -5px -4px; text-align:center;}
-.permabar {margin:-5px -4px 4px -4px; padding:9px 10px; height:10px;}
-.permabar a {color:{color:Accent Text};}
-.indextags a {color:{color:permalink text};}
-.permabar a:hover, .indextags a:hover {color:{color:Accent};}
+.indextags {
+    margin:4px -4px -5px -4px; 
+    text-align:center;
+}
+
+.permabar {
+    margin:-5px -4px 4px -4px; 
+    padding:9px 10px; 
+    height:10px;
+}
+
+.permabar,
+.permabar a {
+    color:{color:Accent Text};
+}
+
+.indextags a {
+    color:{color:permalink text};
+}
+
+.permabar a:hover, 
+.indextags a:hover {
+    color:{color:Accent};
+}
 
 .windows .permabuttons {float:right;}
 .mac .permabuttons {float:left;}
@@ -760,8 +930,15 @@ img.tumblr_avatar {
 .mac .permabuttons .inner::before {content:"-";}
 .mac .permabuttons .min::before {content:"+";}
  
-.windows .permabuttons a:hover .inner {border-color:{color:accent};}
-.windows .permabuttons a:hover {color:{color:accent}; border-color:{color:accent}; background:{color:posts};}
+.windows .permabuttons a:hover .inner {
+    border-color:{color:accent};
+}
+
+.windows .permabuttons a:hover {
+    color:{color:accent}; 
+    border-color:{color:accent};
+    background:{color:posts};
+}
  
 /* ------ permalink page ------ */
 
@@ -774,7 +951,8 @@ img.tumblr_avatar {
     background:{color:Posts};
     box-shadow:2px 2px 0px rgba({RGBcolor:shadows},0.1);
     border:1px solid {color:post borders};
-    font:normal 11px/15px 'Muli';
+    font-size:11px;
+    line-height:15px;
     letter-spacing:0px;
     border-radius:3px;
 }
@@ -803,28 +981,54 @@ img.tumblr_avatar {
     font:normal 16px/30px "londonmidlandregular";
 }
  
-.mth, .time {display:block; line-height:15px;}
+.mth, 
+.time {
+    display:block;
+    line-height:15px;
+}
+
 .mth {margin-top:5px;}
 .time {margin-bottom:5px;}
  
-#permasource {margin:-15px 0 20px 0; padding:10px;}
-#permasource div {padding:3px 5px; line-height:16px;}
-#permasource div img {float:right; border-radius:3px;}
+#permasource {
+    margin:-15px 0 20px 0;
+    padding:10px;
+}
+
+#permasource div {
+    padding:3px 5px;
+    line-height:16px;
+}
+
+#permasource div img {
+    float:right; 
+    border-radius:3px;
+}
  
-#permatags {margin:-10px 0px 20px 0px; font:11px "IBM Plex Sans";}
+#permatags {
+    margin:-10px 0px 20px 0px; 
+    font:11px "IBM Plex Sans";
+}
  
 #permatags a {
     color:{color:Text};
-    box-shadow:2px 2px 0px rgba({RGBcolor:shadows},0.1);
     border:1px solid {color:post borders};
     background:linear-gradient(45deg, {color:Posts}, {color:Posts});
+    box-shadow:2px 2px 0px rgba({RGBcolor:shadows},0.1);
     display:inline-block;
     border-radius:3px;
     padding:5px;
     margin:3px;
 }
  
-#permatags a:hover {background:linear-gradient(45deg, {color:Accent Alt}, {color:Accent Change}); color:{color:Permalink Text};}
+#permatags a:hover {
+    background:linear-gradient(
+        45deg, 
+        {color:Accent Alt}, 
+        {color:Accent Change}
+    ); 
+    color:{color:Permalink Text};
+}
  
 /* ------ notes ------ */
  
@@ -835,7 +1039,7 @@ img.tumblr_avatar {
     padding:10px 15px;
     text-align:center;
     letter-spacing:0px;
-    font:14px "Muli";
+    font-size:14px;
     border-bottom:1px solid {color:post borders};
 }
  
@@ -885,7 +1089,8 @@ ol.notes::-webkit-scrollbar-track-piece {background:transparent; box-shadow:0 0 
  
 /* ------ sidebar ------ */
  
-.sidebar,.ava {
+.sidebar,
+.ava {
     padding:4px;
     margin-top:30px;
     border:1px solid {color:post borders};
@@ -894,10 +1099,18 @@ ol.notes::-webkit-scrollbar-track-piece {background:transparent; box-shadow:0 0 
     border-radius:3px;
 }
 
-.sidebar {width:170px;}
-.ava {width:80px;}
+.sidebar {
+    width:170px;
+}
 
-.side2 {display:block; width:80px;}
+.ava {
+    width:80px;
+}
+
+.side2 {
+    display:block;
+    width:80px;
+}
 
 #left > img {
     display:block;
@@ -905,17 +1118,38 @@ ol.notes::-webkit-scrollbar-track-piece {background:transparent; box-shadow:0 0 
     margin:30px auto -30px;
 }
  
-#left,#right,#portrait {top:60px; position:fixed;}
-#left {margin-left:-240px;}
-#right {margin-left:-450px;}
-
-#portrait {margin-left:calc({select:post size}px + 70px);}
-
-.sidetop,.permabar {
-    background:linear-gradient(45deg, {color:Accent Alt}, {color:Accent Change});
+#left,
+#right,
+#portrait {
+    top:60px;
+    position:fixed;
 }
 
-.mac .sidetop, .mac .permabar {text-align:center;}
+#left {
+    margin-left:-240px;
+}
+
+#right {
+    margin-left:-450px;
+}
+
+#portrait {
+    margin-left:calc({select:post size}px + 70px);
+}
+
+.sidetop,
+.permabar {
+    background:linear-gradient(
+        45deg, 
+        {color:Accent Alt}, 
+        {color:Accent Change}
+    );
+}
+
+.mac .sidetop, 
+.mac .permabar {
+    text-align:center;
+}
 
 .sidetop {
     margin:-4px -4px 4px -4px;
@@ -930,14 +1164,27 @@ ol.notes::-webkit-scrollbar-track-piece {background:transparent; box-shadow:0 0 
     padding:9px;
 }
  
-img.side {width:170px; display:block; margin:0px;}
+img.side {
+    width:170px;
+    display:block;
+    margin:0px;
+}
  
 /* ------ search box ------ */
 
-.mac form.sb {float:left; text-align:center;}
+.mac form.sb {
+    float:left;
+    text-align:center;
+}
 
-.windows #sub {float:left; position:absolute;}
-.mac #sub {text-align:center;}
+.windows #sub {
+    float:left;
+    position:absolute;
+}
+
+.mac #sub {
+    text-align:center;
+}
 
 #sub {
     width:100px;
@@ -970,8 +1217,15 @@ img.side {width:170px; display:block; margin:0px;}
     line-height:160%;
 }
  
-.desc::-webkit-scrollbar, .updt::-webkit-scrollbar {width:3px;}
-.desc::-webkit-scrollbar-thumb, .updt::-webkit-scrollbar-thumb {border:1px solid {color:scrollbar background};}
+.desc::-webkit-scrollbar, 
+.updt::-webkit-scrollbar {
+    width:3px;
+}
+
+.desc::-webkit-scrollbar-thumb, 
+.updt::-webkit-scrollbar-thumb {
+    border:1px solid {color:scrollbar background};
+}
 
 .desc > div:not(:last-child) {
     margin:0 -11px 1em; 
@@ -979,8 +1233,15 @@ img.side {width:170px; display:block; margin:0px;}
     border-bottom:1px solid {color:Post Borders};
 }
 
-.desc > div:not(.just) {text-align:center;}
-.desc .subt {padding:0 5px; line-height:16px; display:inline-block;}
+.desc > div:not(.just) {
+    text-align:center;
+}
+
+.desc .subt {
+    padding:0 5px;
+    line-height:16px; 
+    display:inline-block;
+}
 
 .desc .stat {
     display:block;
@@ -992,15 +1253,36 @@ img.side {width:170px; display:block; margin:0px;}
     padding:5px;
 }
 
-.desc .stat, .desc .stat * {transition:0.4s ease-in-out;}
-.desc .stat:hover, .desc .stat:hover * {color:{color:Accent Text};}
-.desc .stat:hover {background:{color:Accent};}
+.desc .stat, .desc .stat * {
+    transition:0.4s ease-in-out;
+}
+
+.desc .stat:hover, 
+.desc .stat:hover * {
+    color:{color:Accent Text};
+}
+
+.desc .stat:hover {
+    background:{color:Accent};
+}
 
 /* ------ main links ------ */
 
-.menu, .nav {position:relative; text-align:center; margin:5px 0px; overflow:auto;}
-.menu {padding:0px 10px;}
-.nav {display:flex; flex-flow:row wrap;}
+.menu, .nav {
+    position:relative;
+    text-align:center;
+    margin:5px 0px;
+    overflow:auto;
+}
+
+.menu {
+    padding:0px 10px;
+}
+
+.nav {
+    display:flex; 
+    flex-flow:row wrap;
+}
 
 .menu a {
     display:block;
@@ -1024,7 +1306,10 @@ img.side {width:170px; display:block; margin:0px;}
     border-radius:3px;
 }
 
-.menu a span.typcn::before {position:relative;z-index:2;}
+.menu a span.typcn::before {
+    position:relative;
+    z-index:2;
+}
 
 .menu a:hover span.typcn {
     background:{color:Accent};
@@ -1047,26 +1332,46 @@ img.side {width:170px; display:block; margin:0px;}
     height:16px;
     padding:2px 5px;
     text-transform:capitalize;
-	font:normal 11px/16px 'Muli', sans-serif;
+    font-size:11px;
+    line-height:16px;
     transition:0.3s ease-in-out 0.3s;
 }
  
-.nav a:hover {border-color:{color:Accent}; color:{color:Accent};}
+.nav a:hover {
+    border-color:{color:Accent}; 
+    color:{color:Accent};
+}
  
 .nav a::before, .nav a::after {
     content:"";
     height:1px;
     width:0px;
     position:absolute;
-    background:linear-gradient(45deg, {color:Accent Alt}, {color:Accent Change});
+    background:linear-gradient(
+        45deg, 
+        {color:Accent Alt},
+        {color:Accent Change}
+    );
     transition:0.3s ease-in-out;
 }
  
-.nav a::before {left:-1px; top:-1px;}
-.nav a::after {right:-1px; bottom:-1px;}
-.nav a:hover::before, .nav a:hover::after {width:100%;}
+.nav a::before {
+    left:-1px;
+    top:-1px;
+}
+
+.nav a::after {
+    right:-1px;
+    bottom:-1px;
+}
+
+.nav a:hover::before, 
+.nav a:hover::after {
+    width:100%;
+}
  
-.nav a span::before, .nav a span::after {
+.nav a span::before, 
+.nav a span::after {
     content:"";
     width:1px;
     position:absolute;
@@ -1074,13 +1379,27 @@ img.side {width:170px; display:block; margin:0px;}
     transition:0.3s ease-in-out 0.3s;
 }
  
-.nav a span::before {left:-1px; bottom:-1px; background:{color:Accent Alt};}
-.nav a span::after {right:-1px; top:-1px; background:{color:Accent Change};}
-.nav a:hover span::before, .nav a:hover span::after {height:100%;}
+.nav a span::before {
+    left:-1px; 
+    bottom:-1px;
+    background:{color:Accent Alt};
+}
+
+.nav a span::after {
+    right:-1px;
+    top:-1px; 
+    background:{color:Accent Change};
+}
+
+.nav a:hover span::before, 
+.nav a:hover span::after {
+    height:100%;
+}
  
 /* ------ pagination ------ */
  
-#pagination, #manual {
+#pagination,
+#manual {
     display:block;
     margin:4px -4px -4px -4px;
     border-top:1px solid {color:post borders};
@@ -1088,18 +1407,39 @@ img.side {width:170px; display:block; margin:0px;}
     text-align:center;
     text-transform:uppercase;
     height:10px;
-	font:normal 10px/10px 'Muli', sans-serif;
+	font:normal 10px/10px 'IBM Plex Sans', sans-serif;
     background:{color:permalinks and asks};
     color:{color:permalink text};
 }
  
-#manual {cursor:help; font-size:8px;}
-#manual:hover {color:{color:Accent};}
-#manual span.done {display:none;}
+#manual {
+    cursor:help; 
+    font-size:8px;
+}
+
+#manual:hover {
+    color:{color:Accent};
+}
+
+#manual span.done {
+    display:none;
+}
  
-#pagination {word-spacing:3px; letter-spacing:3px;}
-#pagination a {color:{color:Accent}; border-bottom:1px solid transparent; font-size:12px;}
-#pagination a:hover {color:{color:Accent Text}; border-color:{color:Accent};}
+#pagination {
+    word-spacing:3px; 
+    letter-spacing:3px;
+}
+
+#pagination a {
+    color:{color:Accent};
+    border-bottom:1px solid transparent;
+    font-size:12px;
+}
+
+#pagination a:hover {
+    color:{color:Accent Text};
+    border-color:{color:Accent};
+}
  
 {block:ifinfinitescroll}
 #pagination {display:none;}
@@ -1125,6 +1465,7 @@ img.side {width:170px; display:block; margin:0px;}
 <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
 <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/pie6k/jquery.initialize@171bc5817b7ce6f8e29829946b7cbf7e30bee229/jquery.initialize.min.js"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fitvids/1.2.0/jquery.fitvids.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/smoothscroll/1.4.6/SmoothScroll.min.js"></script>
 <script src="https://static.tumblr.com/qudkd6d/Az6nkemqr/pxuphotoset.min.js"></script>
@@ -1167,7 +1508,7 @@ $(document).ready(function(){
         append: '.posts'{block:ifmanualload},
         button:'#manual'{/block:ifmanualload}
     });
-    $container.on( 'last.infiniteScroll', function( event, response, path ) {
+    $container.on('last.infiniteScroll',function(event,response,path){
         $("#manual").fadeOut();
     });
 });
