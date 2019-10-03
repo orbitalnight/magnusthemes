@@ -715,18 +715,24 @@ img.tumblr_avatar {
 }
 
 /* chat posts */
+
+.chatt {
+    display:block;
+    color:{color:Post Title};
+    font:normal 700 20px/30px "Noto Sans KR",sans-serif;
+    letter-spacing:0;
+    margin:1em 0 2em;
+}
  
 .line {
     padding:10px 20px;
-    width:80%;
     margin-top:10px;
     margin-bottom:-5px;
     {block:ifroundedposts}border-radius:20px;{/block:ifroundedposts}
 }
 
 .line.c0 {
-	text-align:right;
-    margin-left:calc(20% - 40px);
+    text-align:right;
 }
  
 .line span.name {
@@ -747,6 +753,7 @@ img.tumblr_avatar {
     background:{color:audio and asks};
     border-radius:20px 20px 20px 0;
     display:inline-block;
+    max-width:80%;
 }
 
 .line.hc .msg {
@@ -1671,6 +1678,9 @@ $(document).ready(function(){
         var $t = $(this);
         $t.text($t.text().slice(0,-4));
     });
+    $(".ot").initialize(function(){
+        $(this).text("{Title}");
+    });
     {block:iffeaturedpoststag}
     var tag = "{text:featured posts tag}";
     highlight(name,tag);
@@ -1963,7 +1973,7 @@ $(document).ready(function(){
         {/block:RebloggedFrom}
         {block:NotReblog}
         <img src="{PortraitURL-64}"/>
-        <a href="{RelativePermalink}">{Title}</a>
+        <a href="{RelativePermalink}" class="ot">{Title}</a>
         <span class="fts or">@{PostBlogName}</span>
         {/block:NotReblog}
         {block:RebloggedFrom}
@@ -2204,7 +2214,7 @@ $(document).ready(function(){
     {/block:Link}
  
     {block:Chat}
-    {block:Title}<div class="headt"><span class="highlight">{Title}</span></div>{/block:Title}
+    {block:Title}<div class="chatt">{Title}</div>{/block:Title}
     <div class="chat">
         {block:Lines}
         <div class="line">
