@@ -511,7 +511,11 @@ span.reblog_user::after {
 
 /* photo & video posts */
 
-[photoset-layout] {grid-gap:4px;}
+[photoset-layout] {
+    grid-gap:4px;
+    grid-template-columns: repeat(6, auto);
+}
+    
 [photoset-layout] div {cursor:pointer;}
 
 .photo, .video {
