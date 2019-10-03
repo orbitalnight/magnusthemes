@@ -513,9 +513,9 @@ span.reblog_user::after {
 
 [photoset-layout] {
     grid-gap:4px;
-    grid-template-columns: repeat(6, auto);
+    grid-template-columns:repeat(6,auto);
 }
-    
+
 [photoset-layout] div {cursor:pointer;}
 
 .photo, .video {
@@ -1196,10 +1196,10 @@ nav#main.is_stuck {
 #subheader img {
     width:100%;
     height:calc(100% - 40px);
-    {block:ifroundedposts}border-radius:10px;{/block:ifroundedposts}
-    display:block;
     object-fit:cover;
+    {block:ifroundedposts}border-radius:10px;{/block:ifroundedposts}
     transition:0.3s ease-in-out;
+    display:block;
 }
 
 #inner {
@@ -1521,6 +1521,23 @@ aside#right form button:hover {cursor:pointer;}
     width:120px;
     height:75px;
     margin:0px;
+    position:relative;
+    color:{color:Text};
+    background:{color:Sidebar Boxes};
+}
+
+.featured a.pxf .ftr {
+    margin:auto;
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+}
+
+.featured a.pxf:hover {
+    background:{color:Accent 2};
+    color:{color:Accent Text};
 }
 
 .featured a.pxf img {
@@ -1528,10 +1545,9 @@ aside#right form button:hover {cursor:pointer;}
     width:120px;
     height:75px;
     object-fit:cover;
-    transition:0.4s ease-in-out;
 }
 
-.featured a.pxf:hover img {opacity:0.6;}
+.featured a.pxf:hover {opacity:0.6;}
 
 .members img {
     width:30px;
@@ -1606,7 +1622,7 @@ aside#right form button:hover {cursor:pointer;}
 <script src="https://static.tumblr.com/0podkko/jfMplm3f8/modified_photosets.js"></script>
 <script src="https://static.tumblr.com/p0knose/EVbpyskq1/smartchat_twt.js"></script>
 
-<script src="https://static.tumblr.com/p0knose/GLRpysmxx/turtleship_main.js"></script>
+<script src="https://static.tumblr.com/p0knose/CSupysoqv/turtleship_main.js"></script>
 
 {block:iffeaturetags}
 {block:HomePage}
