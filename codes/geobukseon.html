@@ -843,6 +843,8 @@ img.tumblr_avatar {
     max-width:500px;
 }
 
+
+
 .permalink {
     height:16px;
     line-height:16px;
@@ -857,7 +859,7 @@ img.tumblr_avatar {
     vertical-align:middle;
 }
 
-.permalink a .ftr ~ span {margin-left:5px;}
+.permalink a span.num {margin-left:5px;}
 
 .permalink a.ion {
     font-weight:500;
@@ -866,7 +868,26 @@ img.tumblr_avatar {
     font-size:13px;
 }
 
-.permalink a .ftr {font-size:16px; width:16px; height:16px; margin:0 2px;}
+.permalink a .ftr {
+    font-size:16px; 
+    width:16px; 
+    height:16px; 
+}
+
+.permalink a span:not(.ftr):not(.num){
+    padding:2px;
+    border-radius:100%;
+    width:16px;
+    height:16px;
+    margin:0 2px;
+    transition:0.3s ease-in-out;
+}
+
+.permalink a:hover span:not(.ftr):not(.num){
+    background:rgba({RGBcolor:Accent 1},0.15);
+    padding:7px;
+    margin:-5px -3px;
+}
 
 .permalink a {
     position:relative;
@@ -2388,15 +2409,21 @@ $(document).ready(function(){
     {/block:HasTags}
     <div class="permalink">
         <a href="{RelativePermalink}" class="ion">
-            <span class="ftr" data-feather="bar-chart-2"></span>
-            <span>{NoteCount}</span>
+            <span>
+                <span class="ftr" data-feather="bar-chart-2"></span>
+            </span>
+            <span class="num">{NoteCount}</span>
         </a>
         <a class="like" title="like this post?">
             {LikeButton size="15"}
-            <span class="ftr" data-feather="heart"></span>
+            <span>
+                <span class="ftr" data-feather="heart"></span>
+            </span>
         </a>
         <a href="{ReblogURL}" title="reblog?">
-            <span class="ftr" data-feather="refresh-cw"></span>
+            <span>
+                <span class="ftr" data-feather="refresh-cw"></span>
+            </span>
         </a>
     </div>
     {/block:Date}
