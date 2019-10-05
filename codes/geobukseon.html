@@ -1630,6 +1630,7 @@ aside#right form button:hover {cursor:pointer;}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/smoothscroll/1.4.6/SmoothScroll.min.js"></script>
 <script src="https://unpkg.com/feather-icons@4.7.3/dist/feather.min.js"></script>
 <script src="https://static.tumblr.com/0podkko/jfMplm3f8/modified_photosets.js"></script>
+<script src="https://static.tumblr.com/i5s2zks/9Acok8oo2/bct-timeago.min.js"></script>
 <script src="https://static.tumblr.com/p0knose/EVbpyskq1/smartchat_twt.js"></script>
 
 <script src="https://static.tumblr.com/p0knose/CSupysoqv/turtleship_main.js"></script>
@@ -1675,8 +1676,7 @@ $(document).ready(function(){
             $t.hide();
     });
     $(".permasource .ftr.dot + a").initialize(function(){
-        var $t = $(this);
-        $t.text($t.text().slice(0,-4));
+        $(this).timeAgo();
     });
     $(".ot").initialize(function(){
         $(this).text("{Title}");
@@ -1983,7 +1983,7 @@ $(document).ready(function(){
         {/block:RebloggedFrom}
         {block:Date}
         <span class="ftr dot">&centerdot;</span>
-        <a href="{RelativePermalink}" title="{DayOfMonthWithZero}/{MonthNumberWithZero}/{ShortYear} {24HourWithZero}:{Minutes}">{TimeAgo}</a>
+        <a href="{RelativePermalink}" title="{DayOfMonthWithZero}/{MonthNumberWithZero}/{ShortYear} {24HourWithZero}:{Minutes}">{TimeStamp}</a>
         {/block:Date}
     </div>
 
