@@ -878,12 +878,14 @@ img.tumblr_avatar {
     width:16px;
     height:16px;
     margin:0 0 0 -5px;
-    transition:0.3s ease-in-out;
+    transition:
+        background 0.3s ease-in-out,
+        box-shadow 0.3s ease-in-out;
 }
 
 .permalink a:hover span:not(.ftr):not(.num){
-    background:rgba({RGBcolor:Accent 1},0.15);
-    box-shadow:0 0 0 5px rgba({RGBcolor:Accent 1},0.15);
+    background:rgba({RGBcolor:Links Hover},0.15);
+    box-shadow:0 0 0 5px rgba({RGBcolor:Links Hover},0.15);
 }
 
 .permalink a {
@@ -893,7 +895,7 @@ img.tumblr_avatar {
     margin-right:50px;
 }
 
-.permalink a:hover {color:{color:Accent 1};}
+.permalink a:hover {color:{color:Links Hover};}
 
 .permalink > .like .like_button iframe {
     position:absolute;
@@ -910,7 +912,7 @@ img.tumblr_avatar {
 }
 
 .permalink > .like .like_button.liked + svg.ftr path {
-    fill:{color:Accent 2};
+    fill:rgba({RGBcolor:Post Title},0.5);
     stroke:{color:Post Title};
 }
 
