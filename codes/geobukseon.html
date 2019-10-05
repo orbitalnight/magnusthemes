@@ -1673,7 +1673,8 @@ $(document).ready(function(){
     $(".rtw").initialize(function(){
         var $t = $(this);
         if($t.find("a").attr("title") == $t.parent().find(".fts").text())
-            $t.hide();
+            if ($t.find("a").attr("title") != "@{Name}")
+                $t.hide();
     });
     $(".permasource .ftr.dot + a").initialize(function(){
         $(this).timeAgo();
