@@ -843,8 +843,6 @@ img.tumblr_avatar {
     max-width:500px;
 }
 
-
-
 .permalink {
     height:16px;
     line-height:16px;
@@ -853,8 +851,7 @@ img.tumblr_avatar {
 }
 
 .permalink a, 
-.permalink span, 
-.permalink .ftr {
+.permalink span {
     display:inline-block; 
     vertical-align:middle;
 }
@@ -872,6 +869,7 @@ img.tumblr_avatar {
     font-size:16px; 
     width:16px; 
     height:16px; 
+    display:block;
 }
 
 .permalink a span:not(.ftr):not(.num){
@@ -879,21 +877,20 @@ img.tumblr_avatar {
     border-radius:100%;
     width:16px;
     height:16px;
-    margin:0 2px;
+    margin:0 0 0 -5px;
     transition:0.3s ease-in-out;
 }
 
 .permalink a:hover span:not(.ftr):not(.num){
     background:rgba({RGBcolor:Accent 1},0.15);
-    padding:7px;
-    margin:-5px -3px;
+    box-shadow:0 0 0 5px rgba({RGBcolor:Accent 1},0.15);
 }
 
 .permalink a {
     position:relative;
     display:inline-block;
     color:{color:Post Title};
-    margin-right:30px;
+    margin-right:50px;
 }
 
 .permalink a:hover {color:{color:Accent 1};}
