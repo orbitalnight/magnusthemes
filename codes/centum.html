@@ -1768,7 +1768,7 @@ footer > div {
 <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
 {/block:ifphotosetslideshows}
 
-<script src="https://static.tumblr.com/p0knose/rVnpz4bv8/haeundae.js"></script>
+<script src="https://static.tumblr.com/p0knose/SNnpz4di0/haeundae.js"></script>
 
 <script>
 $(document).ready(function(){
@@ -1796,6 +1796,7 @@ $(document).ready(function(){
 
 <script>
 $(document).ready(function(){
+    {block:IndexPage}$(".tile").css("opacity","0");{/block:IndexPage}
     var accent = "{color:Accent 1}",
         accentText = "{color:Accent Text}";
     var ifSlide = false;
@@ -1805,6 +1806,7 @@ $(document).ready(function(){
     });
     busanHaeng(".tile article",$("modal"),accent,ifSlide,{select:post size});
     {block:PermalinkPage}initPhotosets();{/block:PermalinkPage}
+    {block:IndexPage}$(".tile").animate({"opacity":"1"});{/block:IndexPage}
 });
 </script>
 
@@ -1833,7 +1835,7 @@ $(document).ready(function(){
         feather.replace();
     });
     $container.on('append.infiniteScroll',function(e,r,p,newElements){
-        var $newElems = $(newElements);
+        var $newElems = $(newElements).css("opacity","0");
         var $newElemsIDs = $newElems.map(function(){
             return this.id;
         }).get();
@@ -1843,6 +1845,7 @@ $(document).ready(function(){
         });
         busanHaeng(newElements,$("modal"),accent,ifSlide,{select:post size});
         feather.replace();
+        $newElems.animate({"opacity":"1"});
     });
 })
 </script>
