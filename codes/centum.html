@@ -667,14 +667,13 @@ img.singlepic {
     border-top:{select:grid gap}px solid {color:Container};
 }
 
-.tags,.permalink {
+.permalink {
     height:30px;
-    display:block;
 }
 
 .permasource {
     font:400 12px/16px "Nanum Gothic",sans-serif;
-    display:block;
+    height:16px;
     padding:7px 0 12px;
 }
 
@@ -739,7 +738,7 @@ img.singlepic {
 /* tags */
 
 .tags {
-    margin:0 -5px;
+    margin:5px -5px 5px 0;
     padding-left:30px;
     {block:ifhidetags}
     {block:IndexPage}
@@ -749,10 +748,10 @@ img.singlepic {
 }
 
 .tags a {
-    margin:5px;
+    margin-right:10px;
     font-size:12px;
-    line-height:15px;
-    display:inline-block;
+    line-height:20px;
+    display:inline;
     color:{color:Text};
     border-bottom:2px solid transparent;
 }
@@ -774,7 +773,7 @@ img.singlepic {
 
 .tags .ftr {
     position:absolute;
-    margin:1px 0 0 -30px;
+    margin:1px 0 0 -35px;
 }
 
 .tags:hover .ftr,
