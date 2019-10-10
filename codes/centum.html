@@ -1829,10 +1829,14 @@ $(document).ready(function(){
         scrollThreshold:false
     });
     $container.on('last.infiniteScroll',function(event,response,path){
-        $("#pagination .load").find("span.pw").text("End of content");
-        $("#pagination .load").find(".feather").remove();
-        $("#pagination .load").append('<'+'span class="ftr" data-feather="alert-circle"'+'><'+'/span'+'>');
-        feather.replace();
+        var $button = $("#pagination .load");
+        $button.fadeOut(function(){
+            $button.find("span.pw").text("End of content");
+            $button.find(".feather").remove();
+            $button.prepend('<'+'span class="ftr" data-feather="alert-circle"'+'><'+'/span'+'>');
+            feather.replace();
+            $button.fadeIn();
+        });
     });
     $container.on('append.infiniteScroll',function(e,r,p,newElements){
         var $newElems = $(newElements).css("opacity","0");
