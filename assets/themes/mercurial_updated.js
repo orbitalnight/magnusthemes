@@ -33,6 +33,7 @@ function photoSlide(ifslide){
             speed:600,
             mode:'fade',
             touchEnabled:false,
+            adaptiveHeight:true,
             preloadImages:'all',
             nextText:'<span class="oi oi-chevron-right"></span>',
             prevText:'<span class="oi oi-chevron-left"></span>'
