@@ -1121,7 +1121,7 @@ ol.notes li.note blockquote a {text-decoration:none;}
 {/block:ifphotosetslideshows}
 
 .tile .aud {
-    flex-wrap:wrap;
+    flex-wrap:nowrap;
     flex-direction:column;
     justify-content:center;
     box-sizing:border-box;
@@ -1137,6 +1137,7 @@ ol.notes li.note blockquote a {text-decoration:none;}
     border-width:5px 6px 5px 4px;
     background:{color:Accent 1};
     transition:0.5s ease-in-out;
+    flex-shrink:0;
 }
 
 .tile .tplayer:hover {
