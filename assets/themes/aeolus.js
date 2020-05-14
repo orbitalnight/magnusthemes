@@ -7,13 +7,15 @@ $(document).ready(function(){
     });
     $(".ftr").each(function(){
         let $this = $(this);
-        let img = $this.find("img")[0],
-            imgSrc = img.src;
-        $this.css({
-            "background":"url("+imgSrc+")",
-            "background-size":"cover"
-        });
-        img.parentNode.removeChild(img);
+        if($this.find("img").length){
+            let img = $this.find("img")[0],
+                imgSrc = img.src;
+            $this.css({
+                "background":"url("+imgSrc+")",
+                "background-size":"cover"
+            });
+            img.parentNode.removeChild(img);
+        }
     });
     $(".bars .b").each(function(){
         var $this = $(this);
