@@ -6,7 +6,7 @@
 <!--
 Theme - Ikigai
 coded by aeroelastical/magnusthemes
-ver. 1.2.1 (16.02.2019)
+ver. 1.3.1 (06/06/2020)
 
 Icon cheatsheet: https://s-ings.com/typicons
 -->
@@ -78,6 +78,7 @@ Icon cheatsheet: https://s-ings.com/typicons
 <meta name="if:stat counters" content=""/>
 <meta name="if:updates panel" content=""/>
 <meta name="if:social media" content=""/>
+<meta name="if:header" content="1"/>
 
 <meta name="text:blog name" content=""/>
 <meta name="text:subtitle" content=""/>
@@ -266,15 +267,17 @@ body.locked {overflow:hidden;}
 /* ------ posts ------ */
  
 #postmargin {
-    margin:50px auto 0;
+    margin:90px auto 0;
     position:relative;
     overflow:hidden;
     padding:0 0 60px;
-    {block:HomePage}padding:0 50px 60px;{/block:HomePage}
-    {block:PermalinkPage}
-    width:570px;
-    margin-top:90px;
-    {/block:PermalinkPage}
+    {block:HomePage}
+    {block:ifheader}
+    padding:0 50px 60px;
+    margin-top:50px;
+    {/block:ifheader}
+    {/block:HomePage}
+    {block:PermalinkPage}width:570px;{/block:PermalinkPage}
     {block:IndexPage}width:calc((({select:post size}px + 20px) * {select:columns}) + (50px * ({select:columns} - 1)));{/block:IndexPage}
 }
 
@@ -1538,6 +1541,7 @@ $(document).ready(function(){
         else
             $navBar.removeClass("sticky");
         {block:HomePage}
+        {block:ifheader}
         var bRadius1 = 50 - (scroll/(headHeight-60))*50;
         $header.find(".over").css({
             "border-bottom-left-radius":bRadius1+"%",
@@ -1547,6 +1551,7 @@ $(document).ready(function(){
             "border-bottom-left-radius":bRadius1+"% "+bRadius1+"%",
             "border-bottom-right-radius":bRadius1+"% "+bRadius1+"%"
         });
+        {/block:ifheader}
         {/block:HomePage}
     });
     {block:iftruncatetext}{block:IndexPage}
@@ -1723,6 +1728,7 @@ $(document).ready(function(){
 </nav>
 
 {block:HomePage}
+{block:ifheader}
 <header>
     <div class="over"></div>
     <div class="stars"></div>
@@ -1736,6 +1742,7 @@ $(document).ready(function(){
     </span>
     {/block:ifblogname}
 </div>
+{/block:ifheader}
 {/block:HomePage}
  
 <!------ posts ------>
