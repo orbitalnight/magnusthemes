@@ -1,0 +1,212 @@
+/* ------
+ONE DREAM 3.0 CSS
+MAGNUSTHEMES@TUMBLR
+------ */
+
+/* ------ custom styles ------ */
+
+/* fade animation */
+
+@-webkit-keyframes fadein {from {opacity:0;} to {opacity:1;}}
+@keyframes fadein {from {opacity:0;} to {opacity:1;}}
+
+/* jquery ui tooltips */
+
+.ui-tooltip {position:absolute; z-index:214748364789;}
+ 
+.ui-tooltip-content {
+    margin:5px 25px;
+    max-width:300px;
+    text-align:left;
+}
+
+/* tumblr controls */
+ 
+iframe#tumblr_controls,
+.iframe-controls--desktop {
+    position:fixed!important;
+    z-index:999999999!important;
+    transition:opacity 0.4s ease-in-out, top 0.4s ease-in-out;
+    -webkit-transform-origin:100% 0;
+    -webkit-transform:scale(0.6,0.6);
+    -ms-transform-origin:100% 0;
+    -ms-transform:scale(0.6,0.6);
+    transform-origin:100% 0;
+    transform:scale(0.6,0.6);
+}
+
+/* lightbox */
+ 
+#tumblr_lightbox,
+.tmblr-lightbox {
+    z-index:214748364789!important;
+}
+
+#tumblr_lightbox img, .tmblr-lightbox img {opacity:0;}
+#vignette, .vignette {opacity:0!important;}
+ 
+/* ------ basic styles ------ */
+ 
+body {
+    margin:0px;
+    padding:0px;
+    overflow:auto;
+    word-wrap:break-word;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+}
+
+i, italic, em {font-style:italic;}
+b, bold, strong {font-weight:bold;}
+
+/* lists, ordered and unordered */
+
+ol {counter-reset:li;}
+
+ol li, 
+ul li {
+    list-style:none; 
+    margin-left:0px; 
+    display:block; 
+    position:relative;
+}
+ 
+ol li::before {
+    content:counter(li, decimal-leading-zero);
+    counter-increment:li;
+    position:absolute;
+    -webkit-transform:translateX(-100%);
+    -ms-transform:translateX(-100%);
+    transform:translateX(-100%);
+}
+
+ul li::before {
+    content:"";
+    display:block;
+    position:absolute;
+    margin-left:-20px;
+    width:10px;
+    height:1px;
+    margin-top:12px;
+}
+
+/* ------ posts and container ------ */
+
+#postmargin,#pagination,#manual {
+    z-index:1;
+    position:relative;
+}
+
+.posts {
+    position:relative;
+}
+
+.text {
+    position:relative;
+    overflow:hidden;
+}
+
+.tumblr_parent {
+    padding:1em 0;
+}
+
+.reblog_user, 
+.reblog_head a {
+    border-bottom:none;
+    display:inline-block;
+    vertical-align:middle;
+    border-bottom:0px solid transparent;
+    line-height:16px;
+    margin-bottom:3px;
+}
+
+span.reblog_user::after {
+    opacity:0;
+    visibility:hidden;
+    position:absolute;
+    transition:0.4s ease-in-out;
+}
+
+.reblog_head:hover span.reblog_user::after {
+    visibility:visible; 
+    opacity:1;
+}
+
+.reblog_head .ftr {
+    vertical-align:middle;
+    width:16px;
+    height:16px;
+    margin-bottom:3px;
+    display:inline-block;
+}
+
+p.rm {
+    position:absolute;
+    text-align:center;
+    bottom:0px;
+    left:0px;
+    width:100%;
+    margin:0px;
+}
+
+/* --- photo and video --- */
+
+[photoset-layout] div {cursor:pointer;}
+
+.posts img:not(.tumblr_avatar) {
+    max-width:100%; 
+    display:block;
+}
+
+.photo, .video {
+    position:relative; 
+    overflow:hidden;
+}
+ 
+.tumblr_video_container {
+    width:auto!important;
+    height:auto!important;
+}
+
+.photo a {
+    padding-bottom:0px; 
+    border-bottom:0px solid transparent;
+}
+
+img.singlepic {
+    display:block; 
+    border-radius:0px;
+}
+
+.spotify_audio_player {
+    height:80px!important;
+    width:100%!important;
+}
+
+.bandcamp_audio_player {
+    height:120px!important;
+    width:100%!important;
+}
+
+/* ------ pagination ------ */
+
+#infscr-loading {
+    display:none!important;
+}
+
+/* ------ sidebar ------ */
+ 
+.tsc form input[type="text"] {
+    display:block;
+    background:transparent;
+    outline:0px solid transparent;
+    border:0px solid transparent;
+}
+ 
+.tsc form button[type="submit"] {
+    box-sizing:content-box;
+    background:transparent;
+    display:block;
+    border:0px solid transparent;
+    outline:0px solid transparent;
+}

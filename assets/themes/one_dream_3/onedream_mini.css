@@ -1,0 +1,210 @@
+/* ------
+ONE DREAM 3.0 - Add-on code for MINI
+MagnusThemes@Tumblr
+------ */
+
+.mini #sidebar {
+    margin:30px 0 0 30px;
+    width:210px;
+}
+
+.mini .side {
+    margin-bottom:30px;
+}
+
+.mini #postmargin, .mini #pagination, .mini #manual {
+    margin:30px 0 30px 270px;
+}
+
+.mini .posts {
+    margin:30px 0;
+}
+
+.mini .postnotes {
+    margin-top:-20px;
+}
+
+.mini #updt {
+    padding:0 5px 30px;
+}
+
+.tmblr-iframe-pushdown {
+    padding-top:0!important;
+}
+
+.tmblr-iframe--app-cta-button {
+    display:none!important;
+}
+
+
+.tmblr-iframe-pushdown main {
+    padding-bottom:60px!important;
+}
+
+iframe.tmblr-iframe.tmblr-iframe--unified-controls.tmblr-iframe--loaded.iframe-controls--phone-mobile {    
+    position:fixed!important;
+    z-index:2147483636!important;
+    top:auto!important;
+    bottom:0!important;
+}
+
+/* ------ RESPONSIVE ------ */
+
+@media screen and (max-width:980px){
+    .mini main, 
+    main {
+        width:100%;
+        margin:0 auto;
+        border:0px solid transparent;
+    }
+
+    .iframe-controls--desktop {
+        top:65px!important;
+        right:5px!important;
+    }
+    
+    #barz, .barz,
+    .mini #barz,.mini .barz {
+        width:100%;
+        margin-left:0;
+        margin-right:0;
+        font-size:90%!important;
+    }
+    
+    .mini header,
+    header {
+        margin:-10px 0 0;
+        width:100%;
+    }
+    
+    header img,
+    .mini header img {
+        width:100%;
+    }
+    
+    #postmargin, #pagination, #manual {
+        width:500px;
+        margin-left:calc(100% - 500px - 60px);
+    }
+    
+    .posts {
+        width:100%;
+    }
+    
+    #sidebar {
+        width:calc(100% - 180px - 500px);
+        font-size:90%!important;
+    }
+    
+    /* --- mini version --- */
+    
+    .mini #postmargin, .mini #pagination, .mini #manual {
+        width:540px;
+        margin-left:calc(100% - 540px - 30px);
+    }
+    
+    .mini #sidebar {
+        margin-left:30px;
+        width:calc(100% - 90px - 540px);
+    }
+}
+
+@media screen and (max-width:840px){
+    #sidebar,
+    .mini #sidebar {
+        width:180px;
+        margin-left:30px;
+    }
+    
+    #postmargin,#pagination,#manual,
+    .mini #postmargin,.mini #pagination,.mini #manual {
+        margin-left:240px;
+        width:calc(100% - 240px - 30px);
+    }
+    
+    #updt {
+        padding:0 5px 30px;
+    }
+}
+
+@media screen and (max-width:540px){
+    #postmargin,#pagination,#manual {
+        width:calc(100% - 60px);
+        margin:30px;
+    }
+    
+    .posts {
+        margin:30px 0;
+    }
+    
+    .postnotes {
+        margin-top:-20px;
+    }
+}
+
+@media screen and (max-width:420px){
+    #postmargin,#pagination,#manual {
+        width:calc(100% - 20px);
+        margin:30px 10px;
+    }
+}
+
+#sidebar.open {
+    margin-left:0px;
+    opacity:1;
+}
+
+body.open {
+    overflow-y:hidden;
+}
+
+@media screen and (max-width:720px){
+    #postmargin,#pagination,#manual {
+        width:calc(100% - 120px);
+        margin:60px;
+    }
+    
+    #updt,#toggle {
+        display:none!important;
+    }
+    
+    #barz,.barz {
+        height:auto;
+    }
+    
+    #barz {
+        min-height:60px;
+    }
+    
+    #sidebar, .mini #sidebar {
+        opacity:0;
+        top:0px;
+        left:0px;
+        margin:0px;
+        padding:0px 30px;
+        position:fixed!important;
+        height:100%;
+        z-index:999999;
+        transition:0.4s ease-in-out;
+        margin-left:-250px;
+        width:240px;
+    }
+    
+    .side,.mini .side {
+        margin:30px 0;
+        overflow-x:hidden;
+        overflow-y:auto;
+        max-height:calc(100% - 60px);
+        padding-bottom:0!important;
+    }
+    
+    #light {
+        display:block;
+    }
+    
+    /* --- mini version --- */
+    .mini #postmargin, .mini #pagination, .mini #manual {
+        width:calc(100% - 60px);
+        margin:30px;
+    }
+}
