@@ -398,8 +398,8 @@ span.reblog_user::after {
 .text p.rm {
     background-image:linear-gradient(
         to bottom, 
-        rgba({RGBcolor:Background},0), 
-        rgba({RGBcolor:Background},1)
+        rgba({RGBcolor:Container},0), 
+        rgba({RGBcolor:Container},1)
     );
 }
 
@@ -418,11 +418,7 @@ p.rm {
 }
  
 .text .read_more:hover {
-    color:{color:Static Text};
-    background-color:{color:Static Background};
-    {block:ifstaticimage}
-    background-image:url({image:static});
-    {/block:ifstaticimage}
+    color:{color:Links Hover};
 }
 
 /* photo & video posts */
@@ -720,6 +716,7 @@ div.asker {
     {/block:IndexPage}
     border-top:1px solid {color:borders};
     padding:10px;
+    text-align:left;
 }
 
 .tags a {
