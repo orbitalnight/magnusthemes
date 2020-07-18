@@ -1388,8 +1388,20 @@ $(document).ready(function(){
     });
     {/block:PermalinkPage}
     var sic = "{select:sidebar icon}";
-    if(sic == "none") 
-        $(".blogn").find(".ftr").remove();
+    switch(sic){
+        case "none":
+        case "bookmark":
+        case "planet":
+        case "fire":
+            $(".blogn").find(".ftr").remove();
+            break;
+        case "bolt":
+            $(".blogn").find(".ftr").attr("data-feather","zap");
+            break;
+        case "gear":
+            $(".blogn").find(".ftr").attr("data-feather","settings");
+            break;
+    }
     feather.replace();
 });
 </script>
