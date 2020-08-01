@@ -6,7 +6,7 @@
 <!------
 Theme - Turtleship
 Code by choihangyuls/magnusthemes
-ver. 1.4.1 (03.10.2019)
+ver. 1.4.2 (02.08.2020)
 
 Icon cheatsheet: https://feathericons.com
 ------>
@@ -284,6 +284,7 @@ body {
     text-align:justify;
     -webkit-font-smoothing:antialiased;
     -moz-osx-font-smoothing:grayscale;
+    overflow-anchor:none;
 }
  
 a {
@@ -1650,7 +1651,7 @@ aside#right form button:hover {cursor:pointer;}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/smoothscroll/1.4.6/SmoothScroll.min.js"></script>
 <script src="https://unpkg.com/feather-icons@4.7.3/dist/feather.min.js"></script>
 <script src="https://static.tumblr.com/0podkko/jfMplm3f8/modified_photosets.js"></script>
-<script src="https://static.tumblr.com/i5s2zks/9Acok8oo2/bct-timeago.min.js"></script>
+<script src="https://static.tumblr.com/0podkko/ai4q00qn7/time_plugins_annasthms.js"></script>
 <script src="https://static.tumblr.com/p0knose/EVbpyskq1/smartchat_twt.js"></script>
 
 <script src="https://static.tumblr.com/p0knose/CSupysoqv/turtleship_main.js"></script>
@@ -1696,12 +1697,14 @@ $(document).ready(function(){
             if ($t.find("a").attr("title") != "@{Name}")
                 $t.hide();
     });
-    $(".permasource .ftr.dot + a").initialize(function(){
-        $(this).timeAgo();
-    });
     $(".ot").initialize(function(){
         $(this).text("{Title}");
     });
+    shortenTime({
+        container:'a.time',
+        append:''
+    });
+    $("a.time").removeClass("time");
     {block:iffeaturedpoststag}
     var tag = "{text:featured posts tag}";
     highlight(name,tag);
@@ -1728,7 +1731,7 @@ $(document).ready(function(){
 
 {block:IndexPage}{block:ifmanualload}
 <script src="https://unpkg.com/infinite-scroll@3/dist/infinite-scroll.pkgd.min.js"></script>
-<script src="https://static.tumblr.com/p0knose/EvCpv02et/turtleship-infscr.js"></script>
+<script src="https://static.tumblr.com/p0knose/opbqeebhz/turtleship_infscr.js"></script>
 {/block:ifmanualload}{/block:IndexPage}
 
 <!-- end jquery -->
@@ -2004,7 +2007,7 @@ $(document).ready(function(){
         {/block:RebloggedFrom}
         {block:Date}
         <span class="ftr dot">&centerdot;</span>
-        <a href="{RelativePermalink}" title="{DayOfMonthWithZero}/{MonthNumberWithZero}/{ShortYear} {24HourWithZero}:{Minutes}">{TimeStamp}</a>
+        <a href="{RelativePermalink}" title="{DayOfMonthWithZero}/{MonthNumberWithZero}/{ShortYear} {24HourWithZero}:{Minutes}" class="time">{TimeStamp}</a>
         {/block:Date}
     </div>
 
