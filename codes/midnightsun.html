@@ -1846,7 +1846,7 @@ iframe.tmblr-iframe.tmblr-iframe--unified-controls.tmblr-iframe--loaded.iframe-c
 <script src="https://static.tumblr.com/p0knose/HwKqee97b/photosets.js"></script>
 
 <script src="https://static.tumblr.com/p0knose/jGGqegv0z/midnightsun_audio.js"></script>
-<script src="https://static.tumblr.com/dytmpsw/wkaqeg391/midnightsun.js"></script>
+<script src="https://static.tumblr.com/p0knose/C9fqei5hh/midnightsun.js"></script>
 
 {block:iflazyload}
 <script src="https://static.tumblr.com/bmdsqsc/ogWm7q8w1/lazyload.js"></script>
@@ -1888,12 +1888,6 @@ $(document).ready(function(){
     });
     {/block:ifupdatestext}
     {block:iffeaturedpoststag}highlight("{Name}","{text:featured posts tag}","typcn typcn-document-text");{/block:iffeaturedpoststag}
-    {block:ifnotinfinitescroll}var infScr=false;{/block:ifnotinfinitescroll}
-    {block:ifinfinitescroll}var infScr=true;{/block:ifinfinitescroll}
-    if((!$("#pagination").length) || (infScr && !$("#manual").length)){
-        $("#postmargin").css("padding-right","0");
-        $("#portrait").hide();
-    }
     liege("{color:Accent}");
 });
 </script>
@@ -1906,11 +1900,12 @@ $(document).ready(function(){
 $(document).ready(function(){
     var $container = $("#postmargin");
     $container.infiniteScroll({
-        debug:true,
-        path: '#pagination .next',
-        append: '.posts'{block:ifmanualload},
+	{block:ifmanualload}
         scrollThreshold:false,
-        button:'#manual'{/block:ifmanualload}
+	button:'#manual',
+	{/block:ifmanualload}
+        path: '#pagination .next',
+        append: '.posts'
     });
     $container.on('history.infiniteScroll',function(event,title,path){
         var pageNum = path.replace(/\D/g,'');
