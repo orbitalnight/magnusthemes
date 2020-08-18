@@ -245,7 +245,7 @@ body,html {
 }
  
 a, a:hover {
-    cursor:url(https://static.tumblr.com/dytmpsw/6uiq32gi2/tumblr_inline_n0lc3j3jah1r1tugg.png), progress!important;
+    cursor:url(https://media.tumblr.com/14770974325c40b8aefe3ecd4e360253/tumblr_inline_n0lc3j3Jah1r1tugg.png), progress!important;
 }
 {/block:ifsmallcursor}
  
@@ -1263,16 +1263,73 @@ img.side {
 .menu {
     position:relative;
     text-align:center;
-    margin:5px -5px;
+    margin:-5px;
     overflow:auto;
 }
 
 .menu a {
     display:block;
-    padding:5px 20px;
+    padding:9px 20px;
     text-align:left;
     text-transform:capitalize;
     position:relative;
+    overflow:hidden;
+    border-bottom:1px solid rgba({RGBcolor:top bar overlay},0.1);
+    z-index:1;
+}
+
+.menu a:last-of-type {
+    border-bottom:0px solid transparent;
+}
+
+:root {
+  --px:0;
+  --py:0;
+}
+
+.menu a::before,
+.menu a::after {
+    content:"";
+    display:block;
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:-1;
+    transition:opacity 0.4s ease-in-out;
+}
+
+.menu a::before {
+    width:120px;
+    height:100px;
+    background:radial-gradient(circle at center, {color:top bar overlay} 0%, transparent 60%); 
+    opacity:0;
+    {block:ifnotlighttheme}mix-blend-mode:screen;{/block:ifnotlighttheme}
+    {block:iflighttheme}mix-blend-mode:multiply;{/block:iflighttheme}
+    transform: translate( 
+        calc(var(--px) * 1px),
+        calc(var(--py) * 1px) 
+    ) translate(-50%, -50%);
+  
+}
+
+.menu a::after {
+    background:inherit;
+    margin:2px;
+    top:0; 
+    left:0;
+    right:0; 
+    bottom:0;
+    opacity:0;
+    transition-delay:0.05s;
+}
+
+.menu a:hover::before { 
+    opacity:0.7; 
+}
+
+.menu a:hover::after { 
+    opacity:0.8; 
+    transition-delay:0s; 
 }
 
 .menu a span.typcn {
@@ -1829,7 +1886,7 @@ iframe.tmblr-iframe.tmblr-iframe--unified-controls.tmblr-iframe--loaded.iframe-c
 
 {block:ifsmallcursor}
 .seekbar, .play, .pause, #updt .close, #manual, [photoset-layout] div {
-    cursor:url(https://static.tumblr.com/dytmpsw/6uiq32gi2/tumblr_inline_n0lc3j3jah1r1tugg.png), progress!important;
+    cursor:url(https://media.tumblr.com/14770974325c40b8aefe3ecd4e360253/tumblr_inline_n0lc3j3Jah1r1tugg.png), progress!important;
 }
 {/block:ifsmallcursor}
  
@@ -1845,8 +1902,8 @@ iframe.tmblr-iframe.tmblr-iframe--unified-controls.tmblr-iframe--loaded.iframe-c
 <script src="https://static.tumblr.com/0podkko/jfMplm3f8/modified_photosets.js"></script>
 <script src="https://static.tumblr.com/p0knose/HwKqee97b/photosets.js"></script>
 
-<script src="https://static.tumblr.com/p0knose/jGGqegv0z/midnightsun_audio.js"></script>
-<script src="https://static.tumblr.com/p0knose/C9fqei5hh/midnightsun.js"></script>
+<script src="https://static.tumblr.com/p0knose/m0Yqf8ug0/midnightsun_audio.js"></script>
+<script src="https://static.tumblr.com/p0knose/GCvqf8ur2/midnightsun.js"></script>
 
 {block:iflazyload}
 <script src="https://static.tumblr.com/bmdsqsc/ogWm7q8w1/lazyload.js"></script>
@@ -1902,10 +1959,10 @@ $(document).ready(function(){
     $container.infiniteScroll({
 	{block:ifmanualload}
         scrollThreshold:false,
-	button:'#manual',
-	{/block:ifmanualload}
-        path: '#pagination .next',
-        append: '.posts'
+        button:'#manual',
+        {/block:ifmanualload}
+        path:'#pagination .next',
+        append:'.posts'
     });
     $container.on('history.infiniteScroll',function(event,title,path){
         var pageNum = path.replace(/\D/g,'');
