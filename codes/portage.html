@@ -505,7 +505,12 @@ p.rm {
 /* photo & video posts */
 
 .photo {transition:0.5s ease-in-out;}
-.posts img:not(.tumblr_avatar) {max-width:100%; display:block;}
+	
+.posts img:not(.tumblr_avatar) {
+	max-width:100%; 
+	display:block; 
+	height:100%;
+}
 
 [photoset-layout] {grid-gap:{select:gutter}px;}
 [photoset-layout] div {cursor:pointer;}
