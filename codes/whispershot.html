@@ -1801,12 +1801,6 @@ $(document).ready(function(){
         });
     });
     {/block:iflazyload}
-    {block:ifnotinfinitescroll}var infScr=false;{/block:ifnotinfinitescroll}
-    {block:ifinfinitescroll}var infScr=true;{/block:ifinfinitescroll}
-    if((!$("#pagination").length) || (infScr && !$("#manual").length)){
-        $("#postmargin").css("padding-right","0");
-        $("#portrait").hide();
-    }
     liege("{color:Accent}");
 });
 </script>
