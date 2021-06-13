@@ -835,13 +835,20 @@ img.tumblr_avatar {
     background:{color:Posts};
 }
 
-.permalinkz > a, .likez, .likez ~ a, .permalinkz > .bar {
+.permalinkz > a, .likez, .likez ~ a {
     display:inline-block;
     vertical-align:middle;
     line-height:16px;
     height:16px;
     padding:7px;
+}
+
+.permalinkz > a {
     color:{color:Accent Text};
+}
+
+.likez, .likez a {
+    color:{color:Text};
 }
 
 .likez {
@@ -872,14 +879,14 @@ img.tumblr_avatar {
     content:"\e892";
 }
 
-.p0 {background:{color:Accent Alt};}
+.p0 {background:{color:Accent};}
 .p1 {background:{color:color 4};}
 .p2 {background:{color:color 3};}
 .p3 {background:{color:color 2};}
 .p4 {background:{color:color 1};}
 
 .permalinkz > a:hover, .likez:hover, .likez ~ a:hover {
-    background:{color:Accent};
+    background:{color:Accent Alt};
     color:{color:Accent Text};
 }
 
@@ -1212,13 +1219,21 @@ ol.notes::-webkit-scrollbar-track-piece {background:transparent; box-shadow:0 0 
 	text-shadow: 1px 1px 1px rgba({RGBcolor:Accent}, 0.2);
 	margin: calc(var(--visible-width)/2);
 	padding: calc(var(--visible-width)/2);
-	color: {color:accent text};
 	text-align: center;
 	text-transform: uppercase;
 	letter-spacing: 4px;
 	z-index: 3;
 	position: relative;
 	word-break:break-word;
+}
+
+.one > figcaption.main div h1, 
+.one > figcaption.main div h1 a {
+    color:{color:Accent Text};
+}
+
+.one > figcaption.main div h1 a:hover {
+    color:{color:Accent};
 }
 
 /* description and hp bar */
@@ -1801,6 +1816,12 @@ $(document).ready(function(){
         });
     });
     {/block:iflazyload}
+    {block:ifnotinfinitescroll}var infScr=false;{/block:ifnotinfinitescroll}
+    {block:ifinfinitescroll}var infScr=true;{/block:ifinfinitescroll}
+    if((!$("#pagination").length) || (infScr && !$("#manual").length)){
+        $("#postmargin").css("padding-right","0");
+        $("#portrait").hide();
+    }
     liege("{color:Accent}");
 });
 </script>
