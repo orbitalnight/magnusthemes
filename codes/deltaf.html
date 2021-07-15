@@ -816,6 +816,7 @@ h1#title {
     color:{color:Blog Title};
     letter-spacing:0;
     margin:0 0 20px;
+    {block:ifnotsidebarimage}text-align:center;{/block:ifnotsidebarimage}
 }
 
 h1#title::after {
@@ -824,7 +825,13 @@ h1#title::after {
     color:{color:Accent 2};
 }
 
-#desc {font-size:12px; line-height:170%; margin-top:20px; letter-spacing:0.5px;}
+#desc {
+    font-size:12px; 
+    line-height:170%; 
+    margin-top:20px; 
+    letter-spacing:0.5px;
+    {block:ifnotsidebarimage}text-align:center;{/block:ifnotsidebarimage}
+}
 
 #image {
     width:100px;
@@ -834,14 +841,26 @@ h1#title::after {
     margin-left:3px;
 }
 
-#image img {width:100px; height:100px; border-radius:3px; display:block;}
+#image img {
+    width:100px; 
+    height:100px; 
+    border-radius:3px; 
+    display:block;
+}
 
 nav#menu {
+    text-align:center;
+    {block:ifsidebarimage}
     width:30px;
     margin-right:10px;
     display:inline-block;
     vertical-align:middle;
-    text-align:center;
+    {/block:ifsidebarimage}
+    {block:ifnotsidebarimage}
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    {/block:ifnotsidebarimage}
 }
 
 nav#menu a {
@@ -931,9 +950,11 @@ $(document).ready(function(){
         <a href="#" title="menu" id="toggle"><span class="ftr" data-feather="menu"></span></a>
         <a href="/archive" title="archive"><span class="ftr" data-feather="calendar"></span></a>
     </nav>
+    {block:ifsidebarimage}
     <div id="image">
         <img src="{image:sidebar}"/>
     </div>
+    {block:ifsidebarimage}
     <div id="desc">
         {Description}
     </div>
