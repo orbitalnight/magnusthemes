@@ -912,6 +912,21 @@ ol.notes li.note blockquote {
 ol.notes li.note blockquote a {text-decoration:none;}
 
 /* ------ tiles ------ */
+	
+/* pin */
+
+.pin::before {
+    content:"";
+    width:0px;
+    height:20px;
+    background-color:transparent;
+    position:absolute;
+    top:0px;
+    right:5px;
+    border:10px solid {color:Accent 1};
+    border-bottom:10px solid transparent;
+    z-index:99;
+}
 
 .tile .permasource,
 .tile .permabottom,
@@ -979,6 +994,7 @@ ol.notes li.note blockquote a {text-decoration:none;}
     height:calc(({select:grid width}px - {select:grid gap}px)/3);
     margin:0px;
     overflow:hidden;
+    position:relative;
 }
 
 #postmargin.tile .posts:nth-of-type(4n-2),
@@ -1761,27 +1777,17 @@ footer > div {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fitvids/1.2.0/jquery.fitvids.min.js"></script>
 <script src="https://unpkg.com/feather-icons@4.7.3/dist/feather.min.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/leafo/sticky-kit@master/dist/sticky-kit.min.js"></script>
+<script src="https://static.tumblr.com/p0knose/HwKqee97b/photosets.js"></script>
 <script src="https://static.tumblr.com/0podkko/jfMplm3f8/modified_photosets.js"></script>
 
 {block:ifphotosetslideshows}
 <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
 {/block:ifphotosetslideshows}
 
-<script src="https://static.tumblr.com/p0knose/SNnpz4di0/haeundae.js"></script>
+<script src="https://static.tumblr.com/p0knose/zXaqxf9q8/haeundae.js"></script>
 
 <script>
 $(document).ready(function(){
-    $(document).tooltip({
-        track:true
-    });
-    $("#nav").on("click",function(e){
-        $("body").toggleClass("pushDown");
-        $(document.body).trigger("sticky_kit:recalc");
-        e.preventDefault();
-    });
-    $("aside").stick_in_parent({
-        offset_top:40
-    });
     {block:ifnotsidebarimage}
     $(".hint--left").addClass("hint--bottom").removeClass("hint--left");
     {/block:ifnotsidebarimage}
