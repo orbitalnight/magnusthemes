@@ -55,7 +55,6 @@ Icon cheatsheet: https://phosphoricons.com
 <!-- image options -->
  
 <meta name="image:header" content=""/>
-<meta name="image:background" content=""/>
 
 <!-- booleans -->
 
@@ -258,9 +257,6 @@ iframe#tumblr_controls,
 /* ------ basic styles ------ */
  
 body {
-    {block:ifbackgroundimage}background-image:url('{image:background}');{/block:ifbackgroundimage}
-    background-attachment:fixed;
-    background-repeat:repeat;
     background-color:var(--background);
     margin:0px;
     padding:0px;
@@ -1277,9 +1273,6 @@ ol.notes li.note blockquote a {text-decoration:none;}
     padding:0 15px;
     display:inline-block;
     color:{color:Secondary Accent 2};
-    {block:ifbackgroundimage}background-image:url('{image:background}');{/block:ifbackgroundimage}
-    background-repeat:repeat;
-    background-attachment:fixed;
     background-color:var(--background);
     text-shadow:-10px 0 transparent, 10px 0 transparent;
     transform:translateY(-50%);
