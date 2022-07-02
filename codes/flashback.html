@@ -384,7 +384,7 @@ main {
 {block:PermalinkPage}
 main {
     width:{select:post size}px;
-    padding-top:30px;
+    margin-top:30px;
 }
 {/block:PermalinkPage}
 
@@ -397,7 +397,7 @@ main {
     z-index:1; 
     -webkit-animation:fadein 1s;
     animation:fadein 1s;
-    min-height:calc(100vh - 330px);
+    min-height:calc(100vh - 300px);
 }
  
 /* ------ posts ------ */
@@ -780,10 +780,11 @@ img.singlepic {
     z-index:3;
     bottom:0;
     width:100%;
+    left:0;
     position:absolute;
     box-sizing:border-box;
     background:rgba(var(--tr-posts),0.7);
-    min-width:200px;
+    min-width:120px;
     backdrop-filter:blur(5px);
     -webkit-backdrop-filter:blur(5px);
 }
@@ -1467,8 +1468,11 @@ ol.notes li.note blockquote a {text-decoration:none;}
 }
 
 .tile .audio .audio_buttons {
-    position:relative;
     width:100%;
+}
+
+.tile .audio .audio_buttons a {
+    margin:0;
 }
 
 .tile .audio .mi {
@@ -2371,6 +2375,33 @@ footer::after {
     
     #postmargin.tile .hdate:first-of-type {
         width:calc(100% - 35px);
+    }
+    
+    .audio {
+        flex-wrap:wrap;
+    }
+    
+    .ainfo {
+        padding:30px;
+    }
+    
+    .mi {
+        width:auto;
+        height:auto;
+        aspect-ratio:1;
+    }
+    
+    .mi img {
+        width:100%;
+        height:auto;
+        aspect-ratio:1;
+    }
+    
+    #postcont .audio_buttons,
+    #postmargin:not(.tile) .audio_buttons {
+        width:100%;
+        padding-bottom:60px;
+        margin-bottom:auto;
     }
 }
 
