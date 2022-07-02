@@ -122,10 +122,6 @@ Icon cheatsheet: https://phosphoricons.com
  
 <style type="text/css">
 
-:root {
-    --grid-width:{select:grid width}px;
-}
-
 .ph:before {
     display:block;
 }
@@ -374,7 +370,7 @@ blockquote img {max-width:100%!important; height:auto!important;}
 
 main {
     display:block;
-    width:var(--grid-width);
+    width:{select:grid width}px;
     margin:60px auto 0;
     padding-bottom:60px;
     -webkit-animation:fadein 1s;
@@ -1167,9 +1163,9 @@ ol.notes li.note blockquote a {text-decoration:none;}
 
 #postmargin.tile {
     display:grid;
-    width:var(--grid-width);
-    grid-template-columns:repeat(6,1fr);
+    width:{select:grid width}px;
     grid-gap:{select:grid gap}px;
+    grid-template-columns:repeat(6,1fr);
   	grid-auto-rows:min-content;
 }
 
