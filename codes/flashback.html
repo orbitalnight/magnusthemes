@@ -2461,7 +2461,7 @@ $(document).ready(function(){
     $(window).scroll(function(){
         stickyNav(p);
     });
-    highlight("{Name}","{text:large posts tag}");
+    {block:iflargepoststag}highlight("{Name}","{text:large posts tag}");{/block:iflargepoststag}
     var mode = "{select:default mode}";
     switch(mode){
         case "day":
