@@ -12,7 +12,7 @@ Icon cheatsheet: http://feathericons.com
 ------>
  
 <!-- fonts --> 
-<link href='https://fonts.googleapis.com/css?family=Work+Sans:300,400,700|{select:title font}' rel='stylesheet'/>
+<link href='https://fonts.googleapis.com/css?family={select:body font}:300,400,700|{select:title font}' rel='stylesheet'/>
 
 <!-- stylesheets -->
 <link href="https://static.tumblr.com/p0knose/yKlp5mq5l/normalize.css" rel="stylesheet"/>
@@ -104,6 +104,9 @@ Icon cheatsheet: http://feathericons.com
 <meta name="text:extra panel text" content=""/>
 
 <!-- more options -->
+	
+<meta name="select:body font" title="original" content="Work Sans"/>
+<meta name="select:body font" title="thin" content="Oxygen"/>
 	
 <meta name="select:title font" title="original" content="Philosopher"/>
 <meta name="select:title font" title="blocky" content="Graduate"/>
@@ -253,7 +256,7 @@ iframe#tumblr_controls:hover,
     margin-top:20px!important;
     color:{color:text}!important;
     text-shadow:0 0 0 transparent!important;
-    font:normal 14px 'Oxygen', sans-serif;
+    font:normal 14px '{select:body font}', sans-serif;
 }
  
 /* ------ basic styles ------ */
@@ -269,7 +272,7 @@ body {
     overflow:auto;
     color:{color:text};
     letter-spacing:0px;
-    font:normal 14px/170% 'Oxygen', sans-serif;
+    font:normal 13px/170% '{select:body font}', sans-serif;
     -webkit-font-smoothing:antialiased;
     -moz-osx-font-smoothing:grayscale;
 }
@@ -650,7 +653,7 @@ blockquote img {
 }
 
 .llp > span.h {
-    font:normal 10px/20px "Oxygen",sans-serif;
+    font:normal 10px/20px "{select:body font}",sans-serif;
     text-transform:uppercase;
     letter-spacing:1px;
 }
@@ -752,7 +755,7 @@ blockquote img {
     padding:0 15px 0 65px;
     overflow:hidden;
     position:relative;
-    font:normal 12px/150% 'Oxygen', sans-serif;
+    font:normal 12px/150% '{select:body font}', sans-serif;
 }
  
 .musicinfo table, .musicinfo table td {
@@ -1200,7 +1203,7 @@ header {
 #searchbox input {
     border:none;
     background:transparent; 
-    font:12px/15px "Oxygen"; 
+    font:12px/15px "{select:body font}"; 
     margin-left:5px; 
     display:inline-block; 
     vertical-align:middle; 
@@ -1211,7 +1214,7 @@ header {
 
 #desc {
     margin-top:50px;
-    font-size:13px;
+    font-size:12px;
     line-height:170%;
     white-space:normal;
     text-align:justify;
@@ -1489,7 +1492,7 @@ header {
 }
 
 #stat {
-    font:10px/17px "Oxygen";
+    font:10px/17px "{select:body font}";
     text-transform:uppercase;
 }
 
