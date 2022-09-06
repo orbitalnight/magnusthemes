@@ -12,7 +12,7 @@ Icon cheatsheet: http://feathericons.com
 ------>
  
 <!-- fonts --> 
-<link href='https://fonts.googleapis.com/css?family=Work+Sans:300,400,700|Graduate' rel='stylesheet'/>
+<link href='https://fonts.googleapis.com/css?family=Work+Sans:300,400,700|{select:title font}' rel='stylesheet'/>
 
 <!-- stylesheets -->
 <link href="https://static.tumblr.com/p0knose/yKlp5mq5l/normalize.css" rel="stylesheet"/>
@@ -104,6 +104,9 @@ Icon cheatsheet: http://feathericons.com
 <meta name="text:extra panel text" content=""/>
 
 <!-- more options -->
+	
+<meta name="select:title font" title="original" content="Philosopher"/>
+<meta name="select:title font" title="blocky" content="Graduate"/>
 
 <meta name="select:margins" title="60px" content="60px"/>
 <meta name="select:margins" title="70px" content="70px"/>
@@ -342,7 +345,7 @@ ol li::before {
     position:absolute;
     margin-left:-10px;
     color:{color:Accent};
-    font:bold 100%/180% 'Graduate', sans-serif;
+    font:bold 100%/180% '{select:title font}', sans-serif;
 	-webkit-transform:translateX(-100%);
 	-ms-transform:translateX(-100%);
 	transform:translateX(-100%);
@@ -366,7 +369,7 @@ ul li::before {
 
 h1, h2, h3 {
     letter-spacing:0px; 
-    font:20px 'Graduate', sans-serif;
+    font:20px '{select:title font}', sans-serif;
     color:{color:Post Title};
 }
 
@@ -532,7 +535,7 @@ p.rm {
 }
  
 .text .read_more {
-    font:normal 14px 'Graduate', sans-serif;
+	font:normal 14px '{select:title font}', sans-serif;
     text-transform:uppercase;
     margin:10px 25px;
     display:inline-block;
@@ -614,7 +617,7 @@ blockquote img {
 .quote {
     text-align:center;
     letter-spacing:0px;
-    font:22px/150% 'Graduate', sans-serif;
+    font:22px/150% '{select:title font}', sans-serif;
     padding:15px 30px 0;
 }
  
@@ -633,7 +636,7 @@ blockquote img {
     display:block;
     color:{color:post title};
     background:transparent;
-    font:normal 22px/30px 'Graduate', sans-serif;
+    font:normal 22px/30px '{select:title font}', sans-serif;
     text-align:center;
     letter-spacing:0px;
     text-transform:none;
@@ -766,7 +769,7 @@ blockquote img {
 }
 
 .musicinfo b {
-    font:normal 15px/150% 'Graduate', sans-serif;
+    font:normal 15px/150% '{select:title font}', sans-serif;
 }
 
 .musicinfo i {
@@ -1086,7 +1089,7 @@ header {
 /* --- sticky bar --- */
 
 #title {
-    font:22px/20px "Graduate", sans-serif;
+    font:22px/20px "{select:title font}", sans-serif;
     background:{color:Container};
     padding:calc({select:margins}/2) {select:margins};
     margin:calc(-{select:margins}/2) -{select:margins};
@@ -1520,7 +1523,7 @@ header {
 #links {
     width:130px;
     padding:5px 12px;
-    font:12px/18px "Graduate";
+    font:12px/18px "{select:title font}";
 }
 
 #links a {
@@ -1580,7 +1583,7 @@ header {
 #manual, 
 #pagination {
     margin:0; 
-    font:16px/20px "Graduate";
+    font:16px/20px "{select:title font}";
 }
 
 {block:ifinfinitescroll}
