@@ -46,7 +46,6 @@ ver. 1.0.0 (17/09/2022)
  
 <meta name="if:light theme" content="">
 <meta name="if:infinite scroll" content="">
-<meta name="if:manual load" content="">
 <meta name="if:lazy load" content="">
 <meta name="if:hide captions" content="">
 <meta name="if:hide tags" content="">
@@ -1918,12 +1917,12 @@ $(document).ready(function(){
     </div><!--search-->
     {block:Pagination}
     <div id="pagination">
-        {block:PreviousPage}<a href="{PreviousPage}" title="previous"><span class="ri ri-arrow-left-line"></span></a>{/block:PreviousPage}
+        {block:PreviousPage}<a href="{PreviousPage}" class="prev" title="previous"><span class="ri ri-arrow-left-line"></span></a>{/block:PreviousPage}
         {block:JumpPagination length="5"}
         {block:CurrentPage}<span class="current_page">{PageNumber}</span>{/block:CurrentPage}
         {block:JumpPage}<a class="jump_page" href="{URL}">{PageNumber}</a>{/block:JumpPage}
         {/block:JumpPagination}
-        {block:NextPage}<a href="{NextPage}" title="next"><span class="ri ri-arrow-right-line"></span></a>{/block:NextPage}
+        {block:NextPage}<a href="{NextPage}" class="next" title="next"><span class="ri ri-arrow-right-line"></span></a>{/block:NextPage}
     </div>
     {/block:Pagination}
     {block:ifcolorbar}
