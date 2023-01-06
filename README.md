@@ -7,7 +7,7 @@ Website: https://magnusthemes.tumblr.com/
 
 ## For Github users
 
-In accordance with the Github Terms of Service, you are allowed to view and fork this Github repository available at  https://github.com/orbitalnight/magnusthemes.
+In accordance with the Github Terms of Service, you are allowed to view and fork this Github repository available at  https://github.com/beverleyy/magnusthemes.
 
 Distribution, modification, sale and sublicensing of any of the works within the repository is forbidden.
 
