@@ -1856,14 +1856,14 @@ $(document).ready(function(){
         {block:iflink1}<li><a href="{text:link 1 url}">{text:link 1}</a></li>{/block:iflink1}
         {block:iflink2}<li><a href="{text:link 2 url}">{text:link 2}</a></li>{/block:iflink2}
         {block:iflink3}<li><a href="{text:link 3 url}">{text:link 3}</a></li>{/block:iflink3}
+        {block:HasPages}
         <li>
             <a href="#menu">{text:dropdown title}</a>
-            {block:HasPages}
             <ul class="drop">
                 {block:Pages}<a href="{URL}">{Label}</a>{/block:Pages}
             </ul>
-            {/block:HasPages}
         </li>
+        {/block:HasPages}
         <li><a href="/archive">Archive</a></li>
     </ul>
 </nav>
