@@ -600,7 +600,7 @@ img.singlepic {
     overflow:hidden;
     display:flex;
     align-items:center;
-    background:var(--posts);
+    background:{color:posts};
 }
 
 .audio audio {display:none!important;}
@@ -622,20 +622,25 @@ img.singlepic {
     position:absolute;
     height:80px;
     z-index:2;
-    margin-bottom:30px;
+    margin:auto auto 30px;
+}
+
+.tile .audio_buttons {
+    left:0;
+    right:0;
 }
 
 .audio_buttons a {
-    margin:0 10px;
+    margin:0 5px;
     line-height:30px;
     display:block;
     height:30px;
     padding:5px;
-    border:5px solid var(--posts);
-    background:rgba(var(--tr-posts),0.7);
+    border:5px solid {color:posts};
+    background:rgba({RGBcolor:posts},0.7);
     backdrop-filter:blur(5px);
     border-radius:100%;
-    color:var(--post-titles);
+    color:{color:post titles};
 }
 
 .audio_buttons .ph {
@@ -658,7 +663,7 @@ img.singlepic {
 	-webkit-transform:scale(0.6);
 	-ms-transform:scale(0.6);
 	transform:scale(0.6);
-	color:var(--text);
+	color:{color:text};
 }
 
 .ainfo {
@@ -668,21 +673,36 @@ img.singlepic {
 .mi {
     text-transform:uppercase;
     text-align:center;
-    width:calc((540px - 1px)/3);
-    height:calc((540px - 1px)/3);
+    width:calc(({select:grid width}px - {select:grid gap}px)/3);
+    height:calc(({select:grid width}px - {select:grid gap}px)/3);
     box-sizing:border-box;
     color:var(--post-titles);
     position:relative;
 }
 
 .mi img {
-    width:calc((540px - 1px)/3);
-    height:calc((540px - 1px)/3);
+    width:calc(({select:grid width}px - {select:grid gap}px)/3);
+    height:calc(({select:grid width}px - {select:grid gap}px)/3);
     display:inline-block;
     z-index:1;
     left:0;
     top:0;
     max-width:none!important;
+}
+
+#postmargin.tile .posts:nth-of-type(4n-2) .mi,
+#postmargin.tile .posts:nth-of-type(4n-1) .mi, 
+#postmargin.tile .posts:nth-of-type(4n-2) .mi img,
+#postmargin.tile .posts:nth-of-type(4n-1) .mi img {
+	width:calc(({select:grid width}px - {select:grid gap}px)/3*2);
+}
+
+#postmargin.tile .posts:nth-of-type(6n-1) .mi,
+#postmargin.tile .posts:nth-of-type(6n-0) .mi,
+#postmargin.tile .posts:nth-of-type(6n-1) .mi img,
+#postmargin.tile .posts:nth-of-type(6n-0) .mi img {
+	width:calc(({select:grid width}px - {select:grid gap}px)/2);
+	height:calc(({select:grid width}px - {select:grid gap}px)/2);
 }
 
 .audiobar {
@@ -1891,13 +1911,13 @@ footer > div {
 <script src="https://cdn.jsdelivr.net/gh/pie6k/jquery.initialize@171bc5817b7ce6f8e29829946b7cbf7e30bee229/jquery.initialize.min.js"></script>
 <script src="https://static.tumblr.com/p0knose/tyOqxfca3/photosets.js"></script>
 <script src="https://static.tumblr.com/0podkko/jfMplm3f8/modified_photosets.js"></script>
-<script src="https://static.tumblr.com/p0knose/Rpzs69l3h/makeaudio.js"></script>
+<script src="https://static.tumblr.com/p0knose/f7js69m2a/makeaudio.js"></script>
 
 {block:ifphotosetslideshows}
 <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
 {/block:ifphotosetslideshows}
 
-<script src="https://static.tumblr.com/p0knose/wi3qxfds4/haeundae.js"></script>
+<script src="https://static.tumblr.com/p0knose/68js69m7n/haeundae.js"></script>
 
 <script src="https://static.tumblr.com/dytmpsw/wPas69hlu/neue_posts.js"></script>
 
