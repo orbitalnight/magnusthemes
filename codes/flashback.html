@@ -6,7 +6,7 @@
 <!------
 Theme - Flashback
 Code by rijeonghyuks/magnusthemes
-ver. 1.0.0 (03/07/2022)
+ver. 1.1.0 (25 Dec 2023)
 
 Icon cheatsheet: https://phosphoricons.com
 ------>
@@ -682,6 +682,8 @@ img.singlepic {
     align-items:center;
     background:var(--posts);
 }
+
+.audio audio {display:none!important;}
 
 .spotify_audio_player {
     height:80px!important;
@@ -1562,6 +1564,7 @@ a.popp {
     text-align:center;
 }
 
+{block:IndexPage}
 [data-type] > div,
 [data-type] > .ph{
     transition:opacity 0.4s ease-in-out;
@@ -1572,6 +1575,7 @@ a.popp {
 [data-type]:hover > .ph {
     opacity:0.2!important;
 }
+{/block:IndexPage}
 
 a.popp .ph {
     padding:6px;
@@ -2445,12 +2449,13 @@ iframe.tmblr-iframe.tmblr-iframe--unified-controls.tmblr-iframe--loaded.iframe-c
 <script src="https://static.tumblr.com/p0knose/e3kre2zp8/photosets.js"></script>
 
 <script src="https://static.tumblr.com/0podkko/jfMplm3f8/modified_photosets.js"></script>
-<script src="https://static.tumblr.com/p0knose/eAOreeibo/makeaudio.js"></script>
+<script src="https://static.tumblr.com/p0knose/Rpzs69l3h/makeaudio.js"></script>
 
 {block:ifphotosetslideshows}
 <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
 {/block:ifphotosetslideshows}
 
+<script src="https://static.tumblr.com/dytmpsw/wPas69hlu/neue_posts.js"></script>
 <script src="https://static.tumblr.com/p0knose/dwSreeirb/flashback.js"></script>
 
 <script>
@@ -2696,7 +2701,7 @@ $(document).ready(function(){
 {/block:NewDayDate}
 {/block:IndexPage}
 
-<article class="posts {block:PinnedPostLabel}pinned{/block:PinnedPostLabel}" id="{PostID}"{block:IndexPage} data-type="{PostType}"{block:HasTags} data-tags="{block:Tags} {URLSafeTag} {/block:Tags}"{/block:HasTags}{/block:IndexPage}>
+<article class="posts {posttype}-post {block:PinnedPostLabel}pinned{/block:PinnedPostLabel}" id="{PostID}"{block:IndexPage} data-type="{PostType}"{block:HasTags} data-tags="{block:Tags} {URLSafeTag} {/block:Tags}"{/block:HasTags}{/block:IndexPage}>
 
     {block:Date}
     {block:IndexPage}
@@ -2727,22 +2732,6 @@ $(document).ready(function(){
         </div>
     </div>
     {/block:NotReblog}
-    {block:RebloggedFrom}
-    <div class="body text">
-        {block:Reblogs}
-        <div class="tumblr_parent">
-            <div class="reblog_head">
-                <img src="{portraiturl-64}" class="tumblr_avatar"/>
-                {block:IsActive}<a target="_blank" href="{Permalink}" class="reblog_user">{Username}</a>{/block:IsActive}
-                {block:IsDeactivated}<span class="reblog_user" title="deactivated">{Username}</span>{/block:IsDeactivated}
-            </div>
-            <div>
-                {Body}
-            </div>
-        </div>
-        {/block:Reblogs}
-    </div>
-    {/block:RebloggedFrom}
     {/block:Text}
      
     {block:Photo}
@@ -2807,22 +2796,6 @@ $(document).ready(function(){
         </div>
     </div>
     {/block:NotReblog}
-    {block:RebloggedFrom}
-    <div class="text">
-        {block:Reblogs}
-        <div class="tumblr_parent">
-            <div class="reblog_head">
-                <img src="{portraiturl-64}" class="tumblr_avatar"/>
-                {block:IsActive}<a target="_blank" href="{Permalink}" class="reblog_user">{Username}</a>{/block:IsActive}
-                {block:IsDeactivated}<span class="reblog_user" title="deactivated">{Username}</span>{/block:IsDeactivated}
-            </div>
-            <div>
-                {Body}
-            </div>
-        </div>
-        {/block:Reblogs}
-    </div>
-    {/block:RebloggedFrom}
     {/block:Description}
     {/block:Link}
  
@@ -2891,33 +2864,6 @@ $(document).ready(function(){
         </div>
     </div>
     {/block:NotReblog}
-    {block:RebloggedFrom}
-    <div class="text">
-        <div class="tumblr_parent">
-            {block:Answerer}
-            <div class="reblog_head">
-                <img src="{AnswererPortraiturl-64}" class="tumblr_avatar"/>
-                {Answerer}
-            </div>
-            {/block:Answerer}
-            <div>
-                {Answer}
-            </div>
-        </div>
-        {block:Reblogs}
-        <div class="tumblr_parent">
-            <div class="reblog_head">
-                <img src="{PortraitURL-64}" class="tumblr_avatar"/>
-                {block:IsActive}<a target="_blank" href="{Permalink}" class="reblog_user">{Username}</a>{/block:IsActive}
-                {block:IsDeactivated}<span class="reblog_user" title="deactivated">{Username}</span>{/block:IsDeactivated}
-            </div>
-            <div>
-                {Body}
-            </div>
-        </div>
-        {/block:Reblogs}
-    </div>
-    {/block:RebloggedFrom}
     {/block:Answer}
     
     {block:Caption}
@@ -2934,6 +2880,8 @@ $(document).ready(function(){
         </div>
     </div>
     {/block:NotReblog}
+    {/block:Caption}
+    
     {block:RebloggedFrom}
     <div class="caption text">
         {block:Reblogs}
@@ -2950,7 +2898,6 @@ $(document).ready(function(){
         {/block:Reblogs}
     </div>
     {/block:RebloggedFrom}
-    {/block:Caption}
     
     {block:Date}
     <div class="permabottom">
@@ -2978,6 +2925,9 @@ $(document).ready(function(){
         </div>
     </div>
     {/block:Date}
+    
+    <!-- store the npf string to work with infscr -->
+    <script class="npf_data" type="application/json" data-id="{JSPostId}">{NPF}</script>
     
 </article><!--posts-->
 
