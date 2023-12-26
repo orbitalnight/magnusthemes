@@ -5,7 +5,7 @@
 Theme - 24/seven
 code by rijeonghyuks/magnusthemes
  
-ver. 1.0.0 (31 Jul 2021)
+ver. 1.1.0 (25 Dec 2023)
 -->
  
 <head>
@@ -454,6 +454,8 @@ a.reblog_user,
     transition:0.6s ease;
 }
 
+.tmblr-full a {padding-bottom:0;}
+
 .text a:hover,
 .desc a:hover,
 .stat a:hover,
@@ -495,7 +497,7 @@ a.reblog_user:hover,
 
 .tumblr_parent img {
     max-width:100%!important;
-    height:auto!important;
+    height:auto;
 }
  
 a.reblog_user, 
@@ -655,6 +657,8 @@ span.reblog_user:hover::after {opacity:1;}
     justify-content:center;
     width:100%;
     height:80px;
+    position:relative;
+    z-index:1;
 }
 
 .audio_buttons a {
@@ -696,14 +700,15 @@ span.reblog_user:hover::after {opacity:1;}
     color:{color:Post Titles};
 }
 
-.mi img {
+.mi img,
+.text figure.tmblr-full .mi img {
     width:80px;
     height:80px;
     display:inline-block;
     margin-bottom:10px;
     border-radius:100%;
     position:absolute;
-    z-index:-1;
+    z-index:0;
     top:-80px;
     margin-left:-40px;
 }
@@ -784,6 +789,14 @@ span.reblog_user:hover::after {opacity:1;}
     display:inline-block;
     vertical-align:middle;
 }
+
+/* npf audio */
+
+.reblog-content > .tmblr-full .audio-caption {
+    display:none;
+}
+
+.audio audio {display:none;}
  
 /* ------ chat posts ------ */
  
@@ -1513,8 +1526,9 @@ iframe.tmblr-iframe.tmblr-iframe--unified-controls.tmblr-iframe--loaded.iframe-c
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fitvids/1.2.0/jquery.fitvids.min.js"></script>
 <script src="https://static.tumblr.com/0podkko/jfMplm3f8/modified_photosets.js"></script>
 <script src="https://static.tumblr.com/p0knose/HwKqee97b/photosets.js"></script>
-<script src="https://static.tumblr.com/p0knose/m0Yqf8ug0/midnightsun_audio.js"></script>
+<script src="https://static.tumblr.com/p0knose/sEGs694wv/midnightsun_audio.js"></script>
 <script src="https://static.tumblr.com/p0knose/p4Fqx3sz0/flow.js"></script>
+<script src="https://static.tumblr.com/p0knose/fyRs69boo/neue_posts.js"></script>
 
 {block:iflazyload}
 <script src="https://static.tumblr.com/bmdsqsc/ogWm7q8w1/lazyload.js"></script>
@@ -1637,52 +1651,29 @@ $(document).ready(function(){
 <section id="postmargin">
  
 {block:Posts}
-<article class="posts">
+<article class="posts {posttype}-post" id="{PostID}">
     <div class="container">
-     
+    
         {block:Text}
     	{block:Title}<div class="headt">{Title}</div>{/block:Title}
-        {block:NotReblog}
-        <div class="esp text">
+    	{block:NotReblog}
+        <div class="caption text">
             <div class="tumblr_parent">
-                {block:Date}
                 <div class="reblog_head">
                     <span class="ri ri-user-line"></span>
                     <a target="_blank" href="{Permalink}" class="reblog_user">{Name}</a>
                 </div>
-                {/block:Date}
                 <div>
                     {Body}
                 </div>
             </div>
         </div>
         {/block:NotReblog}
-        {block:RebloggedFrom}
-        <div class="esp text">
-            {block:Reblogs}
-            <div class="tumblr_parent">
-                <div class="reblog_head">
-                    {block:IsActive}
-                    <span class="ri ri-user-add-line"></span>
-                    <a target="_blank" href="{Permalink}" class="reblog_user">{Username}</a>
-                    {/block:IsActive}
-                    {block:IsDeactivated}
-                    <span class="ri ri-user-unfollow-line"></span>
-                    <span class="reblog_user">{Username}</span>
-                    {/block:IsDeactivated}
-                </div>
-                <div>
-                    {Body}
-                </div>
-            </div>
-            {/block:Reblogs}
-        </div>
-        {/block:RebloggedFrom}
         {/block:Text}
-     
+    
         {block:Photo}
         <a class="photolight" href="{PhotoURL-HighRes}" data-width="{PhotoWidth-HighRes}" data-height="{PhotoHeight-HighRes}" data-lowres="{PhotoURL-500}" data-highres="{PhotoURL-HighRes}">
-        	<div class="photo">
+        	<div class="photo legacy-photo">
         		<img src="{PhotoURL-HighRes}" class="photoblock" width="{select:post size}">
         	</div>
             <meta name="{PhotoAlt}" content="{PhotoAlt}"/>
@@ -1691,7 +1682,7 @@ $(document).ready(function(){
      
         {block:Panorama}
         <a class="photolight" href="{PhotoURL-HighRes}" data-width="{PhotoWidth-HighRes}" data-height="{PhotoHeight-HighRes}" data-lowres="{PhotoURL-500}" data-highres="{PhotoURL-HighRes}">
-        	<div class="photo">
+        	<div class="photo legacy-photo">
         		<img src="{PhotoURL-HighRes}">
         	</div>
             <meta name="{PhotoAlt}" content="{PhotoAlt}"/>
@@ -1699,7 +1690,7 @@ $(document).ready(function(){
         {/block:Panorama}
      
         {block:Photoset}
-        <div class="photo">
+        <div class="photo legacy-photo">
         	<div class="photoset-grid" photoset-layout="{PhotosetLayout}">
                 {block:Photos}
                 <div data-width="{PhotoWidth-HighRes}" data-height="{PhotoHeight-HighRes}" data-lowres="{PhotoURL-500}" data-highres="{PhotoURL-HighRes}" onclick="lightbox(this)">
@@ -1741,27 +1732,6 @@ $(document).ready(function(){
             </div>
         </div>
         {/block:NotReblog}
-        {block:RebloggedFrom}
-        <div class="esp text">
-            {block:Reblogs}
-            <div class="tumblr_parent">
-                <div class="reblog_head">
-                    {block:IsActive}
-                    <span class="ri ri-user-add-line"></span>
-                    <a target="_blank" href="{Permalink}" class="reblog_user">{Username}</a>
-                    {/block:IsActive}
-                    {block:IsDeactivated}
-                    <span class="ri ri-user-unfollow-line"></span>
-                    <span class="reblog_user">{Username}</span>
-                    {/block:IsDeactivated}
-                </div>
-                <div>
-                    {Body}
-                </div>
-            </div>
-            {/block:Reblogs}
-        </div>
-        {/block:RebloggedFrom}
         {/block:Description}
         {/block:Link}
      
@@ -1849,31 +1819,13 @@ $(document).ready(function(){
                     {Answer}
                 </div>
             </div>
-            {block:Reblogs}
-            <div class="tumblr_parent">
-                <div class="reblog_head">
-                    {block:IsActive}
-                    <span class="ri ri-user-add-line"></span>
-                    <a target="_blank" href="{Permalink}" class="reblog_user">{Username}</a>
-                    {/block:IsActive}
-                    {block:IsDeactivated}
-                    <span class="ri ri-user-unfollow-line"></span>
-                    <span class="reblog_user">{Username}</span>
-                    {/block:IsDeactivated}
-                </div>
-                <div>
-                    {Body}
-                </div>
-            </div>
-            {/block:Reblogs}
         </div>
         {/block:RebloggedFrom}
         {/block:Answer}
         
-        {block:Caption}
-        <!--caption for photo/video/audio-->
         {block:NotReblog}
-        <div class="caption text">
+        {block:Caption}
+        <div class="esp caption text">
             <div class="tumblr_parent">
                 <div class="reblog_head">
                     <span class="ri ri-user-line"></span>
@@ -1884,12 +1836,13 @@ $(document).ready(function(){
                 </div>
             </div>
         </div>
+        {/block:Caption}
         {/block:NotReblog}
         {block:RebloggedFrom}
         <div class="caption text">
             {block:Reblogs}
             <div class="tumblr_parent">
-                <div class="reblog_head">
+                <div class="reblog_head reblog-header">
                     {block:IsActive}
                     <span class="ri ri-user-add-line"></span>
                     <a target="_blank" href="{Permalink}" class="reblog_user">{Username}</a>
@@ -1899,14 +1852,13 @@ $(document).ready(function(){
                     <span class="reblog_user">{Username}</span>
                     {/block:IsDeactivated}
                 </div>
-                <div>
+                <div class="reblog-content">
                     {Body}
                 </div>
             </div>
             {/block:Reblogs}
         </div>
         {/block:RebloggedFrom}
-        {/block:Caption}
         
     </div><!--container-->
     
@@ -1957,6 +1909,9 @@ $(document).ready(function(){
     </div>
     {/block:HasTags}{/block:ifnothidetags}
     {/block:IndexPage}
+    
+    <!-- store the npf string to work with infscr -->
+    <script class="npf_data" type="application/json" data-id="{JSPostId}">{NPF}</script>
 
 </article><!-- POSTS -->
 

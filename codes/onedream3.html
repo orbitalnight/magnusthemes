@@ -6,7 +6,7 @@
 <!------
 Theme - One Dream 3.0
 Code by rijeonghyuks/magnusthemes
-ver. 1.0.0 (21/06/2020)
+ver. 1.1.0 (25 Dec 2023)
 
 Icon cheatsheet: https://feathericons.com
 ------>
@@ -591,7 +591,22 @@ div.asker {
     text-align:left;
 }
 
-.musicinfo b {color:{color:Accent 1};}
+.tmblr-full > audio {
+    width:50px!important;
+    position:absolute;
+    right:17.5px;
+    top:22.5px;
+}
+
+.tmblr-full {
+    position:relative;
+}
+
+.musicinfo b,
+.tmblr-audio-meta.title {
+    color:{color:Accent 1};
+    font-weight:bold;
+}
  
 .tplayer {
     z-index:3;
@@ -1342,6 +1357,7 @@ header img {
 <script src="https://static.tumblr.com/0podkko/jfMplm3f8/modified_photosets.js"></script>
 <script src="https://static.tumblr.com/ikeq9mi/DfYl6o46t/scrolltotop.min.js"></script>
 <script src="https://static.tumblr.com/p0knose/y1qqc8fh6/onedream.js"></script>
+<script src="https://static.tumblr.com/p0knose/usks69bnf/neue_posts.js"></script>
 
 <script>
 $(document).ready(function(){
@@ -1562,7 +1578,7 @@ $(document).ready(function(){
 <section id="postmargin">
 
 {block:Posts}
-<article class="posts" id="{PostID}">
+<article class="posts {posttype}-post" id="{PostID}">
 
     {block:Text}
     {block:Title}<div class="headt"><span class="highlight">{Title}</span></div>{/block:Title}
@@ -1999,6 +2015,9 @@ $(document).ready(function(){
     </div>
     {/block:HasTags}
     {/block:Date}
+    
+    <!-- store the npf string to work with infscr -->
+    <script class="npf_data" type="application/json" data-id="{JSPostId}">{NPF}</script>
     
 </article><!--posts-->
 

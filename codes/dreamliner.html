@@ -5,7 +5,7 @@
 Theme - Dreamliner
 code by rijeonghyuks/magnusthemes
  
-ver. 2.0.0 (18 Apr 2022)
+ver. 2.1.0 (25 Dec 2023)
 -->
  
 <head>
@@ -676,6 +676,8 @@ a.llp:hover {
 }
 
 a.llp:hover > span {margin-left:35px;}
+
+.text .npf-photos a {border-bottom:0;}
  
 /* ------ ask posts ------- */
 
@@ -739,6 +741,8 @@ a.llp:hover > span {margin-left:35px;}
     background-position:center center;
     background-color:{color:content backgrounds};
 }
+
+.audio audio {display:none;}
 
 .audio_buttons {
     display:flex;
@@ -2291,7 +2295,8 @@ iframe.tmblr-iframe.tmblr-iframe--unified-controls.tmblr-iframe--loaded.iframe-c
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fitvids/1.2.0/jquery.fitvids.min.js"></script>
 <script src="https://static.tumblr.com/0podkko/jfMplm3f8/modified_photosets.js"></script>
 <script src="https://static.tumblr.com/p0knose/tyOqxfca3/photosets.js"></script>
-<script src="https://static.tumblr.com/p0knose/m0Yqf8ug0/midnightsun_audio.js"></script>
+<script src="https://static.tumblr.com/p0knose/sEGs694wv/midnightsun_audio.js"></script>
+<script src="https://static.tumblr.com/p0knose/fWAs69br6/neue_posts.js"></script>
 
 <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/leafo/sticky-kit@master/dist/sticky-kit.min.js"></script>
@@ -2900,7 +2905,7 @@ $(document).ready(function(){
 <section id="postmargin">
  
 {block:Posts}
-<article class="posts">
+<article class="posts {posttype}-post" id="{PostID}">
     <div class="container">
      
         {block:Text}
@@ -2920,27 +2925,6 @@ $(document).ready(function(){
             </div>
         </div>
         {/block:NotReblog}
-        {block:RebloggedFrom}
-        <div class="esp text">
-            {block:Reblogs}
-            <div class="tumblr_parent">
-                <div class="reblog_head">
-                    {block:IsActive}
-                    <span class="ri ri-user-add-line"></span>
-                    <a target="_blank" href="{Permalink}" class="reblog_user">{Username}</a>
-                    {/block:IsActive}
-                    {block:IsDeactivated}
-                    <span class="ri ri-user-unfollow-line"></span>
-                    <span class="reblog_user">{Username}</span>
-                    {/block:IsDeactivated}
-                </div>
-                <div>
-                    {Body}
-                </div>
-            </div>
-            {/block:Reblogs}
-        </div>
-        {/block:RebloggedFrom}
         {/block:Text}
      
         {block:Photo}
@@ -3004,27 +2988,6 @@ $(document).ready(function(){
             </div>
         </div>
         {/block:NotReblog}
-        {block:RebloggedFrom}
-        <div class="esp text">
-            {block:Reblogs}
-            <div class="tumblr_parent">
-                <div class="reblog_head">
-                    {block:IsActive}
-                    <span class="ri ri-user-add-line"></span>
-                    <a target="_blank" href="{Permalink}" class="reblog_user">{Username}</a>
-                    {/block:IsActive}
-                    {block:IsDeactivated}
-                    <span class="ri ri-user-unfollow-line"></span>
-                    <span class="reblog_user">{Username}</span>
-                    {/block:IsDeactivated}
-                </div>
-                <div>
-                    {Body}
-                </div>
-            </div>
-            {/block:Reblogs}
-        </div>
-        {/block:RebloggedFrom}
         {/block:Description}
         {/block:Link}
      
@@ -3099,38 +3062,6 @@ $(document).ready(function(){
             </div>
         </div>
         {/block:NotReblog}
-        {block:RebloggedFrom}
-        <div class="esp text">
-            <div class="tumblr_parent">
-                {block:Answerer}
-                <div class="reblog_head">
-                    <span class="ri ri-user-voice-line"></span>
-                    {Answerer}
-                </div>
-                {/block:Answerer}
-                <div>
-                    {Answer}
-                </div>
-            </div>
-            {block:Reblogs}
-            <div class="tumblr_parent">
-                <div class="reblog_head">
-                    {block:IsActive}
-                    <span class="ri ri-user-add-line"></span>
-                    <a target="_blank" href="{Permalink}" class="reblog_user">{Username}</a>
-                    {/block:IsActive}
-                    {block:IsDeactivated}
-                    <span class="ri ri-user-unfollow-line"></span>
-                    <span class="reblog_user">{Username}</span>
-                    {/block:IsDeactivated}
-                </div>
-                <div>
-                    {Body}
-                </div>
-            </div>
-            {/block:Reblogs}
-        </div>
-        {/block:RebloggedFrom}
         {/block:Answer}
         
         {block:Caption}
@@ -3148,6 +3079,8 @@ $(document).ready(function(){
             </div>
         </div>
         {/block:NotReblog}
+        {/block:Caption}
+
         {block:RebloggedFrom}
         <div class="caption text">
             {block:Reblogs}
@@ -3169,7 +3102,6 @@ $(document).ready(function(){
             {/block:Reblogs}
         </div>
         {/block:RebloggedFrom}
-        {/block:Caption}
         
     </div><!--container-->
     
@@ -3226,6 +3158,8 @@ $(document).ready(function(){
     </div>
     {/block:HasTags}
     {/block:Date}
+
+    <script class="npf_data" type="application/json" data-id="{JSPostId}">{NPF}</script>
 
 </article><!-- POSTS -->
 

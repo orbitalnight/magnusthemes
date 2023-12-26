@@ -5,7 +5,7 @@
 Theme - Starboy
 code by rijeonghyuks/magnusthemes
  
-ver. 1.0.0 (17/09/2022)
+ver. 1.1.0 (25 Dec 2023)
 -->
  
 <head>
@@ -499,8 +499,11 @@ a.reblog_user:hover,
     background-position: left bottom;
 }
  
-.reblog_head a {
+.reblog_head a,
+.tmblr-full a,
+.npf-photos a {
     border-bottom:0px solid transparent;
+    padding-bottom:0;
 } 
 
 .text figure {text-align:center;}
@@ -1775,11 +1778,13 @@ iframe.tmblr-iframe.tmblr-iframe--unified-controls.tmblr-iframe--loaded.iframe-c
 
 <script src="https://static.tumblr.com/0podkko/jfMplm3f8/modified_photosets.js"></script>
 <script src="https://static.tumblr.com/p0knose/HwKqee97b/photosets.js"></script>
-<script src="https://static.tumblr.com/p0knose/m0Yqf8ug0/midnightsun_audio.js"></script>
+<script src="https://static.tumblr.com/p0knose/sEGs694wv/midnightsun_audio.js"></script>
 
 <script src="https://static.tumblr.com/p0knose/HhVohjprk/jquery.bxslider.min.js"></script>
 
 <script src="https://static.tumblr.com/p0knose/MRPricgxt/starboy.js"></script>
+
+<script src="https://static.tumblr.com/p0knose/tL5s69bwm/neue_posts.js"></script>
 
 {block:iflazyload}
 <script src="https://static.tumblr.com/bmdsqsc/ogWm7q8w1/lazyload.js"></script>
@@ -1938,47 +1943,24 @@ $(document).ready(function(){
 <section id="postmargin">
  
 {block:Posts}
-<article class="posts">
+<article class="posts {posttype}-post" id="{PostID}">
     <div class="container">
      
         {block:Text}
     	{block:Title}<div class="headt">{Title}</div>{/block:Title}
-        {block:NotReblog}
-        <div class="esp text">
+    	{block:NotReblog}
+        <div class="caption text">
             <div class="tumblr_parent">
-                {block:Date}
                 <div class="reblog_head">
                     <span class="ri ri-user-line"></span>
                     <a target="_blank" href="{Permalink}" class="reblog_user">{Name}</a>
                 </div>
-                {/block:Date}
                 <div>
                     {Body}
                 </div>
             </div>
         </div>
         {/block:NotReblog}
-        {block:RebloggedFrom}
-        <div class="esp text">
-            {block:Reblogs}
-            <div class="tumblr_parent">
-                <div class="reblog_head">
-                    {block:IsActive}
-                    <span class="ri ri-user-add-line"></span>
-                    <a target="_blank" href="{Permalink}" class="reblog_user">{Username}</a>
-                    {/block:IsActive}
-                    {block:IsDeactivated}
-                    <span class="ri ri-user-unfollow-line"></span>
-                    <span class="reblog_user">{Username}</span>
-                    {/block:IsDeactivated}
-                </div>
-                <div>
-                    {Body}
-                </div>
-            </div>
-            {/block:Reblogs}
-        </div>
-        {/block:RebloggedFrom}
         {/block:Text}
      
         {block:Photo}
@@ -2040,27 +2022,6 @@ $(document).ready(function(){
             </div>
         </div>
         {/block:NotReblog}
-        {block:RebloggedFrom}
-        <div class="esp text">
-            {block:Reblogs}
-            <div class="tumblr_parent">
-                <div class="reblog_head">
-                    {block:IsActive}
-                    <span class="ri ri-user-add-line"></span>
-                    <a target="_blank" href="{Permalink}" class="reblog_user">{Username}</a>
-                    {/block:IsActive}
-                    {block:IsDeactivated}
-                    <span class="ri ri-user-unfollow-line"></span>
-                    <span class="reblog_user">{Username}</span>
-                    {/block:IsDeactivated}
-                </div>
-                <div>
-                    {Body}
-                </div>
-            </div>
-            {/block:Reblogs}
-        </div>
-        {/block:RebloggedFrom}
         {/block:Description}
         {/block:Link}
      
@@ -2136,42 +2097,9 @@ $(document).ready(function(){
             </div>
         </div>
         {/block:NotReblog}
-        {block:RebloggedFrom}
-        <div class="esp text">
-            <div class="tumblr_parent">
-                {block:Answerer}
-                <div class="reblog_head">
-                    <span class="ri ri-user-voice-line"></span>
-                    {Answerer}
-                </div>
-                {/block:Answerer}
-                <div>
-                    {Answer}
-                </div>
-            </div>
-            {block:Reblogs}
-            <div class="tumblr_parent">
-                <div class="reblog_head">
-                    {block:IsActive}
-                    <span class="ri ri-user-add-line"></span>
-                    <a target="_blank" href="{Permalink}" class="reblog_user">{Username}</a>
-                    {/block:IsActive}
-                    {block:IsDeactivated}
-                    <span class="ri ri-user-unfollow-line"></span>
-                    <span class="reblog_user">{Username}</span>
-                    {/block:IsDeactivated}
-                </div>
-                <div>
-                    {Body}
-                </div>
-            </div>
-            {/block:Reblogs}
-        </div>
-        {/block:RebloggedFrom}
         {/block:Answer}
         
         {block:Caption}
-        <!--caption for photo/video/audio-->
         {block:NotReblog}
         <div class="caption text">
             <div class="tumblr_parent">
@@ -2185,6 +2113,8 @@ $(document).ready(function(){
             </div>
         </div>
         {/block:NotReblog}
+        {/block:Caption}
+        
         {block:RebloggedFrom}
         <div class="caption text">
             {block:Reblogs}
@@ -2206,7 +2136,6 @@ $(document).ready(function(){
             {/block:Reblogs}
         </div>
         {/block:RebloggedFrom}
-        {/block:Caption}
         
     </div><!--container-->
     
@@ -2259,6 +2188,9 @@ $(document).ready(function(){
     {/block:IndexPage}
     
     {block:ifcolorbar}<div class="colors"></div>{/block:ifcolorbar}
+    
+    <!-- store the npf string to work with infscr -->
+    <script class="npf_data" type="application/json" data-id="{JSPostId}">{NPF}</script>
 
 </article><!-- POSTS -->
 
