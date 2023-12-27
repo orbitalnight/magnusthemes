@@ -2099,6 +2099,21 @@ $(document).ready(function(){
             </div>
         </div>
         {/block:NotReblog}
+        {block:RebloggedFrom}
+        <div class="esp text">
+            <div class="tumblr_parent">
+                {block:Answerer}
+                <div class="reblog_head">
+                    <span class="ri ri-user-voice-line"></span>
+                    {Answerer}
+                </div>
+                {/block:Answerer}
+                <div>
+                    {Answer}
+                </div>
+            </div>
+        </div>
+        {/block:RebloggedFrom}
         {/block:Answer}
         
         {block:Caption}

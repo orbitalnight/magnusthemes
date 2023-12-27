@@ -2134,6 +2134,21 @@ $(document).ready(function(){
             </div>
         </div>
         {/block:NotReblog}
+        {block:RebloggedFrom}
+        <div class="esp text">
+            <div class="tumblr_parent">
+                {block:Answerer}
+                <div class="reblog_head">
+                    <img src="{answererportraiturl-64}" class="tumblr_avatar"/>
+                    {Answerer}
+                </div>
+                {/block:Answerer}
+                <div>
+                    {Answer}
+                </div>
+            </div>
+        </div>
+        {/block:RebloggedFrom}
     </div>
     {/block:Answer}
     
