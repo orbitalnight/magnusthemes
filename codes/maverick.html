@@ -39,6 +39,7 @@ ver. 1.0.0 (03/01/2024)
 <meta name="if:monochrome images" content=""/>
 <meta name="if:sidebar image pan" content=""/>
 <meta name="if:sidebar on left" content=""/>
+<meta name="if:search bar" content=""/>
 
 <meta name="select:post size" content="540" title="540px">
 <meta name="select:post size" content="500" title="500px">
@@ -185,6 +186,8 @@ iframe#tumblr_controls:hover,
     text-shadow:0 0 0 transparent!important;
     margin-top:10px!important;
 }
+
+/* ------ main ------ */
         
 /** {*/
 /*     box-sizing:border-box;*/
@@ -226,7 +229,6 @@ blockquote {
 }
 
 main {
-    /*width:960px;*/
     margin:0 auto;
 }
 
@@ -248,7 +250,7 @@ article video {
     max-width:100%;
 }
 
-/* post styling */
+/* ------ post styling ------ */
 
 #postmargin, header {
     width:var(--post-width);
@@ -256,6 +258,7 @@ article video {
     background:rgba({RGBcolor:background},0.1);
     backdrop-filter:blur(2px);
     -webkit-backdrop-filter:blur(2px);
+    {block:ifnotsearchbar}padding-top:0;{/block:ifnotsearchbar}
 }
 
 article, .posts {
@@ -273,9 +276,11 @@ article, .posts {
     opacity:0;
 }
 
-
 article:first-child {
     margin-top:0;
+    {block:ifnotsearchbar}
+    border-top:0px solid transparent;
+    {/block:ifnotsearchbar}
 }
  
 article img {
@@ -476,13 +481,14 @@ a.asker::before {
 .row-size-1 > div {
     width:100%;
 }
+
 .row-size-3 > div {
     width:calc((100% / 3) - var(--gap));
 }
+
 .row-size-2 > div {
     width:calc(50% -  (var(--gap) / 2));
 }
-
 
 .content-rows > div img{
     width:100%;
@@ -735,7 +741,7 @@ article p, article ol, article ul {
     margin:0;        
 }
 
-/* permalink */
+/* ------ permalink ------ */
 
 .permalink {
     line-height:20px;
@@ -785,7 +791,6 @@ article p, article ol, article ul {
     float:right;
     display:block;
     position:relative;
-    /*margin:5px 0 5px 10px;*/
     margin-left:15px;
     width:20px;
     height:20px;
@@ -832,7 +837,7 @@ article p, article ol, article ul {
     color:{color:Accent Alt Text};
 }
 
-/* post notes */
+/* ------ post notes ------ */
  
 ol.notes {
     position:relative;
@@ -1167,6 +1172,12 @@ footer {
         width:calc(var(--spacing-lg)*10 + var(--post-width));
     }
     
+    {block:ifnotsearchbar}
+    article:first-child {
+        padding-top:0;
+    }
+    {/block:ifnotsearchbar}
+    
     {block:ifnotsidebaronleft}
     aside#sidebar {
         margin-left:calc(var(--post-width) + 2*var(--spacing-lg) + 2px);
@@ -1210,6 +1221,13 @@ footer {
         box-sizing:border-box;
         max-width:600px;
     }
+    
+    {block:ifnotsearchbar}
+    article:first-child {
+        padding-top:var(--spacing-lg);
+        border-top:2px solid {color:borders};
+    }
+    {/block:ifnotsearchbar}
     
     header {
         padding-top:0;
@@ -1327,6 +1345,7 @@ footer {
         </nav>
     </aside>
 
+    {block:ifsearchbar}
     <header>
         {block:TagPage}<h1>#{Tag}</h1>{/block:TagPage}
         <form class="box" action="/search" method="get">
@@ -1336,6 +1355,7 @@ footer {
             </button>
         </form>
     </header>
+    {/block:ifsearchbar}
 
     <section id="postmargin">
         {block:Posts}
