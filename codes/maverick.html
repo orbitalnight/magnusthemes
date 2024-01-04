@@ -38,6 +38,7 @@ ver. 1.0.0 (03/01/2024)
 <meta name="if:manual load" content=""/>
 <meta name="if:monochrome images" content=""/>
 <meta name="if:sidebar image pan" content=""/>
+<meta name="if:sidebar on left" content=""/>
 
 <meta name="select:post size" content="540" title="540px">
 <meta name="select:post size" content="500" title="500px">
@@ -942,10 +943,6 @@ main {
     width:calc(var(--spacing-lg)*14 + var(--post-width));
 }
 
-/*#postmargin, header {*/
-/*    margin-left:calc(4*var(--spacing-lg));*/
-/*}*/
-
 #menu {
     position:fixed;
     top:0;
@@ -1147,6 +1144,20 @@ footer {
 
 /* ------ media queries ------ */
 
+{block:ifsidebaronleft}
+#sidebar {
+    margin-left:0;
+}
+
+#menu {
+    margin-left:calc(8*var(--spacing-lg));
+}
+
+#postmargin, header, footer {
+    margin-left:calc(12*var(--spacing-lg));
+}
+{/block:ifsidebaronleft}
+
 @media screen and (max-width:960px){
     :root {
         --post-width:calc(100vw - 11*var(--spacing-lg));
@@ -1156,9 +1167,16 @@ footer {
         width:calc(var(--spacing-lg)*10 + var(--post-width));
     }
     
+    {block:ifnotsidebaronleft}
     aside#sidebar {
         margin-left:calc(var(--post-width) + 2*var(--spacing-lg) + 2px);
     }
+    {/block:ifnotsidebaronleft}
+    {block:ifsidebaronleft}
+    #postmargin, header, footer {
+        margin-left:calc(8*var(--spacing-lg));
+    }
+    {/block:ifsidebaronleft}
     
     aside#menu {
         position:relative;
