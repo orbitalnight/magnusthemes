@@ -3,7 +3,7 @@ Tumblr Themes by MagnusThemes
 
 Website: https://magnusthemes.tumblr.com/
 
-**© 2014-2020 Bev Y.**
+**© 2014-2024 Bev Y.**
 
 ## For Github users
 
