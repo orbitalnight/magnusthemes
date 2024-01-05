@@ -5,7 +5,7 @@
 Theme - Maverick
 Code by magnusthemes
  
-ver. 1.0.0 (03/01/2024)
+ver. 1.0.1 (04/01/2024)
 -->
 
 <head>
@@ -301,25 +301,42 @@ article:hover img, article:hover .poster-with-image {
 }
 {/block:ifmonochromeimages}
 
-.text-content, .reblog-header, .post-info, .tags, .permalink {
-    padding:var(--spacing-sm) 0;
+.reblog-header, .post-info, .tags, .permalink {
+    margin:var(--spacing-md) 0;
 }
 
-.text-content a, #sidebar a {
+.content > .text-content:not(:first-child) {
+    margin-top:var(--spacing-sm);
+}
+
+.content > .content-rows:last-child,
+.content > .text-content:last-child, 
+.ask {
+    margin-bottom:var(--spacing-md);
+}
+
+.text-content a:not(.read_more), #sidebar a {
     border-bottom:2px solid {color:accent};
-}
-
-.content > :first-child {
-    margin-top:0;
 }
 
 .reblog-header:not(:first-of-type) {
     /*border-top:1px solid {color:borders};*/
 }
 
+.read_more {
+    font-style:italic;
+    background:{color:Accent};
+    color:{color:Accent Text};
+    font-weight:500;
+    padding:2px 5px;
+    text-transform:lowercase;
+}
+
 .post-link {
+    flex-grow:1;
     display:block;
     background:{color:posts};
+    margin-bottom:var(--spacing-sm);
 }
 
 .post-link span {
@@ -402,7 +419,15 @@ article:hover img, article:hover .poster-with-image {
 
 .question {
     background:{color:posts};
-    padding:var(--spacing-md) var(--spacing-md) 0;
+    padding:var(--spacing-md);
+}
+
+.question .text-content {
+    margin:var(--spacing-sm) 0;
+}
+
+.question .text-content:last-child {
+    margin-bottom:0;
 }
 
 .question + .question {
@@ -419,10 +444,6 @@ a.asker {
     font-weight:500;
     font-style:italic;
     line-height:1em;
-}
-
-a.asker + .text-content {
-    margin-top:0;
 }
 
 a.asker::before {
@@ -463,10 +484,6 @@ a.asker::before {
     color:{color:Accent Text};
 }
 
-.reblog-header, .poll {
-    padding:var(--spacing-md) 0;
-}
-
 .text-content:empty {
     display:none;
 }
@@ -501,7 +518,7 @@ a.asker::before {
 }
 
 .content-rows + .content-rows {
-    margin-top:var(--gap);
+    margin-top:var(--spacing-sm);
 }
 
 .content-rows {
@@ -525,7 +542,7 @@ li.unordered-list-item::before, .text-content ul li::before {
     display:block;
 }
 
-article p, article ol, article ul {
+article p {
     margin:0;
 }
 
@@ -1475,11 +1492,14 @@ footer {
 
 <script>
 let bodyElement = document.body.classList
-let user = '{name}'
 let container = document.getElementById('postmargin')
+let user = '{name}'
 </script>
 
-<script src="https://static.tumblr.com/p0knose/bWNs6pxyg/neue_posts.js"></script>  
+{block:IndexPage}<script>let indexPage = true</script>{/block:IndexPage}
+{block:PermalinkPage}<script>let indexPage = false</script>{/block:PermalinkPage}
+
+<script src="https://static.tumblr.com/p0knose/alWs6rikn/neue_posts.js"></script>
 <script src="https://static.tumblr.com/p0knose/XTFs6pluq/scrolltotop.js"></script>
 {block:ifsidebarimagepan}
 {block:ifsidebarimage}
