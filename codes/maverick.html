@@ -519,14 +519,15 @@ a.asker::before {
 
 .content-rows {
     gap: var(--gap);
+    justify-content:space-between;
 }
 
 .content-rows + .content-rows {
     margin-top:var(--spacing-sm);
 }
 
-.content-rows {
-    justify-content:space-between;
+.content-rows.photo + .content-rows.photo {
+    margin-top:var(--gap);
 }
 
 li.unordered-list-item, .text-content ul li {
@@ -1507,7 +1508,7 @@ let user = '{name}'
 {block:IndexPage}<script>let indexPage = true</script>{/block:IndexPage}
 {block:PermalinkPage}<script>let indexPage = false</script>{/block:PermalinkPage}
 
-<script src="https://static.tumblr.com/p0knose/jHBs6s9qw/neue_posts.js"></script>
+<script src="https://static.tumblr.com/p0knose/X1Cs6sb75/neue_posts.js"></script>
 <script src="https://static.tumblr.com/p0knose/XTFs6pluq/scrolltotop.js"></script>
 {block:ifsidebarimagepan}
 {block:ifsidebarimage}
