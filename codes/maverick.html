@@ -5,7 +5,7 @@
 Theme - Maverick
 Code by magnusthemes
  
-ver. 1.0.1 (04/01/2024)
+ver. 1.0.2 (04/01/2024)
 -->
 
 <head>
@@ -549,7 +549,7 @@ article p {
 .chat b {
     background:{color:Accent};
     color:{color:Accent Text};
-    padding:2px 5px;
+    padding:0px 5px;
     font-style:italic;
 }
 
@@ -658,9 +658,11 @@ article p {
 
 .post_media_photo_anchor img {
     margin:0 auto;
+    height:100%;
+    object-fit:cover;
 }
 
-.post_media_photo_anchor + .post_media_photo_anchor img {
+.row-size-1 .post_media_photo_anchor + .post_media_photo_anchor img {
     margin-top:var(--gap);
 }
 
@@ -734,7 +736,6 @@ article p {
 .reblog-header:not(.original-poster) .usernames::before {
     content: "\eb72";
     font-family:"tabler-icons";
-    font-weight:bold;
     position:absolute;
     background:{color:accent};
     color:{color:accent text};
@@ -1484,7 +1485,6 @@ footer {
     {/block:PermalinkPage}
     
 </main>
-</body>
 
 <script src="https://unpkg.com/@popperjs/core@2"></script>
 <script src="https://unpkg.com/tippy.js@6"></script>
@@ -1499,7 +1499,7 @@ let user = '{name}'
 {block:IndexPage}<script>let indexPage = true</script>{/block:IndexPage}
 {block:PermalinkPage}<script>let indexPage = false</script>{/block:PermalinkPage}
 
-<script src="https://static.tumblr.com/p0knose/alWs6rikn/neue_posts.js"></script>
+<script src="https://static.tumblr.com/p0knose/IX4s6s28v/neue_posts_2.js"></script>
 <script src="https://static.tumblr.com/p0knose/XTFs6pluq/scrolltotop.js"></script>
 {block:ifsidebarimagepan}
 {block:ifsidebarimage}
@@ -1572,4 +1572,5 @@ infScroll.on('append', function(body, path, items, response) {
 </script>
 {/block:ifinfinitescroll}{/block:IndexPage}
 
+</body>
 </html>
