@@ -5,7 +5,7 @@
 Theme - Maverick
 Code by magnusthemes
  
-ver. 1.0.3 (05/01/2024)
+ver. 1.0.4 (05/01/2024)
 -->
 
 <head>
@@ -1508,7 +1508,7 @@ let user = '{name}'
 {block:IndexPage}<script>let indexPage = true</script>{/block:IndexPage}
 {block:PermalinkPage}<script>let indexPage = false</script>{/block:PermalinkPage}
 
-<script src="https://static.tumblr.com/p0knose/Yids6tl7y/neue_posts.js"></script>
+<script src="https://static.tumblr.com/p0knose/oUys6toxx/neue_posts.js"></script>
 <script src="https://static.tumblr.com/p0knose/XTFs6pluq/scrolltotop.js"></script>
 {block:ifsidebarimagepan}
 {block:ifsidebarimage}
@@ -1523,11 +1523,17 @@ for (const post of posts) {
     try {
         npfInit(post)
     } catch(e) {
-        var npf_data = post.querySelector('.npf_data')
-        var npf = html_entity_decode(npf_data.textContent.slice(1,-1))
-        console.log(e)
-        console.log(npf)
-        // console.log(post.querySelector('.npf_data').textContent)
+        try {
+            var npf_data = post.querySelector('.npf_data')
+            var npf = npf_data.textContent.slice(1,-1)
+            var temp = document.createElement("div")
+            temp.innerHTML = npf
+            npf_data.innerHTML = temp.innerHTML
+            npfInit(post)
+        } catch(f) {
+            console.log(f)
+            console.log(post.querySelector('.npf_data').innerHTML)
+        }
     }
     setTimeout(function(){
         post.parentNode.classList.replace('hide', 'show');
@@ -1565,9 +1571,18 @@ infScroll.on('append', function(body, path, items, response) {
         var post = newElem.querySelector(".npf_container")
         try {
             npfInit(post)
-        } catch(e){
-            console.log(e)
-            console.log(post.querySelector(".npf_data").textContent)
+        } catch(e) {
+            try {
+                var npf_data = post.querySelector('.npf_data')
+                var npf = npf_data.textContent.slice(1,-1)
+                var temp = document.createElement("div")
+                temp.innerHTML = npf
+                npf_data.innerHTML = temp.innerHTML
+                npfInit(post)
+            } catch(f) {
+                console.log(f)
+                console.log(post.querySelector('.npf_data').innerHTML)
+            }
         }
     }
     tippy('[title]', {
