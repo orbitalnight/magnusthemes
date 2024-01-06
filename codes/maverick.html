@@ -1508,7 +1508,7 @@ let user = '{name}'
 {block:IndexPage}<script>let indexPage = true</script>{/block:IndexPage}
 {block:PermalinkPage}<script>let indexPage = false</script>{/block:PermalinkPage}
 
-<script src="https://static.tumblr.com/p0knose/Coms6timm/neue_posts.js"></script>
+<script src="https://static.tumblr.com/p0knose/Yids6tl7y/neue_posts.js"></script>
 <script src="https://static.tumblr.com/p0knose/XTFs6pluq/scrolltotop.js"></script>
 {block:ifsidebarimagepan}
 {block:ifsidebarimage}
@@ -1523,8 +1523,11 @@ for (const post of posts) {
     try {
         npfInit(post)
     } catch(e) {
+        var npf_data = post.querySelector('.npf_data')
+        var npf = html_entity_decode(npf_data.textContent.slice(1,-1))
         console.log(e)
-        console.log(post.querySelector('.npf_data').textContent)
+        console.log(npf)
+        // console.log(post.querySelector('.npf_data').textContent)
     }
     setTimeout(function(){
         post.parentNode.classList.replace('hide', 'show');
