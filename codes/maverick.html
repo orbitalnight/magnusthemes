@@ -1503,12 +1503,13 @@ footer {
 let bodyElement = document.body.classList
 let container = document.getElementById('postmargin')
 let user = '{name}'
+{block:IndexPage}let indexPage = true{/block:IndexPage}
+{block:PermalinkPage}let indexPage = false{/block:PermalinkPage}
 </script>
 
-{block:IndexPage}<script>let indexPage = true</script>{/block:IndexPage}
-{block:PermalinkPage}<script>let indexPage = false</script>{/block:PermalinkPage}
+<script src="https://static.tumblr.com/p0knose/HSgs6u113/neue_posts.js"></script>
+<script src="https://static.tumblr.com/p0knose/OpBs6u1dz/maverick.js"></script>
 
-<script src="https://static.tumblr.com/p0knose/oUys6toxx/neue_posts.js"></script>
 <script src="https://static.tumblr.com/p0knose/XTFs6pluq/scrolltotop.js"></script>
 {block:ifsidebarimagepan}
 {block:ifsidebarimage}
@@ -1516,41 +1517,6 @@ let user = '{name}'
 {/block:ifsidebarimage}
 {/block:ifsidebarimagepan}
 
-<script>
-var posts = container.querySelectorAll("article.posts .npf_container")
-for (const post of posts) {
-    post.parentNode.classList.add("hide")
-    try {
-        npfInit(post)
-    } catch(e) {
-        try {
-            var npf_data = post.querySelector('.npf_data')
-            var npf = npf_data.textContent.slice(1,-1)
-            var temp = document.createElement("div")
-            temp.innerHTML = npf
-            npf_data.innerHTML = temp.innerHTML
-            npfInit(post)
-        } catch(f) {
-            console.log(f)
-            console.log(post.querySelector('.npf_data').innerHTML)
-        }
-    }
-    setTimeout(function(){
-        post.parentNode.classList.replace('hide', 'show');
-    },400);
-}
-SmoothScroll({touchpadSupport:true})
-tippy('[title]', {
-    content: (reference) => {
-        var data_tooltip = reference.getAttribute('title')
-        reference.removeAttribute('title')
-        return data_tooltip
-    },
-    followCursor: true,
-    arrow: false,
-    offset: [0,10]
-});
-</script>
 
 {block:IndexPage}{block:ifinfinitescroll}
 <script src="https://unpkg.com/infinite-scroll@3/dist/infinite-scroll.pkgd.min.js"></script>
@@ -1561,42 +1527,8 @@ let infScroll = new InfiniteScroll(container,{
     button:'#pagination .load',
     scrollThreshold:false{/block:ifmanualload}
 });
-infScroll.on('append', function(body, path, items, response) {
-    var newElemsIDs = Array.from(items).map(function(elem){
-        return elem.id;
-    });
-    Tumblr.LikeButton.get_status_by_post_ids(newElemsIDs);
-    for (var i=0; i<items.length; i++){
-        var newElem = items[i]
-        var post = newElem.querySelector(".npf_container")
-        try {
-            npfInit(post)
-        } catch(e) {
-            try {
-                var npf_data = post.querySelector('.npf_data')
-                var npf = npf_data.textContent.slice(1,-1)
-                var temp = document.createElement("div")
-                temp.innerHTML = npf
-                npf_data.innerHTML = temp.innerHTML
-                npfInit(post)
-            } catch(f) {
-                console.log(f)
-                console.log(post.querySelector('.npf_data').innerHTML)
-            }
-        }
-    }
-    tippy('[title]', {
-        content: (reference) => {
-            var data_tooltip = reference.getAttribute('title')
-            reference.removeAttribute('title')
-            return data_tooltip
-        },
-        followCursor: true,
-        arrow: false,
-        offset: [0,10]
-    });
-});
 </script>
+<script src="https://static.tumblr.com/p0knose/abXs6u1j4/topgun.js"></script>
 {/block:ifinfinitescroll}{/block:IndexPage}
 
 </body>
