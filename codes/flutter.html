@@ -53,12 +53,15 @@ ver. 1.0.0 (11/02/2024)
 <meta name="select:gutter" title="1px" content="1px"/>
 <meta name="select:gutter" title="0px" content="0px"/>
 <meta name="select:gutter" title="10px" content="10px"/>
+
+<meta name="text:title font" content="Sacramento"/>
 {/block:Options}
 
 <link rel="stylesheet" href="https://static.tumblr.com/p0knose/yKlp5mq5l/normalize.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
 
-<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Sacramento&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family={text:title font}&display=swap" rel="stylesheet">
     
 <style>
 /* Theme Options */
@@ -976,7 +979,7 @@ ol.notes li.note.original_post .action::before {content:"\f7cc";}
     text-align:center;
     line-height:55px;
     font-size:2.4em;
-    font-family:"Sacramento",sans-serif;
+    font-family:"{text:title font}",sans-serif;
     color:{color:Title};
     font-style:italic;
     text-transform:lowercase;
@@ -1086,14 +1089,6 @@ main,#top {
 
 .minimal-theme #side {
     border-right:3px solid {color:Accent};
-}
-
-.name {
-    padding:var(--spacing-sm);
-    margin:0;
-    text-align:right;
-    font-family:"Sacramento";
-    color:{color:Title};
 }
 
 .desc {
