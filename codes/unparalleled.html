@@ -39,8 +39,6 @@ ver. 2.0.0 (23022024)
 <meta name="if:monochrome images" content=""/>
 <meta name="if:infinite scroll" content=""/>
 <meta name="if:manual load" content=""/>
-
-<meta name="text:photoset gap" content="0px" />
  
 <meta name="image:background" content=""/>
 <meta name="image:header" content=""/>
@@ -67,6 +65,15 @@ ver. 2.0.0 (23022024)
 <meta name="select:margins" content="40px" title="40px"/>
 <meta name="select:margins" content="30px" title="30px"/>
 <meta name="select:margins" content="20px" title="20px"/>
+
+<meta name="select:gutter" title="5px" content="5px"/>
+<meta name="select:gutter" title="4px" content="4px"/>
+<meta name="select:gutter" title="3px" content="3px"/>
+<meta name="select:gutter" title="2px" content="2px"/>
+<meta name="select:gutter" title="1px" content="1px"/>
+<meta name="select:gutter" title="0px" content="0px"/>
+<meta name="select:gutter" title="10px" content="10px"/>
+<!-- does anyone still use 10px gutters these days? lol -->
  
 <meta name="select:post size" content="540" title="540px"/>
 <meta name="select:post size" content="500" title="500px"/>
@@ -111,7 +118,7 @@ ver. 2.0.0 (23022024)
     --posts:{color:content backgrounds};
     --text:{color:text};
     --accent:{color:accent};
-    --gap:{text:photoset gap};
+    --gap:{select:gutter};
 }
 
 #bp:hover {border-color:{color:accent};}
