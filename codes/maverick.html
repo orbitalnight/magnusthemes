@@ -5,7 +5,7 @@
 Theme - Maverick
 Code by magnusthemes
  
-ver. 1.0.4 (05/01/2024)
+ver. 1.0.5 (29/02/2024)
 -->
 
 <head>
@@ -305,12 +305,15 @@ article:hover img, article:hover .poster-with-image {
     margin:var(--spacing-md) 0;
 }
 
-.content > .text-content:not(:first-child) {
+.content > .text-content:not(:first-child),
+.answer > .text-content {
     margin-top:var(--spacing-sm);
 }
 
 .content > .content-rows:last-child,
 .content > .text-content:last-child, 
+.answer > .content-rows:last-child,
+.answer > .text-content:last-child, 
 .ask {
     margin-bottom:var(--spacing-md);
 }
@@ -460,7 +463,8 @@ a.asker::before {
     line-height:1em;
 }
 
-.content > .poll:first-child {
+.content > .poll:first-child,
+.answer > .poll:first-child {
     padding-top:0;
 }
 
@@ -671,7 +675,8 @@ article p, article ol, article ul {
 }
 
 .row-size-1 .post_media_photo_anchor + .post_media_photo_anchor img,
-.content > .post_media_photo_anchor + .post_media_photo_anchor img {
+.content > .post_media_photo_anchor + .post_media_photo_anchor img,
+.answer > .post_media_photo_anchor + .post_media_photo_anchor img{
     margin-top:var(--gap);
 }
 
@@ -1507,7 +1512,7 @@ let user = '{name}'
 {block:PermalinkPage}let indexPage = false{/block:PermalinkPage}
 </script>
 
-<script src="https://static.tumblr.com/p0knose/KAHs9cr4k/neue_posts.js"></script>
+<script src="https://static.tumblr.com/p0knose/q83s9n8kn/neue_posts.js"></script>
 <script src="https://static.tumblr.com/p0knose/OpBs6u1dz/maverick.js"></script>
 
 <script src="https://static.tumblr.com/p0knose/XTFs6pluq/scrolltotop.js"></script>
