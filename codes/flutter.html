@@ -5,7 +5,7 @@
 Theme - Flutter
 Code by magnusthemes
  
-ver. 1.0.0 (11/02/2024)
+ver. 1.0.1 (29/02/2024)
 -->
 
 <head>
@@ -345,13 +345,17 @@ article:hover img, article:hover .poster-with-image {
     padding-right:0;
 }
 
-.content > .text-content:not(:first-child) {
+.content > .text-content:not(:first-child),
+.answer > .text-content:not(:first-child) {
     margin-top:var(--spacing-sm);
 }
 
 .content > .content-rows:not(.photo):last-child,
+.answer > .content-rows:not(.photo):last-child,
 .content > .text-content:last-child,
-.content > .poll:last-child {
+.answer > .text-content:last-child,
+.content > .poll:last-child, 
+.answer > .poll:last-child {
     padding-bottom:var(--spacing-md);
 }
 
@@ -468,7 +472,7 @@ article:hover img, article:hover .poster-with-image {
     padding:var(--spacing-md) calc(var(--spacing-md) - var(--spacing-sm));
 }
 
-.minimal-theme .question + .text-content {
+.minimal-theme .answer:not(.question) {
     border-top:3px solid {color:Accent};
     padding-top:var(--spacing-md);
 }
@@ -1534,7 +1538,7 @@ let user = '{name}'
 {block:PermalinkPage}let indexPage = false{/block:PermalinkPage}
 </script>
 
-<script src="https://static.tumblr.com/p0knose/7bQs8z7aa/neue_posts.js"></script>
+<script src="https://static.tumblr.com/p0knose/7Vas9n8dh/neue_posts.js"></script>
 <script src="https://static.tumblr.com/p0knose/TABs8prbg/eskal.js"></script>
 
 <script src="https://static.tumblr.com/p0knose/XTFs6pluq/scrolltotop.js"></script>
