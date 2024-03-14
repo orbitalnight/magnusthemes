@@ -6,7 +6,7 @@
 <!------
 Theme - Flashback
 Code by rijeonghyuks/magnusthemes
-ver. 1.1.0 (25 Dec 2023)
+ver. 1.1.1 (13 Mar 2024)
 
 Icon cheatsheet: https://phosphoricons.com
 ------>
@@ -1620,7 +1620,7 @@ a.popp .ph {
     border-top-color:{color:Accent 2};
 }
 
-modal {
+modal, #menu {
     position:fixed;
     width:100%;
     height:100%;
@@ -1634,7 +1634,7 @@ modal {
     -webkit-backdrop-filter:blur(5px);
 }
 
-modal > section {
+modal > section, #sidebar {
     padding:10px 30px 30px;
     max-width:700px;
     width:{select:grid width}px;
@@ -2455,8 +2455,8 @@ iframe.tmblr-iframe.tmblr-iframe--unified-controls.tmblr-iframe--loaded.iframe-c
 <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
 {/block:ifphotosetslideshows}
 
-<script src="https://static.tumblr.com/dytmpsw/wPas69hlu/neue_posts.js"></script>
-<script src="https://static.tumblr.com/p0knose/dwSreeirb/flashback.js"></script>
+<script src="https://static.tumblr.com/dytmpsw/br1sabrc9/neue_posts.js"></script>
+<script src="https://static.tumblr.com/dytmpsw/Pu7sabr4e/flashback.js"></script>
 
 <script>
 $(document).ready(function(){
@@ -2560,7 +2560,7 @@ $(document).ready(function(){
 </head>
 <body>
 
-<modal id="menu">
+<div id="menu">
     <section id="sidebar">
         <a href="#close" title="close">
             <span class="ph ph-x"></span>
@@ -2628,7 +2628,7 @@ $(document).ready(function(){
             {/block:ifsnapchathandle}
         </div>
     </section>
-</modal>
+</div>
 
 {block:IndexPage}
 <modal id="postpop">
