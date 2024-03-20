@@ -5,7 +5,7 @@
 Theme - 24/seven
 code by rijeonghyuks/magnusthemes
  
-ver. 1.1.0 (25 Dec 2023)
+ver. 1.1.1 (19 Mar 2024)
 -->
  
 <head>
@@ -76,6 +76,8 @@ ver. 1.1.0 (25 Dec 2023)
 
 <meta name="select:post style" content="background:" title="background">
 <meta name="select:post style" content="border:1px solid" title="border">
+<meta name="select:post style" content="box-shadow: 5px 5px 0px" title="shadow">
+<meta name="select:post style" content="box-shadow: 0px 0px 0px" title="none">
 
 <meta name="select:sidebar side" content="left" title="left">
 <meta name="select:sidebar side" content="right" title="right">
@@ -128,7 +130,7 @@ ver. 1.1.0 (25 Dec 2023)
 .ui-tooltip-content {
     margin:5px 25px;
     max-width:300px;
-    padding:8px 10px;
+    padding:5px 10px;
     color:{color:Accent Text};
     background:{color:Accent 1};
     font:10px/150% "Space Mono",consolas,monospace;
@@ -209,7 +211,7 @@ body {
     overflow:auto;
     margin:0px;
     color:{color:text};
-    font:normal 14px/170% 'STIX Two Text', serif;
+    font:normal 14px/170% 'Inter',sans-serif;
     -webkit-font-smoothing:antialiased;
     -moz-osx-font-smoothing:grayscale;
 }
@@ -415,6 +417,10 @@ figure.tmblr-full img {
     display:block;
 }
 
+.caption > figure.tmblr-full {
+    margin:0px;
+}
+
 /* ------ captions ------ */
 
 .text {margin-top:5px;}
@@ -507,9 +513,9 @@ span.reblog_user,
     vertical-align:middle;
     margin-bottom:3px;
     color:{color:Post Titles};
-    font:600 0.9em/16px "Space Grotesk",sans-serif;
+    font:400 0.9em/16px "Space Grotesk",sans-serif;
     background-position:left bottom;
-    text-transform:uppercase;
+    text-transform:lowercase;
 }
 
 a.reblog_user:hover,
@@ -540,7 +546,7 @@ span.reblog_user:hover::after {opacity:1;}
  
 .quote {
     text-align:center;
-    font:italic normal 22px/150% 'STIX Two Text', serif;
+    font:italic normal 22px/150% 'Space Grotesk',sans-serif;
     color:{color:Post Titles};
     padding:20px;
 }
@@ -947,7 +953,7 @@ span.reblog_user:hover::after {opacity:1;}
     margin-top:calc(20px - {select:margin}px);
     text-transform:lowercase;
     text-align:left;
-    font:14px "STIX Two Text",serif;
+    font:14px "Inter",sans-serif;
 }
 
 #permapage > div {
@@ -1049,7 +1055,7 @@ ol.notes {
     list-style-type:none;
     text-transform:lowercase;
     text-align:left;
-    font:normal 12px/150% 'STIX Two Text',serif;
+    font:normal 12px/150% 'Inter',sans-serif;
 }
  
 ol.notes li.note {padding:5px;}
@@ -1129,7 +1135,7 @@ ol.notes::-webkit-scrollbar-track-piece {background:transparent; box-shadow:0 0 
     display:block;
     position:absolute;
     margin-left:5px;
-    margin-top:5px;
+    margin-top:7px;
     width:3px;
     height:3px;
     background:{color:Accent 3};
