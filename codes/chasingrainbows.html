@@ -5,7 +5,7 @@
 Theme - Chasing Rainbows
 code by magnusthemes
  
-ver. 3.0.0 Queens (13042024)
+ver. 3.0.1 Queens (06052024)
 -->
 
 <head>
@@ -161,7 +161,7 @@ iframe#tumblr_controls:hover,
  
 #tumblr_lightbox, 
 .tmblr-lightbox {
-    background-color:rgba({RGBcolor:Accent},0.7)!important;
+    background-color:rgba({RGBcolor:Accent},0.5)!important;
     z-index:214748364789!important;
     backdrop-filter:blur(5px);
 }
@@ -173,10 +173,9 @@ iframe#tumblr_controls:hover,
 #tumblr_lightbox_left_image,
 #tumblr_lightbox_right_image, 
 .lightbox-image {
-    background:{color:Posts}!important;
-    box-shadow:0 1px 3px rgba(0, 0, 0, 0.1)!important;
+    box-shadow:0 0 0 transparent!important;
     border-radius:0px!important;
-    padding:5px!important;
+    padding:0px!important;
     opacity:1!important;
 }
  
@@ -901,16 +900,44 @@ a.read_more {
     margin:var(--margin-md) 5px 5px 5px;
     text-transform:uppercase;
     border-bottom:1px solid {color:borders};
-    font:13px/20px 'PT Sans Narrow', sans-serif;
+    font:bold 13px/20px 'PT Sans Narrow', sans-serif;
 }
  
 .permalink a {margin-right:5px;}
 .permalink a:hover {color:{color:Accent};}
  
 .permalink span.pz {
-    border-bottom:3px solid {color:Accent}; 
+    border-bottom:1px solid {color:Accent}; 
     padding:5px var(--spacing-md);
+    margin:-10px 0 0;
+    line-height:20px;
+    height:20px;
+    display:inline-block;
 }
+
+.permalink span.pz > .ti {
+    background:{color:Accent};
+    color:{color:Accent Text};
+    display:inline-block;
+    vertical-align:middle;
+    padding:10px;
+    margin:-9px 5px -6px calc(0px - var(--spacing-md));
+}
+
+{block:IndexPage}
+.permalink span.pz.pn {
+    border-bottom-color:{color:Accent Text};
+}
+
+.permalink span.pz.pn > .ti {
+    background:{color:Accent Text};
+    color:{color:Accent};
+}
+
+.permalink span.pz.pn > .ti::before {
+    content:"\ec9c";
+}
+{/block:IndexPage}
  
 .buttonz {
     float:right;
@@ -1301,7 +1328,7 @@ $(document).ready(function(){
             <!-- end of json container -->
             
     		<div class="permalink">
-    		    <span class="pz">
+    		    <span class="pz{block:PinnedPostLabel} pn{/block:PinnedPostLabel}">
     		        <i class="ti ti-pencil"></i>
     		        {block:IndexPage}
         		    <a href="{Permalink}" title="{TimeAgo}">{DayOfWeek}</a>{block:NoteCount} + {NoteCount}{/block:NoteCount}
@@ -1375,6 +1402,8 @@ let user = '{name}'
 
 <script src="https://static.tumblr.com/p0knose/7Vas9n8dh/neue_posts.js"></script>
 <script src="https://static.tumblr.com/p0knose/wfIsbwxis/queens.js"></script>
+
+<script src="https://static.tumblr.com/p0knose/XTFs6pluq/scrolltotop.js"></script>
 
 {block:IndexPage}{block:ifinfinitescroll}
 <script src="https://unpkg.com/infinite-scroll@3/dist/infinite-scroll.pkgd.min.js"></script>
