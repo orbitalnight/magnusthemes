@@ -6,7 +6,7 @@
 <!------
 Theme - Flashback
 Code by rijeonghyuks/magnusthemes
-ver. 1.1.1 (13 Mar 2024)
+ver. 1.2.0 (27 May 2024)
 
 Icon cheatsheet: https://phosphoricons.com
 ------>
@@ -563,12 +563,19 @@ img.singlepic {
     border-radius:0px;
 }
 
-/* text, link, quote posts */
-
-.npf_row {
-    margin-left: -30px!important;
-    margin-right: -30px!important;
+#postpop .slider, #postcont .slider {
+    display:none!important;
 }
+
+#postmargin:not(.tile) .slider {
+    display:none!important;
+}
+
+.tile .slider ~ .photo {
+    display:none!important;
+}
+
+/* text, link, quote posts */
 
 .headt ~ .text,
 .llp ~ .text,
@@ -1356,6 +1363,7 @@ ol.notes li.note blockquote a {text-decoration:none;}
 .tile .photo, 
 .tile .photo center,
 .tile .photo div img,
+.tile .photo figure,
 .tile .bx-wrapper,
 .tile .bx-wrapper img {
     width:100%!important;
@@ -1369,7 +1377,8 @@ ol.notes li.note blockquote a {text-decoration:none;}
     height:100%;
 }
 
-.tile .photoset-grid div {
+.tile .photoset-grid div,
+.tile .photo.slider > div:not(.pc) {
     height:100%!important;
 }
 
@@ -2455,7 +2464,12 @@ iframe.tmblr-iframe.tmblr-iframe--unified-controls.tmblr-iframe--loaded.iframe-c
 <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
 {/block:ifphotosetslideshows}
 
-<script src="https://static.tumblr.com/dytmpsw/br1sabrc9/neue_posts.js"></script>
+<script>
+var ifSlide = false;
+{block:ifphotosetslideshows}ifSlide = true;{/block:ifphotosetslideshows}
+</script>
+
+<script src="https://static.tumblr.com/dytmpsw/i3Xse4vrd/neue_posts.js"></script>
 <script src="https://static.tumblr.com/dytmpsw/Pu7sabr4e/flashback.js"></script>
 
 <script>
@@ -2491,8 +2505,6 @@ $(document).ready(function(){
     {block:IndexPage}$(".tile").css("opacity","0");{/block:IndexPage}
     var accent = "{color:Accent 1}",
         accentText = "{color:Accent Text}";
-    var ifSlide = false;
-    {block:ifphotosetslideshows}ifSlide = true;{/block:ifphotosetslideshows}
     $(".posts").initialize(function(){
         init_posts($(this),accentText);
     });
