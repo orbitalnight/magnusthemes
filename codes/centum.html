@@ -6,7 +6,7 @@
 <!------
 Theme - Centum
 Code by choihangyuls/magnusthemes
-ver. 1.2.0 (25 Dec 2023)
+ver. 1.3.0 (27 May 2024)
 
 Icon cheatsheet: https://feathericons.com
 ------>
@@ -495,10 +495,10 @@ img.singlepic {
 
 /* text, link, quote posts */
 
-.npf_row {
-    margin-left: -30px!important;
-    margin-right: -30px!important;
-}
+/*.npf_row {*/
+/*    margin-left: -30px!important;*/
+/*    margin-right: -30px!important;*/
+/*}*/
 
 .headt ~ .text,
 .llp ~ .text,
@@ -1175,6 +1175,7 @@ ol.notes li.note blockquote a {text-decoration:none;}
 .tile .photo, 
 .tile .photo center,
 .tile .photo div img,
+.tile .photo figure,
 .tile .bx-wrapper,
 .tile .bx-wrapper img {
     width:100%!important;
@@ -1188,13 +1189,15 @@ ol.notes li.note blockquote a {text-decoration:none;}
     height:100%;
 }
 
-.tile .photoset-grid div {
+.tile .photoset-grid div,
+.tile .photo.slider > div:not(.pc) {
     height:100%!important;
 }
 
 {block:ifphotosetslideshows}
 .tile .bx-viewport,
-.tile .bx-viewport div {
+.tile .bx-viewport div,
+.tile .bx-viewport figure {
     height:100%!important;
 }
 
@@ -1264,36 +1267,6 @@ ol.notes li.note blockquote a {text-decoration:none;}
     margin:0 3px;
 }
 {/block:ifphotosetslideshows}
-
-.tile .aud {
-    flex-wrap:nowrap;
-    flex-direction:column;
-    justify-content:center;
-    box-sizing:border-box;
-    height:100%;
-}
-
-.tile .tplayer {
-    position:relative;
-    left:auto;
-    top:auto;
-    margin:10px;
-    border:5px solid {color:Accent 1};
-    border-width:5px 6px 5px 4px;
-    background:{color:Accent 1};
-    transition:0.5s ease-in-out;
-    flex-shrink:0;
-}
-
-.tile .tplayer:hover {
-    box-shadow:0 0 0 5px rgba({RGBcolor:Accent 1},0.5);
-}
-
-.tile .musicinfo {
-    text-align:center;
-    float:none;
-    padding-left:0;
-}
 
 .tile .llp span.wrap {
     padding-left:0px;
@@ -1367,6 +1340,7 @@ a.popp {
     height:8px;
 }
 
+{block:IndexPage}
 [data-type] > div,
 [data-type] > .ftr{
     transition:opacity 0.4s ease-in-out;
@@ -1377,6 +1351,7 @@ a.popp {
 [data-type]:hover > .ftr {
     opacity:0.2!important;
 }
+{/block:IndexPage}
 
 a.popp .ftr {
     padding:3px;
@@ -1444,6 +1419,10 @@ div.close {
     left:0;
     z-index:-1;
     position:fixed;
+}
+
+#postpop .slider, #postcont .slider {
+    display:none!important;
 }
 
 /* ------ navigation ------ */
@@ -1916,10 +1895,13 @@ footer > div {
 {block:ifphotosetslideshows}
 <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
 {/block:ifphotosetslideshows}
+<script>
+var ifSlide=false;
+{block:ifphotosetslideshows}ifSlide=true;{/block:ifphotosetslideshows}
+</script>
 
 <script src="https://static.tumblr.com/p0knose/68js69m7n/haeundae.js"></script>
-
-<script src="https://static.tumblr.com/dytmpsw/wPas69hlu/neue_posts.js"></script>
+<script src="https://static.tumblr.com/p0knose/1EFse4v76/neue_posts.js"></script>
 
 <script>
 $(document).ready(function(){
@@ -1939,8 +1921,6 @@ $(document).ready(function(){
     {block:IndexPage}$(".tile").css("opacity","0");{/block:IndexPage}
     var accent = "{color:Accent 1}",
         accentText = "{color:Accent Text}";
-    var ifSlide = false;
-    {block:ifphotosetslideshows}ifSlide = true;{/block:ifphotosetslideshows}
     $(".posts").each(function(){
         delLuna($(this),accentText);
     });
@@ -2265,12 +2245,12 @@ $(document).ready(function(){
         </div>
     </div>
     {/block:NotReblog}
-{block:RebloggedFrom}
+    {block:RebloggedFrom}
     <div class="text">
         <div class="tumblr_parent">
             {block:Answerer}
             <div class="reblog_head">
-                <img src="{AnswererPortraiturl-64}" class="tumblr_avatar"/>
+                <img src="{AnswererPortraitURL-64}" class="tumblr_avatar"/>
                 {Answerer}
             </div>
             {/block:Answerer}
@@ -2281,7 +2261,6 @@ $(document).ready(function(){
         {block:Reblogs}
         <div class="tumblr_parent">
             <div class="reblog_head">
-                <img src="{PortraitURL-64}" class="tumblr_avatar"/>
                 {block:IsActive}<a target="_blank" href="{Permalink}" class="reblog_user">{Username}</a>{/block:IsActive}
                 {block:IsDeactivated}<span class="reblog_user">{Username}</span>{/block:IsDeactivated}
             </div>
@@ -2355,7 +2334,7 @@ $(document).ready(function(){
     {/block:Date}
     
     <!-- store the npf string to work with infscr -->
-    <script class="npf_data" type="application/json" data-id="{JSPostId}">{NPF}</script>
+    <script class="npf_data" type="application/json" data-id="{JSPostId}">{JsNPF}</script>
     
 </article><!--posts-->
 
