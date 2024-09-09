@@ -2,9 +2,9 @@
 <html>  
 
 <!--
-Theme - DeltaFulminata
+Theme - Delta
 code by rijeonghyuks/magnusthemes
-ver. 2.0.0 (23022024)
+ver. 2.0.1 (08092024)
 
 Icon cheatsheet: https://feathericons.com
 -->
@@ -569,7 +569,7 @@ article p {
     color:{color:Accent 1};
 }
 
-.content > .post_media_photo_anchor img,
+/*.content > .post_media_photo_anchor img,*/
 .content > video {
     border-radius:3px;
 }
@@ -578,7 +578,7 @@ article p {
     margin:0 auto;
 }
 
-.post_media_photo_anchor + .post_media_photo_anchor img {
+.content > .post_media_photo_anchor + .post_media_photo_anchor img {
     margin-top:var(--gap);
 }
 
@@ -586,18 +586,21 @@ article p {
     margin-top:0;
 }
 
-.content-rows.photo {
+.content-rows.photo,
+.content > .post_media_photo_anchor img {
     overflow:hidden;
     border-top-right-radius:3px;
     border-top-left-radius:3px;
 }
 
-.content-rows.photo + .content-rows.photo {
+.content-rows.photo + .content-rows.photo,
+.content > .post_media_photo_anchor + .post_media_photo_anchor img {
     border-top-right-radius:0px;
     border-top-left-radius:0px;
 }
 
-.content-rows.photo:not(:has(~ .photo)) {
+.content-rows.photo:not(:has(~ .photo)),
+.content > .post_media_photo_anchor:not(:has(+ .post_media_photo_anchor)) img {
     border-bottom-left-radius:3px;
     border-bottom-right-radius:3px;
 }
@@ -1213,7 +1216,7 @@ nav#menu a:hover, nav#menu a#toggle.active {color:{color:Accent Text};}
     
     nav#links a::before {
         margin-left:-15px;
-        margin-top:5px;
+        margin-top:7px;
     }
     
     nav#links form {
@@ -1423,7 +1426,7 @@ let user = '{name}'
 {block:PermalinkPage}let indexPage = false{/block:PermalinkPage}
 </script>
 
-<script src="https://static.tumblr.com/p0knose/hwEsjh77v/neue_posts_f.js"></script>
+<script src="https://static.tumblr.com/p0knose/nXusjiw9s/neue_posts_f.js"></script>
 <script src="https://static.tumblr.com/p0knose/Izrsjhaob/deltaf.js"></script>
 
 {block:IndexPage}{block:ifinfinitescroll}
