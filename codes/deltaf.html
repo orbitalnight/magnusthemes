@@ -4,7 +4,7 @@
 <!--
 Theme - Delta
 code by rijeonghyuks/magnusthemes
-ver. 2.0.2 (14092024)
+ver. 2.0.1 (08092024)
 
 Icon cheatsheet: https://feathericons.com
 -->
@@ -265,7 +265,7 @@ main {
     width:calc(210px + var(--spacing-lg) + {select:post size}px);
     margin:auto;
 }
-#postmargin {
+#postmargin, footer {
     margin-left:calc(210px + var(--spacing-lg));
 }
 {/block:ifnotleftbar}
@@ -937,7 +937,8 @@ ol.notes li.note blockquote a {text-decoration:none;}
 
 footer {
     text-align:center; 
-    margin:var(--spacing-lg) 0 var(--spacing-lg) calc(250px + 4*var(--spacing-lg));
+    margin-top:var(--spacing-lg);
+    margin-bottom:var(--spacing-lg);
 }
 
 footer a, footer > span {
