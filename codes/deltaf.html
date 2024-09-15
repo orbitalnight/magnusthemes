@@ -4,7 +4,7 @@
 <!--
 Theme - Delta
 code by rijeonghyuks/magnusthemes
-ver. 2.0.1 (08092024)
+ver. 2.0.2 (14092024)
 
 Icon cheatsheet: https://feathericons.com
 -->
@@ -40,6 +40,7 @@ Icon cheatsheet: https://feathericons.com
 <meta name="if:infinite scroll" content=""/>
 <meta name="if:manual load" content=""/>
 <meta name="if:lazy load" content=""/>
+<meta name="if:left bar" content=""/>
  
 <meta name="image:sidebar" content=""/>
 
@@ -259,16 +260,27 @@ blockquote {
     margin:0 0 0 var(--spacing-md);
 }
 
+{block:ifnotleftbar}
+main {
+    width:calc(210px + var(--spacing-lg) + {select:post size}px);
+    margin:auto;
+}
+#postmargin {
+    margin-left:calc(210px + var(--spacing-lg));
+}
+{/block:ifnotleftbar}
+{block:ifleftbar}
 main, #postmargin {
     margin:auto;
     max-width:100%;
 }
+{/block:ifleftbar}
 
 #postmargin, footer {
     width:{select:post size}px;
     z-index:1; 
     position:relative;
-    margin-left:calc(390px + var(--spacing-lg));
+    {block:ifleftbar}margin-left:calc(390px + var(--spacing-lg));{/block:ifleftbar}
     -webkit-animation:fadein 1s;
     animation:fadein 1s;
 }
@@ -1056,7 +1068,7 @@ aside {
     position:fixed;
     top:50%;
     width:150px;
-    left:200px;
+    {block:ifleftbar}left:200px;{/block:ifleftbar}
     letter-spacing:0;
     -webkit-transform:translateY(-50%);
     -ms-transform:translateY(-50%);
@@ -1159,7 +1171,12 @@ nav#menu a:hover, nav#menu a#toggle.active {color:{color:Accent Text};}
     }
     
     main {
+        {block:ifleftbar}
         margin-top:calc(100px + var(--spacing-lg));
+        {/block:ifleftbar}
+        {block:ifnotleftbar}
+        margin-top:var(--spacing-lg);
+        {/block:ifnotleftbar}
         width:calc(100% - 2*var(--spacing-lg));
     }
     
@@ -1196,6 +1213,7 @@ nav#menu a:hover, nav#menu a#toggle.active {color:{color:Accent Text};}
         justify-content:center;
         visibility:hidden;
         opacity:0;
+        {block:ifnotleftbar}background:{color:Background};{/block:ifnotleftbar}
     }
     
     nav#links.open {
@@ -1204,7 +1222,7 @@ nav#menu a:hover, nav#menu a#toggle.active {color:{color:Accent Text};}
     }
     
     nav#links a {
-        color:{color:Accent Text};
+        {block:ifleftbar}color:{color:Accent Text};{/block:ifleftbar}
         display:inline-block;
         margin-right:var(--spacing-md);
     }
@@ -1269,7 +1287,9 @@ nav#menu a:hover, nav#menu a#toggle.active {color:{color:Accent Text};}
 
 <body class="{block:IndexPage}index-page{/block:IndexPage} {block:homepage}home{/block:homepage}{block:tagpage}tag{/block:tagpage}{block:searchpage}search{/block:searchpage}{block:submitpage}submit{/block:submitpage}{block:AskPage}ask{/block:AskPage}{block:permalinkpage}permalink{/block:permalinkpage}-page">
 
+{block:ifleftbar}
 <div id="left"></div>
+{/block:ifleftbar}
 
 <main>
     <aside>
