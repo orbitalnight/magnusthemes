@@ -5,7 +5,7 @@
 Theme - Lunar
 Code by magnusthemes
  
-ver. 1.0.0 (18/12/2024)
+ver. 1.0.1 (21/12/2024)
 -->
 
 <head>
@@ -39,6 +39,8 @@ ver. 1.0.0 (18/12/2024)
 <meta name="color:sidebar title" content="#171e51"/>
 <meta name="color:search bar" content="#fff"/>
 
+<meta name="if:background stretch" content=""/>
+<meta name="if:thin sidebar" content=""/>
 <meta name="if:light theme" content=""/>
 <meta name="if:infinite scroll" content=""/>
 <meta name="if:manual load" content=""/>
@@ -232,7 +234,7 @@ blockquote {
 
 main {
     margin:0 auto;
-    width:var(--post-width);
+    width:calc(var(--post-width) + 2*var(--gap) + 2px);
     padding-left:300px;
 }
 
@@ -1103,6 +1105,9 @@ aside {
     margin-left:-330px;
     {block:ifnotbackgroundimage}
     border-right:1px solid {color:accent change};
+    {block:ifthinsidebar}
+    border-left:1px solid {color:accent change};
+    {/block:ifthinsidebar}
     {/block:ifnotbackgroundimage}
     display:flex;
     align-items:center;
@@ -1120,13 +1125,22 @@ aside::before {
     content:"";
     position:absolute;
     right:0;
+    {block:ifthinsidebar}
     width:300px;
+    {/block:ifthinsidebar}
+    {block:ifnotthinsidebar}
+    width:calc(50vw - var(--post-width)/2 - var(--gap) + 135px);
+    {/block:ifnotthinsidebar}
     height:100%;
     z-index:-1;
     background:url('{image:background}');
+    {block:ifbackgroundstretch}
+    background-size:cover;
+    background-position:center;
+    {/block:ifbackgroundstretch}
+    {block:ifnotbackgroundstretch}
     background-repeat:repeat;
-    background-attachment:fixed;
-    background-position:right center;
+    {/block:ifnotbackgroundstretch}
 }
 {/block:ifbackgroundimage}
 
@@ -1502,7 +1516,7 @@ aside:hover .sidebar-right form {
             <div class="post-btns post-btns-right post-info">
                 <a href="{ReblogParentURL}" title="Reblogged from {ReblogParentName}"><img src="{ReblogParentPortraitURL-30}"/></a>
                 <a><span class="ti ti-repeat"></span></a>
-                <a href="{ReblogRootURL}" title="Originally posted by {ReblogRootName}"><img src="{ReblogRootPortraitURL-30}"/></a>
+                <a href="{ReblogRootName}" title="Originally posted by {ReblogRootName}"><img src="{ReblogRootPortraitURL-30}"/></a>
             </div>
             {/block:RebloggedFrom}
             {/block:PermalinkPage}
