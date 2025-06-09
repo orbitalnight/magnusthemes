@@ -5,7 +5,7 @@
 Theme - Unparalleled
 code by rijeonghyuks/magnusthemes
  
-ver. 2.0.2 (08092024)
+ver. 2.0.3 (08062025)
 -->
 	
 <head>
@@ -113,7 +113,7 @@ ver. 2.0.2 (08092024)
 :root {
     --background-image:url({image:background});
     --background-color:{color:background};
-    --spacing-sm:.6em;
+    --spacing-sm:0.5em;
     --spacing-md:1em;
     --spacing-lg:{select:margins};
     --posts:{color:content backgrounds};
@@ -411,6 +411,10 @@ article:hover .post_media_photo_anchor img {
     margin:var(--spacing-sm) 0;
 }
 
+.text-content ul, .text-content ol {
+    margin:0;
+}
+
 .text-content a {
     border-bottom:2px solid {color:accent};
 }
@@ -429,6 +433,7 @@ article:hover .post_media_photo_anchor img {
     display:block;
     /*color:var(--text);*/
     /*padding:var(--spacing-sm);*/
+    transition:0.4s ease-in-out;
 }
 
 .link-source {
@@ -483,6 +488,10 @@ article:hover .post_media_photo_anchor img {
 
 .post-link:hover .poster-content:not(.poster-with-image) {
     background-color:{color:Accent};
+    color:{color:Accent Text};
+}
+
+.post-link:hover .poster-content:not(.poster-with-image) span {
     color:{color:Accent Text};
 }
 
@@ -730,11 +739,11 @@ article p {
 }
 
 .text-content:first-of-type {
-    padding-top:1em;
+    padding-top:0.5em;
 }
 
 .text-content:last-of-type {
-    padding-bottom:1em;
+    padding-bottom:0.5em;
 }
 
 .question .text-content,
@@ -1308,6 +1317,7 @@ header.fix .searchbox {
     flex-wrap:wrap;
     position:relative;
     overflow:auto;
+    align-items:flex-start;
 }
 
 .ppagi a {
@@ -1813,7 +1823,7 @@ document.querySelectorAll('.tab').forEach((elem) => {
 document.querySelector('.tab#{select:default tab}').classList.replace("hide","show")
 </script>
 
-<script src="https://static.tumblr.com/p0knose/2x7sjh2up/2ji.js"></script>
+<script src="https://static.tumblr.com/p0knose/MMtsxkm0k/2ji.js"></script>
 
 <script>
 let bodyElement = document.body.classList
@@ -1823,8 +1833,8 @@ let user = '{name}'
 {block:PermalinkPage}let indexPage = false{/block:PermalinkPage}
 </script>
 
-<script src="https://static.tumblr.com/p0knose/HlAs9n7a4/neue_posts.js"></script>
 <script src="https://static.tumblr.com/p0knose/17xsjix41/neue_posts.js"></script>
+<script src="https://static.tumblr.com/p0knose/m9us9kqie/unparalleled.js"></script>
 
 {block:IndexPage}{block:ifinfinitescroll}
 <script src="https://unpkg.com/infinite-scroll@3/dist/infinite-scroll.pkgd.min.js"></script>
