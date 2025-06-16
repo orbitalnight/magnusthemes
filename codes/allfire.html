@@ -335,7 +335,7 @@ article, .posts, .grid-sizer {
     width:calc(var(--post-width));
     margin:0px -2px -2px 0px;
     border:2px solid {color:borders};
-    max-width:calc(100% + 2px - 2*var(--padding));
+    max-width:calc(100% - 2*var(--padding) - 2px);
 }
 
 .grid-sizer {
@@ -1244,11 +1244,12 @@ header {
 #menu {
     top:0px;
     display:block;
-    margin:0 calc(var(--columns)*2px - 2px) 0 calc(var(--columns)*2px);
+    margin:0 calc(var(--columns)*2px - 4px) 0 calc(var(--columns)*2px - 2px);
     padding:var(--spacing-md);
     z-index:999;
     text-align:center;
     transition:0.4s ease-in-out;
+    border-bottom:3px solid {color:borders};
 }
 
 {block:ifnotheaderimage}
@@ -1607,7 +1608,7 @@ let user = '{name}'
 <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
 
 <script src="https://static.tumblr.com/p0knose/1Lysjiwx1/neue_posts.js"></script>
-<script src="https://static.tumblr.com/p0knose/znbsxxcrc/caen.js"></script>
+<script src="https://static.tumblr.com/p0knose/LaHsxxd7x/caen.js"></script>
 
 {block:IndexPage}{block:ifinfinitescroll}
 <script src="https://unpkg.com/infinite-scroll@3/dist/infinite-scroll.pkgd.min.js"></script>
