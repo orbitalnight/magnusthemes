@@ -76,6 +76,7 @@ ver. 1.0.0 (2025/06/15)
 
 <meta name="text:opacity" content="1.0"/>
 <meta name="text:subtitle" content=""/>
+<meta name="text:updates" content=""/>
 {/block:Options}
 
 <link rel="stylesheet" href="https://static.tumblr.com/p0knose/yKlp5mq5l/normalize.css">
@@ -1150,12 +1151,13 @@ header {
     color:{color:Header Text};
 }
 
+/* ------ top bar ------ */
+
 #bar {
     padding:10px 0px;
     height:30px;
-    overflow:hidden;
     color:{color:Header Text};
-    /*margin-top:10px;*/
+    position:relative;
 }
 
 #bar #bz {
@@ -1204,13 +1206,6 @@ header {
     color:{color:Accent};
 }
 
-#avatar {
-    border-radius:100%;
-    width:30px;
-    height:30px;
-    float:left;
-}
-
 #username {
     float:left;
     display:inline-block;
@@ -1221,6 +1216,89 @@ header {
     letter-spacing:1px;
     text-transform:uppercase;
 }
+
+#avatar {
+    border-radius:100%;
+    width:30px;
+    height:30px;
+    float:left;
+    transition:0.4s ease-in-out;
+}
+
+{block:ifupdates}
+#bar:hover #avatar {
+    transform:rotate(-15deg);
+}
+
+#su {
+    display:block;
+    position:absolute;
+    background:{color:Background};
+    z-index:1;
+    left:0px;
+    top:10px;
+    width:20px;
+    height:20px;
+    line-height:20px;
+    border-radius:100%;
+    border:2px solid {color:borders};
+    text-align:center;
+    margin:3px;
+    opacity:0;
+    font-size:16px;
+    transition:0.4s ease-in-out;
+}
+
+#bar:hover #su {
+    opacity:0.7;
+    transition-delay:0.2s;
+}
+
+#su:hover {
+    background:var(--accent);
+    color:{color:Accent Text};
+    border-color:{color:Accent Text};
+}
+
+#su.active {
+    opacity:1;
+    transform:rotate(45deg);
+}
+
+#updt {
+    position:absolute;
+    top:100%;
+    border:2px solid {color:borders};
+    padding:var(--spacing-md);
+    max-width:210px;
+    margin-left:-11px;
+    background:rgba({RGBcolor:Posts},var(--opacity));
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
+}
+
+#updt::before {
+    content:"";
+    position:absolute;
+    width:0px;
+    height:0px;
+    border-style:solid;
+    border-width:0 10px 10px 10px;
+    border-color:transparent transparent {color:borders} transparent;
+    transform:rotate(0deg);
+    top:0;
+    margin-top:-10px;
+}
+
+.upd {
+    overflow:auto;
+    max-height:120px;
+    font-size:14px;
+    line-height:1.4em;
+}
+{/block:ifupdates}
+
+/* ------ main header content ------ */
 
 .info {
     text-align:center;
@@ -1457,6 +1535,16 @@ footer {
     <div id="inner">
     <header>
         <div id="bar">
+            {block:ifupdates}
+            <div id="updt" class="hide">
+                <div class="upd">
+                    {text:updates}
+                </div>
+            </div>
+            <a href="#" id="su" title="more...">
+                <span class="ti ti-plus"></span>
+            </a>
+            {/block:ifupdates}
             <img id="avatar" src="{PortraitURL-64}"/>
             <span id="username">{Name}</span>
             <form class="search" action="/search" method="get">
@@ -1650,6 +1738,18 @@ let c1 = '{color:Posts}',
 let opacity = '{text:opacity}';
 if(c1===c2 && opacity==1) document.body.classList.add("minimal-theme");
 </script>
+
+{block:ifupdates}
+<script>
+document.getElementById('su').addEventListener('click',function(e){
+    this.classList.toggle('active');
+    let updt = document.getElementById("updt")
+    updt.classList.toggle('show');
+    updt.classList.toggle('hide');
+    e.preventDefault();
+});
+</script>
+{/block:ifupdates}
 
 </body>
 </html>
