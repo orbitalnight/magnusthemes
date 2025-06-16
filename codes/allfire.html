@@ -41,6 +41,7 @@ ver. 1.0.0 (2025/06/15)
 <meta name="if:manual load" content=""/>
 <meta name="if:monochrome images" content=""/>
 <meta name="if:hide tags" content=""/>
+<meta name="if:full size header" content=""/>
 <meta name="if:full size background" content=""/>
 <meta name="if:header background" content=""/>
 <meta name="if:rainbows" content=""/>
@@ -1120,6 +1121,26 @@ ol.notes li.note.original_post .action::before {content:"\f7cc";}
     z-index:999;
 }
 
+{block:ifnotfullsizeheader}
+#top {
+    margin:0 auto;
+    padding:0 var(--spacing-lg);
+    width:calc(2*var(--spacing-lg) + var(--columns)*(var(--post-width) + 2*(var(--padding) + 2px)));
+    max-width:calc(100% - 2*var(--spacing-lg));
+    transition:padding 0.4s ease-in-out;
+}
+
+#top.fixed {
+    left:50%;
+    transform:translateX(-50%);
+    padding:0px 0px;
+}
+{/block:ifnotfullsizeheader}
+
+#top.fixed {
+    position:fixed;
+}
+
 #inner {
     margin-bottom:0;
 }
@@ -1608,7 +1629,7 @@ let user = '{name}'
 <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
 
 <script src="https://static.tumblr.com/p0knose/1Lysjiwx1/neue_posts.js"></script>
-<script src="https://static.tumblr.com/p0knose/LaHsxxd7x/caen.js"></script>
+<script src="https://static.tumblr.com/p0knose/dGisxxe7a/kaen.js"></script>
 
 {block:IndexPage}{block:ifinfinitescroll}
 <script src="https://unpkg.com/infinite-scroll@3/dist/infinite-scroll.pkgd.min.js"></script>
