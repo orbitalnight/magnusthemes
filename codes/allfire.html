@@ -5,7 +5,7 @@
 Theme - Allfire
 code by magnusthemes
  
-ver. 1.0.1 (2025/06/16)
+ver. 1.0.0 (2025/06/15)
 -->
 
 <head>
@@ -1359,13 +1359,13 @@ header {
     border-bottom:3px solid {color:borders};
 }
 
-{block:ifnotheaderimage}
+{block:ifnotheaderimage}{block:ifnotheaderbackground}
 #menu.fixed {
     backdrop-filter:blur(10px);
     -webkit-backdrop-filter:blur(10px);
     background:rgba({RGBcolor:Posts},0.5);
 }
-{/block:ifnotheaderimage}
+{/block:ifnotheaderbackground}{/block:ifnotheaderimage}
 
 #menu .dropdown {
     display:inline-block;
