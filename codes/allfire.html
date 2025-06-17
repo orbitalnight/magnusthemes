@@ -5,7 +5,7 @@
 Theme - Allfire
 code by magnusthemes
  
-ver. 1.0.0 (2025/06/15)
+ver. 1.0.1 (2025/06/16)
 -->
 
 <head>
@@ -483,10 +483,16 @@ article:hover img, article:hover .poster-with-image {
     height:100%;
 }
 
-.post-link:hover .poster-content.poster-with-image:before {
-    background:rgba({RGBcolor:posts},0.8);
+.poster-with-image:before {
+    background:rgba({RGBcolor:Posts},0.5);
     backdrop-filter:blur(2px);
     -webkit-backdrop-filter:blur(2px);
+}
+
+.post-link:hover .poster-content.poster-with-image:before {
+    background:rgba({RGBcolor:posts},0.8);
+    backdrop-filter:blur(5px);
+    -webkit-backdrop-filter:blur(5px);
 }
 
 .poster-content:not(.poster-with-image):before {
@@ -689,11 +695,13 @@ a.read_more {
     padding:var(--spacing-sm);
     margin-top:var(--spacing-sm);
     display:inline-block;
+    box-shadow:0 0 0 transparent, inset 0 0 0 transparent;
 }
 
 .read_more:hover {
     background:var(--accent);
     color:{color:Accent Text};
+    box-shadow:0 0 0 transparent, inset 0 0 0 transparent!important;
 }
 
 .quote {
@@ -788,7 +796,7 @@ a.read_more {
     margin:0 auto;
     max-height:100%;
     height:100%;
-    width:100%;
+    /*width:100%;*/
     object-fit:cover;
     display:block;
 }
@@ -1525,6 +1533,26 @@ footer {
     }
 }
 
+.tmblr-iframe-pushdown {
+    padding-top:0!important;
+}
+
+.tmblr-iframe--app-cta-button {
+    display:none!important;
+}
+
+
+.tmblr-iframe-pushdown main {
+    padding-bottom:60px!important;
+}
+
+iframe.tmblr-iframe.tmblr-iframe--unified-controls.tmblr-iframe--loaded.iframe-controls--phone-mobile {    
+    position:fixed!important;
+    z-index:2147483636!important;
+    top:auto!important;
+    bottom:0!important;
+}
+
 {CustomCSS}
 </style>    
 </head>
@@ -1717,7 +1745,7 @@ let user = '{name}'
 <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
 
 <script src="https://static.tumblr.com/p0knose/1Lysjiwx1/neue_posts.js"></script>
-<script src="https://static.tumblr.com/p0knose/dGisxxe7a/kaen.js"></script>
+<script src="https://static.tumblr.com/p0knose/WEFsxz792/kaen.js"></script>
 
 {block:IndexPage}{block:ifinfinitescroll}
 <script src="https://unpkg.com/infinite-scroll@3/dist/infinite-scroll.pkgd.min.js"></script>
