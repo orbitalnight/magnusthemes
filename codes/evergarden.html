@@ -1,0 +1,1970 @@
+<!DOCTYPE html> 
+<html>  
+
+<!--
+Theme - Evergarden
+code by bakataejun/magnusthemes
+ver. 1.0.0 (2026/07/04)
+
+Icon cheatsheet: https://feathericons.com
+-->
+	
+<head>
+
+<link rel="shortcut icon" lhref="{Favicon}" />
+<link rel="alternate" type="application/rss+xml" href="{RSS}" />
+
+<title>{Title}{block:TagPage} | {Tag}{/block:TagPage} {block:SearchPage} | {lang:Search results for SearchQuery}{/block:SearchPage}{block:PostSummary} | {PostSummary}{/block:PostSummary}</title>
+{block:Description}<meta name="description" content="{MetaDescription}"/>{/block:Description}
+{NewPostStyles}
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+{block:Options}
+<meta name="color:background" content="#ffffff">
+<meta name="color:text" content="#888888">
+<meta name="color:accent" content="#8c1515"/>
+<meta name="color:accent alt" content="#8c1515"/>
+<meta name="color:accent text" content="#ffffff"/>
+<meta name="color:accent alt text" content="#ffffff"/>
+<meta name="color:posts" content="#080808"/>
+<meta name="color:title text" content="#161616"/>
+<meta name="color:titles" content="#8c1515"/>
+<meta name="color:shadows" content="#202020"/>
+<meta name="color:borders" content="#eaeaea"/>
+
+<meta name="if:light theme" content=""/>
+<meta name="if:show tags" content=""/>
+<meta name="if:monochrome images" content=""/>
+<meta name="if:infinite scroll" content=""/>
+<meta name="if:manual load" content=""/>
+<meta name="if:lazy load" content=""/>
+<meta name="if:sidebar panning" content=""/>
+ 
+<meta name="image:background" content=""/>
+<meta name="image:sidebar" content=""/>
+
+<meta name="select:margins" content="90px" title="90px"/>
+<meta name="select:margins" content="80px" title="80px"/>
+<meta name="select:margins" content="70px" title="70px"/>
+<meta name="select:margins" content="60px" title="60px"/>
+<meta name="select:margins" content="50px" title="50px"/>
+
+<meta name="select:gutter" title="5px" content="5px"/>
+<meta name="select:gutter" title="4px" content="4px"/>
+<meta name="select:gutter" title="3px" content="3px"/>
+<meta name="select:gutter" title="2px" content="2px"/>
+<meta name="select:gutter" title="1px" content="1px"/>
+<meta name="select:gutter" title="0px" content="0px"/>
+<meta name="select:gutter" title="10px" content="10px"/>
+<!-- does anyone still use 10px gutters these days? lol -->
+ 
+<meta name="select:post size" content="540" title="540px"/>
+<meta name="select:post size" content="500" title="500px"/>
+<meta name="select:post size" content="450" title="450px"/>
+<meta name="select:post size" content="400" title="400px"/>
+<meta name="select:post size" content="350" title="350px"/>
+<meta name="select:post size" content="300" title="300px"/>
+<meta name="select:post size" content="250" title="250px"/>
+
+<meta name="select:sidebar location" content="right" title="right"/>
+<meta name="select:sidebar location" content="left" title="left"/>
+{/block:Options}
+
+<link rel="stylesheet" href="https://static.tumblr.com/p0knose/yKlp5mq5l/normalize.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Datatype:wght@100..900&family=Figtree:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    
+<style>
+/* Theme Options */
+:root {
+    --background-color:{color:background};
+    /*--spacing-sm:.6em;*/
+    /*--spacing-md:1em;*/
+    --spacing-sm:0.9rem;
+    --spacing-md:1.5rem;
+    --spacing-lg:{select:margins};
+    --accent-alt:{color:accent alt};
+    --accent:{color:accent};
+    --accent-text:{color:accent text};
+    --accent-alt-text:{color:accent alt text};
+    --text:{color:text};
+    --gap:{select:gutter};
+}
+
+#bp:hover {border-color:var(--accent);}
+
+/* ------ custom styling ------ */
+
+@-webkit-keyframes fadein {from {opacity:0;} to {opacity:1;}}
+@keyframes fadein {from {opacity:0;} to {opacity:1;}}
+ 
+::-webkit-scrollbar-corner {background:var(--background);}
+ 
+::-webkit-scrollbar {
+    height:10px;
+    width:10px;
+    background:var(--background-color);
+}
+
+::-webkit-scrollbar-track-piece {
+    background-color:var(--accent-alt);
+    border:4px solid var(--background-color);
+}
+ 
+::-webkit-scrollbar-thumb {
+    width:10px; 
+    height:10px;
+    background-color:var(--accent);
+    border:3px solid var(--background-color);
+}
+ 
+::selection {
+    color:var(--accent-text);
+    background:var(--accent);
+}
+
+::-moz-selection {
+    color:var(--accent-text);
+    background:var(--accent);
+}
+
+::-webkit-selection {
+    color:var(--accent-text);
+    background:var(--accent);
+}
+
+.tippy-box {
+    padding:2px;
+    text-transform:uppercase;
+    font-size:0.8em;
+    line-height:1em;
+    letter-spacing:0.5px;
+    color:var(--accent-alt-text);
+    background:var(--accent-alt);
+    font-family:"Datatype",consolas,monospace;
+    border-radius:0px;
+    z-index:2147483647;
+    border-radius:var(--spacing-sm);
+}
+
+/* tumblr controls */
+ 
+iframe#tumblr_controls, .iframe-controls--desktop {
+    top:5px;
+    right:10px;
+    position:fixed!important;
+    opacity:0.8!important;
+    z-index:2000000!important;
+    {block:iflighttheme}
+    -webkit-filter:invert(100%);
+    filter:invert(100%);
+    {/block:iflighttheme}
+    -webkit-transform:scale(0.8);
+    -ms-transform:scale(0.8);
+    transform:scale(0.8);
+    -webkit-transform-origin:100% 0;
+    -ms-transform-origin:100% 0;
+    transform-origin:100% 0;
+    transition:0.4s ease-in-out;
+}
+ 
+iframe#tumblr_controls:hover, 
+.iframe-controls--desktop:hover {
+    opacity:1!important;
+}
+
+/* lightbox */
+ 
+#tumblr_lightbox, 
+.tmblr-lightbox {
+    background-color:rgba({RGBcolor:Background},0.8)!important;
+    z-index:214748364789!important;
+    backdrop-filter:blur(5px);
+}
+
+#tumblr_lightbox img, .tmblr-lightbox img {opacity:0;}
+#vignette, .vignette {opacity:0!important;}
+ 
+#tumblr_lightbox_center_image, 
+#tumblr_lightbox_left_image,
+#tumblr_lightbox_right_image, 
+.lightbox-image {
+    box-shadow:0 0 0 transparent!important;
+    border-radius:0px!important;
+    padding:0px!important;
+    opacity:1!important;
+    border-radius:var(--spacing-sm)!important;
+}
+ 
+#tumblr_lightbox_caption,
+.lightbox-caption {
+    color:var(--text)!important;
+    font:normal 1em/1.5em 'Figtree', sans-serif!important;
+    text-shadow:0 0 0 transparent!important;
+    margin-top:10px!important;
+}
+        
+/** {*/
+/*     box-sizing:border-box;*/
+/*}*/
+
+body {
+    margin:0;
+    color: var(--text);
+    background-color:var(--background-color);
+    {block:ifbackgroundimage}
+    background-image:url({image:background});
+    background-attachment:fixed;
+    {block:ifrepeatbackground}
+    background-repeat:repeat;
+    {/block:ifrepeatbackground}
+    {block:ifnotrepeatbackground}
+    background-size:cover;
+    {/block:ifnotrepeatbackground}
+    {/block:ifbackgroundimage}
+    font-family:'Figtree',sans-serif;
+    word-wrap:break-word;
+    word-break:break-word;
+    font-size:16px;
+    line-height:1.4;
+    font-weight:400;
+}
+ 
+a {
+    color:var(--text);
+    text-decoration:none;
+    transition:0.4s ease-in-out;
+}
+
+a:hover {
+    color:var(--accent);
+}
+
+b,strong,bold {
+    font-weight:700;
+}
+
+small, sub, sup {
+    font-size:0.85em;
+}
+
+big, large {
+    font-size:1.2em;
+}
+
+li.unordered-list-item, ul li {
+    list-style:none;
+    position:relative;
+}
+
+ul {
+    padding-left:1.5em;
+    margin:0;
+}
+
+li.unordered-list-item::before, ul li::before {
+    margin-left:-1.5em;
+    position:absolute;
+    content:"";
+    width:1em;
+    height:0px;
+    border:1px dashed var(--accent);
+    border-width:1px 0px;
+    /*height:2px;*/
+    margin-top:0.6em;
+    display:block;
+}
+
+blockquote {
+    border-left:2px solid var(--accent);
+    padding-left:var(--spacing-sm);
+    margin:0 0 0 var(--spacing-md);
+}
+
+main {
+    margin:auto;
+    width:calc({select:post size}px + 32px);
+    padding-bottom:calc(3*var(--spacing-sm));
+}
+
+.right main {
+    padding-right:calc(150px + var(--spacing-lg));
+    padding-left:calc(120px + var(--spacing-sm) + 20px);
+}
+
+.left main {
+    padding-left:calc(150px + var(--spacing-lg));
+    padding-right:calc(120px + var(--spacing-sm) + 20px);
+}
+
+#postmargin {
+    width:calc({select:post size}px + 32px);
+    z-index:1; 
+    position:relative;
+    -webkit-animation:fadein 1s;
+    animation:fadein 1s;
+}
+
+.flex {
+    display:flex;
+    flex-wrap:wrap;
+}
+
+.show {
+    opacity:1;
+    visibility:visible;
+    transition:opacity 0.4s ease-in-out,visibility 0.4s ease-in-out;
+}
+
+.hide {
+    opacity:0;
+    visibility:hidden;
+    transition:opacity 0.4s ease-in-out,visibility 0.4s ease-in-out;
+}
+
+p:empty {
+     display:none;
+}
+
+article h1 {
+     margin:0;
+     font-weight:800;
+}
+
+article video {
+    max-width:100%;
+}
+
+article,.posts {
+    width:{select:post size}px;
+    margin:var(--spacing-lg) 0 0;
+    position:relative;
+    padding:0 10px 10px;
+    border:1px dashed {color:borders};
+    box-shadow:2px 2px 5px rgba({RGBcolor:shadows},0.1);
+    border-radius:var(--spacing-sm);
+    z-index:1;
+}
+
+#postmargin > :last-child {
+    margin-bottom:var(--spacing-lg);
+}
+
+/* post styling */
+ 
+article img {
+    max-width:100%;
+    display:block;    
+}
+
+.post_media_photo_anchor img {
+    transition:0.4s ease-in-out;
+    {block:ifmonochromeimages}{block:indexpage}
+    -webkit-filter:grayscale(100%);
+    filter:grayscale(100%);
+}
+ 
+article:hover .post_media_photo_anchor img {
+    -webkit-filter:grayscale(0%);
+    filter:grayscale(0%);
+    {/block:indexpage}{/block:ifmonochromeimages}
+}
+
+.text-content, .reblog-header, .post-info, .tags, .count {
+    /*padding:var(--spacing-sm) var(--spacing-md);*/
+    padding:0;
+}
+
+.text-content {
+    /*margin:1em 0;*/
+    padding:5px var(--spacing-md);
+    background:{color:posts};
+    border-top-left-radius:var(--spacing-sm);
+    border-top-right-radius:var(--spacing-sm);
+}
+
+.text-content + .text-content {
+    padding-top:0;
+}
+
+.post_media_photo_anchor + .text-content,
+.text-content + .text-content {
+    border-top-left-radius:0px;
+    border-top-right-radius:0px;
+}
+
+.text-content:last-of-type {
+    border-bottom-right-radius:var(--spacing-sm);
+    border-bottom-left-radius:var(--spacing-sm);
+}
+
+.text-content a, .desc a {
+    border-bottom:1px dashed var(--accent);
+    font-weight:500;
+    transition:0s;
+}
+
+.text-content a:hover, .desc a:hover {
+    border-bottom:2px solid var(--accent);
+}
+
+.content > :first-child {
+    margin-top:0;
+}
+
+.post-link {
+    flex-grow:1;
+    display:block;
+    color:{color:title text};
+    background:{color:titles};
+    margin-bottom:var(--spacing-sm);
+}
+
+.post-link span, .post-link svg {
+    display:block;
+    transition:inherit;
+    color:{color:title text};
+}
+
+.link-source {
+    font-size:0.85em;
+    text-transform:uppercase;
+    transition:0.4s ease-in-out;
+}
+
+.poster-content {
+    min-height:80px;
+    position:relative;
+    background-size:100%;
+    background-position:center;
+    display:flex;
+    transition:.6s ease-in-out;
+    flex-wrap:wrap;
+    align-items:center;
+    justify-content:center;
+    transition:0.4s ease-in-out;
+}
+
+.poster-with-image {
+    min-height:250px;
+}
+
+.poster-content span {
+    font-size:1.5em;
+    z-index:1;
+    font-weight:800;
+}
+
+.poster-content.poster-with-image:before {
+    content:'';
+    transition:0.6s ease-in-out;
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:rgba({RGBcolor:posts},0.5);
+    backdrop-filter:blur(2px);
+    -webkit-backdrop-filter:blur(2px);
+}
+
+.post-link:hover .poster-content.poster-with-image:before {
+    background:rgba({RGBcolor:posts},0.8);
+}
+
+.poster-content:not(.poster-with-image):before {
+    background:transparent;
+}
+
+.post-link:hover .poster-content:not(.poster-with-image) {
+    background-color:var(--accent);
+    color:var(--accent-text);
+}
+
+.post-link:hover span,
+.post-link:hover svg {
+    color:var(--accent-text);
+}
+
+.post-link:hover .poster-content {
+    background-size:120%!important;
+}
+
+.link-title {
+    padding:0 var(--spacing-md);
+}
+
+.link-descr {
+    padding:var(--spacing-md);
+    /*border-top:2px solid var(--background);*/
+}
+
+.content > .poll:first-child {
+    padding-top:0;
+}
+
+.poll-option {
+    /*background:var(--links);*/
+    color:var(--text);
+    display:block;
+    padding:var(--spacing-sm);
+    margin:var(--spacing-sm) 0;
+    font-style:italic;
+    text-transform:uppercase;
+    font-size:0.85em;
+    background:{color:posts};
+}
+
+.poll-option:hover {
+    color:var(--accent);
+    border-color:var(--accent);
+}
+
+/*.reblog-header, */
+.poll {
+    padding:var(--spacing-md) 0;
+}
+
+.text-content:empty {
+    display:none;
+}
+
+.indented {
+    margin-left:var(--spacing-md);
+    padding-left:var(--spacing-md);
+    border-left:2px solid var(--accent);
+}
+
+.row-size-1 > div {
+    width:100%;
+}
+.row-size-3 > div {
+    width:calc((100% / 3) - var(--gap));
+}
+.row-size-2 > div {
+    width:calc(50% -  (var(--gap) / 2));
+}
+
+.content-rows > div img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.content-rows {
+    justify-content:space-between;
+    gap: var(--gap);
+    border-top-left-radius:var(--spacing-sm);
+    border-top-right-radius:var(--spacing-sm);
+    background:{color:posts};
+    overflow:hidden;
+}
+
+.content-rows + .content-rows {
+    margin-top:var(--gap);
+    border-top-left-radius:0px;
+    border-top-right-radius:0px;
+}
+
+.content-rows:last-of-type {
+    border-bottom-left-radius:var(--spacing-sm);
+    border-bottom-right-radius:var(--spacing-sm);
+}
+
+article p {
+    margin:0;
+}
+
+.chat b {
+    font-family:"Datatype",consolas,monospace;
+    display:block;
+    font-weight:900;
+    text-transform:uppercase;
+}
+
+.text-content:nth-of-type(odd) .chat b {
+    color:var(--accent);
+}
+
+.text-content:nth-of-type(even) .chat b {
+    color:var(--accent);
+}
+
+.quirky {
+    font-family:Fairwater;
+    font-size:1.2em;
+}
+
+.heading1 {
+    font-size:1.6em;
+    line-height:1.2em;
+    font-weight:700;
+}
+
+.heading2 {
+    font-size:1.4em;
+    line-height:1.2em;
+    font-weight:700;
+}
+
+.quote {
+    font-size:1.2em;
+    font-weight:700;
+    padding:var(--spacing-md);
+    background:{color:posts};
+}
+
+.spotify_audio_player {
+    height:120px!important;
+    width:100%!important;
+}
+
+.bandcamp_audio_player {
+    height:120px!important;
+    width:100%!important;
+}
+ 
+.audio {
+    position:relative;
+    background:{color:posts};
+    border-radius:var(--spacing-sm);
+    overflow:hidden;
+}
+
+.audioplay {
+    text-align:center;
+    position:absolute;
+    background:rgba({RGBcolor:posts},0.8);
+    padding:5px;
+    width:20px;
+    height:20px;
+    margin:20px;
+    top:0;
+    left:0;
+    backdrop-filter:blur(2px);
+    -webkit-backdrop-filter:blur(2px);
+    transition:0.4s ease-in-out;
+    border-radius:30px;
+}
+
+.audioplay .ftr {
+    width:20px;
+    height:20px;
+}
+
+.audioplay:hover {
+    background:rgba({RGBcolor:Accent},0.8);
+    color:var(--accent-text);
+    cursor:pointer;
+}
+ 
+.musicinfo {
+    margin-left:75px;
+    height:50px;
+    padding:10px 15px;
+    overflow:hidden;
+    width:calc(100% - 105px);
+}
+ 
+.musicinfo table {
+    height:50px;
+    vertical-align:middle;
+}
+ 
+.albumart img {
+    width:70px; 
+    height:70px;
+}
+ 
+.albumart {
+    width:70px;
+    height:70px;
+    position:absolute;
+    background:url(https://static.tumblr.com/jn9hrij/20Ul2zzsr/albumart.jpg) no-repeat;
+    background-size:70px 70px;
+}
+
+.content > .post_media_photo_anchor img {
+    margin:0 auto;
+    border-top-left-radius:var(--spacing-sm);
+    border-top-right-radius:var(--spacing-sm);
+}
+
+.content-rows.photo {
+    overflow:hidden;
+    border-top-left-radius:var(--spacing-sm);
+    border-top-right-radius:var(--spacing-sm);
+}
+
+.content-rows.photo + .content-rows.photo {
+    border-top-left-radius:0px;
+    border-top-right-radius:0px;
+}
+
+.content-rows.photo:last-of-type {
+    border-bottom-left-radius:var(--spacing-sm);
+    border-bottom-right-radius:var(--spacing-sm);
+}
+
+.content > .post_media_photo_anchor + .post_media_photo_anchor img {
+    margin-top:var(--gap);
+    border-top-left-radius:0px;
+    border-top-right-radius:0px;
+}
+
+.content > .post_media_photo_anchor:last-child img {
+    border-bottom-left-radius:var(--spacing-sm);
+    border-bottom-right-radius:var(--spacing-sm);
+}
+
+.content-rows.photo .post_media_photo_anchor img {
+    margin-top:0;
+}
+
+.content-rows.photo,
+.content > .post_media_photo_anchor img {
+    overflow:hidden;
+}
+
+.reblog-header {
+    display:inline-flex;
+    padding:var(--spacing-sm) 0;
+    font-family:"Datatype",consolas,monospace;
+}
+
+.reblog-header a, .checkmarks {
+    display:inline-flex;
+    flex-wrap:wrap;
+    align-items:center;
+    position:relative;
+    font-weight:500;
+}
+
+/*.reblog-header a:hover {*/
+/*    color:var(--accent);*/
+/*}*/
+
+.reblog-header .user-avatar, .ask > img {
+    margin:0 10px 0 0;
+    width:20px;
+    border-radius:100%;
+}
+
+.reblog-header .usernames {
+    display:inline-block;
+    background:var(--accent);
+    color:var(--accent-text);
+    border-radius:var(--spacing-sm);
+    padding:0px calc(var(--spacing-sm)/2);
+    line-height:20px;
+    font-size:0.9em;
+    transition:0.4s ease-in-out;
+}
+
+.reblog-header a:hover .usernames {
+    background:var(--accent-alt);
+    color:var(--accent-alt-text);
+}
+
+/*.text-content:first-of-type {*/
+/*    padding-top:var(--spacing-sm);*/
+/*}*/
+
+/*.text-content:last-of-type {*/
+/*    padding-bottom:var(--spacing-sm);*/
+/*}*/
+
+.question .text-content,
+.content-rows .text-content {
+    margin:0;
+    padding:5px var(--spacing-md);
+}
+
+.content-rows + .content-rows:has(.text-content){
+    margin-top:0;
+}
+
+.content-rows:last-of-type .text-content {
+    padding-bottom:var(--spacing-md);
+}
+
+.content > .text-content:first-of-type,
+.question > .text-content:first-of-type,
+.answer > .text-content:first-of-type {
+    padding-top:var(--spacing-md);
+}
+
+.content > .text-content:last-of-type,
+.question > .text-content:last-of-type,
+.answer > .text-content:last-of-type {
+    padding-bottom:var(--spacing-md);
+}
+
+/* ---- ask posts ---- */
+
+.question {
+    background:{color:posts};
+    margin-bottom:calc(2*var(--spacing-md) + var(--spacing-sm));
+    border-radius:var(--spacing-sm);
+}
+
+.question + img {
+    margin-top:var(--spacing-md);
+}
+
+.question .text-content {
+    padding-top:0;
+    padding-bottom:0;
+}
+
+a.asker {
+    text-align:center;
+    display:block;
+    color:{color:text};
+    font-family:"Datatype",consolas,monospace;
+}
+
+a.asker + .text-content {
+    margin-top:0;
+}
+
+.asker {
+    position:absolute;
+    height:var(--spacing-md);
+    line-height:var(--spacing-md);
+    margin-top:var(--spacing-sm);
+    margin-left:var(--spacing-sm);
+}
+
+.asker::before {
+    content:"";
+    width:0px;
+    height:0px;
+    border-style:solid;
+    border-width:10px 10px 0 10px;
+    border-color:{color:posts} transparent transparent transparent;
+    display:inline-block;
+    position:absolute;
+    top:0;
+    margin-top:calc(-1*var(--spacing-sm));
+    margin-left:-2.667px;
+}
+
+.ask .ftr {
+    width:1rem;
+    height:1rem;
+    display:inline-block;
+    vertical-align:middle;
+    margin-right:1em;
+}
+
+/* ---- audio ---- */
+
+.audio-wrapper iframe {
+    height:180px;
+    width:100%;
+    margin-bottom:-1.4em;
+}
+
+.spotify_audio_player {
+    padding:var(--spacing-sm);
+}
+
+.tumblr_audio_player {
+    height:120px!important;
+}
+	    
+.video-iframe {
+    width:100%;
+    border:0;
+}
+
+.checkmarks {
+    margin-left:4px;
+}
+
+.checkmark {
+    margin-right:4px;
+}
+
+.checkmark img, .checkmark {
+    width:14px;
+    height:14px;
+}
+
+.big-checkmarks .checkmarks {
+    flex-grow: 1;
+    margin-left:0;
+}
+
+.big-checkmarks .checkmark {
+    position:absolute;
+    margin-left:-4px;
+}
+
+.active-false:after, .broken-blog:after{
+    content:'deactivated';
+    color:{color:text};
+    margin-left:6px;
+    font-style:italic;
+}
+        
+.reblog-header:not(.original-poster) :is(.broken-blog, .active-false):before {
+    position:relative;    
+    margin-right:10px;
+}
+
+/*.reblog-header:not(.original-poster)  .usernames {*/
+/*    margin-left:10px;*/
+/*}*/
+        
+.reblog-header:not(.original-poster) :is(.broken-blog, .active-false) {
+    margin:0;        
+}
+
+/* ------ permalink ------ */
+
+/* add the bottom margin for the sticky perma */
+.npf_container {
+    margin-top:-80px;
+}
+
+.permalink {
+    position:sticky;
+    top:var(--spacing-sm);
+    width:120px;
+    height:80px;
+    background:{color:Posts};
+    border-radius:var(--spacing-sm);
+    box-sizing:border-box;
+    z-index:9999999;
+    padding-right:calc(20px + var(--spacing-sm));
+}
+
+.right .permalink {
+    margin-left:calc(-120px - 20px - var(--spacing-sm));
+    left:0px;
+}
+
+.left .permalink {
+    left:100%;
+    margin-right:calc(-120px - 20px - var(--spacing-sm));
+}
+
+.permalink::before {
+    content:"";
+    position:absolute;
+    border:10px solid transparent;
+    top:var(--spacing-sm);
+}
+
+.right .permalink::before {
+    right:-10px;
+    border-right:0;
+    border-left-color:{color:titles};
+}
+
+.left .permalink::before {
+    left:-10px;
+    border-left:0;
+    border-right-color:{color:posts};
+}
+
+.pi {
+    display:block;
+    text-align:center;
+    padding:calc(var(--spacing-sm)/2 + 4px) 0;
+    color:{color:Text};
+}
+
+.pi:hover {
+    color:var(--accent);
+}
+
+.pi .num {
+    font-size:2em;
+    line-height:1;
+    font-weight:900;
+}
+
+.pi .num::after {
+    content:attr(data-month);
+    text-transform:uppercase;
+    font-size:0.4em;
+    font-weight:400;
+    margin-left:-4px;
+    font-family:"Datatype",consolas,monospace;
+    vertical-align:middle;
+}
+
+.pi .data-note {
+    font-family:"Datatype",consolas,monospace;
+    font-size:20px;
+    line-height:1;
+    display:block;
+    color:var(--accent);
+    margin-top:-10px;
+    margin-bottom:2px;
+    opacity:0.5;
+}
+
+.pi .notecount {
+    font-family:"Datatype",consolas,monospace;
+    font-size:0.75em;
+    line-height:1em;
+    display:block;
+    text-transform:uppercase;
+}
+
+.pi .ftr {
+    width:1em;
+    height:1em;
+    line-height:1em;
+    margin-left:1px;
+    margin-bottom:3px;
+    vertical-align:middle;
+    display:inline-block;
+}
+
+.btns {
+    position:absolute;
+    right:0;
+    background:{color:titles};
+    width:calc(20px + var(--spacing-sm));
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    border-top-right-radius:var(--spacing-sm);
+    border-bottom-right-radius:var(--spacing-sm);
+}
+
+.btns a {
+    color:{color:title text};
+    line-height:16px;
+    width:16px;
+    height:16px;
+    padding:calc(var(--spacing-sm)/4) calc(var(--spacing-sm)/2);
+    text-align:center;
+    font-size:1em;
+    display:block;
+}
+
+.btns a.mobile {
+    display:none;
+}
+
+.btns a:hover {
+    color:var(--accent);
+}
+
+.btns a img {
+    display:inline-block;
+    vertical-align:middle;
+    border-radius:100%;
+    width:16px;
+    height:16px;
+}
+
+.btns a .ftr {
+    width:16px; 
+    height:16px;
+    vertical-align:middle;
+    font-weight:bold;
+    font-size:16px;
+}
+
+.btns > .like .like_button iframe {
+    position:absolute;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    z-index:2;
+    opacity:0;
+}
+ 
+.btns > .like .like_button {position:relative;}
+.btns > .like .like_button.liked + svg.ftr path {stroke:var(--accent-alt);}
+
+.pin .btns {
+    background:var(--accent);
+}
+
+.pin .btns a {
+    color:var(--accent-text);
+}
+
+.pin .btns a:hover {
+    color:var(--accent-alt);
+}
+
+.pin .permalink::before {
+    border-left-color:var(--accent);
+}
+
+/* ------ tags ------ */
+
+.tags {
+    font-size:0.9em;
+    box-sizing:border-box;
+    margin:5px calc(-1*var(--spacing-md)) 0;
+    padding:0 calc(var(--spacing-md));
+    font-family:"Datatype",consolas,monospace;
+}
+
+.tags a {
+    display:inline-block;
+    padding:calc(var(--spacing-sm)/4) calc(var(--spacing-sm)/2);
+    margin-top:5px;
+    margin-right:5px;
+    line-height:1.2em;
+    background:var(--accent);
+    color:var(--accent-text);
+    border-radius:var(--spacing-sm);
+}
+
+.tags a:hover {
+    background:var(--accent-alt);
+    color:var(--accent-alt-text);
+}
+
+/* post notes */
+ 
+ol.notes {
+    position:relative;
+    width:{select:post size}px;
+    margin:10px 0 0;
+    padding:0px;
+    list-style-type:none;
+    font-size:0.9em;
+}
+
+ol.notes li::before {display:none; content:"";}
+ 
+ol.notes li.note {
+    padding:calc(var(--spacing-sm)/2) var(--spacing-sm);
+    margin-bottom:{select:gutter};
+    background:{color:posts};
+    display:block;
+}
+
+ol.notes li.note:first-child {
+    border-top-right-radius:var(--spacing-sm);
+    border-top-left-radius:var(--spacing-sm);
+}
+
+ol.notes li.note:last-child {
+    border-bottom-right-radius:var(--spacing-sm);
+    border-bottom-left-radius:var(--spacing-sm);
+}
+ 
+ol.notes li.note img, ol.notes li.note img.avatar {display:none;}
+ol.notes li.note.answer_content {font-weight:normal;}
+
+ol.notes li.note blockquote {
+    text-transform:none;
+    line-height:12px;
+    background:transparent; 
+    border:0px solid transparent;
+    border-left:2px solid var(--accent);
+}
+
+ol.notes li.note blockquote a {text-decoration:none;}
+
+/*ol.notes li.note .action::before {*/
+/*    font-family:"tabler-icons";*/
+/*    margin-right:5px;*/
+/*    font-style:normal;*/
+/*}*/
+
+/*ol.notes li.note.reblog .action::before {content:"\eb71";}*/
+/*ol.notes li.note.like .action::before {content:"\f142";}*/
+/*ol.notes li.note.reply .action::before {content:"\f078";}*/
+/*ol.notes li.note.original_post .action::before {content:"\f7cc";}*/
+
+/* ---------------- Sidebar ---------------- */
+
+#sidebar {
+    position:relative;
+    width:150px;
+    height:150px;
+}
+
+aside {
+    width:150px;
+    height:150px;
+    position:fixed;
+    top:75px;
+    z-index:4;
+}
+
+.right aside {
+    margin-left:calc({select:post size}px + var(--spacing-lg) + 12px);
+}
+
+.left aside {
+    margin-left:calc(-150px - var(--spacing-lg));
+}
+
+#imagePan {
+    position: absolute;
+    inset:25px;
+    width:100px;
+    height:100px;
+    overflow:hidden;
+    border-radius:50%;
+    z-index:1001;
+}
+
+#imagePan .inner {
+    position:absolute;
+    margin:0;
+    padding:0;
+    transition:left 0.3s ease-out, top 0.3s ease-out;
+}
+
+.panning {
+    margin:0;
+    padding:0;
+    border:0;
+}
+
+{block:ifnotsidebarpanning}
+#imagePan .inner img {
+    width:100px;
+    height:100px;
+}
+{/block:ifnotsidebarpanning}
+
+/* ---------------- Description ---------------- */
+
+.desc {
+    display:none;
+    position:relative;
+    width:150px;
+    margin:20px 0px;
+    box-sizing:border-box;
+    padding:var(--spacing-sm);
+    background:{color:posts};
+    border-radius: var(--spacing-sm);
+    font-size:0.875em;
+    line-height:1.4;
+    opacity:0;
+    transition:opacity 0.4s ease-in-out, transform 0.4s ease-in-out 0.4s;
+}
+
+.desc.visible {
+    display:block;
+    opacity:1;
+}
+
+.desc::before {
+    content:"";
+    position:absolute;
+    border:10px solid transparent;
+    margin-left:-10px;
+}
+
+.desc:not(.side)::before {
+    left:50%;
+    top:-10px;
+    border-top:0;
+    border-bottom-color:{color:titles};
+}
+
+.desc.side::before {
+    left:0px;
+    top:var(--spacing-sm);
+    border-left:0;
+    border-right-color:{color:titles};
+}
+
+.desc h1 {
+    display:block;
+    font-size:1.4rem;
+    line-height:1;
+    text-align:center;
+    background:{color:titles};
+    margin:calc(-1*(var(--spacing-sm)));
+    margin-bottom:var(--spacing-sm);
+    padding:var(--spacing-sm);
+    border-radius:var(--spacing-sm) var(--spacing-sm) 0 0;
+    font-weight:800;
+    color:{color:title text};
+}
+
+/* ---------------- Orbit Rings ---------------- */
+
+.one, .two {
+    position:absolute;
+    box-sizing:border-box;
+    border:1px dashed {color:borders};
+    border-radius: 50%;
+	width:120px;
+	height:120px;
+	pointer-events:none;
+    box-shadow:-2px -2px 5px rgba({RGBcolor:shadows},0.1);
+    z-index:3;
+}
+
+.one {
+	inset:10px;
+	width:130px;
+	height:130px;
+}
+
+.two {
+	inset:0px;
+	width:150px;
+	height:150px;
+}
+
+.orbit {
+    width:100%;
+    height:100%;
+	pointer-events:none;
+}
+
+.one .orbit {
+    animation:spin-right 20s linear infinite;
+}
+
+.two .orbit {
+	animation:spin-left 15s linear infinite;
+}
+
+#sidebar:hover .orbit {
+    animation-play-state:paused;
+}
+
+.orbit a {
+    position:absolute;
+    left:50%;
+    border-radius:50%;
+	transition:0.4s ease-in-out;
+	pointer-events:auto;
+	border:1px solid {color:borders};
+}
+
+.one .orbit a {
+    width:16px;
+    height:16px;
+    margin:-10px;
+    background:var(--accent);
+	position:absolute;
+}
+
+.two .orbit a {
+    width:30px;
+    height:30px;
+    margin:-17px;
+    background:var(--accent-alt);
+	position:absolute;
+}
+
+.two .orbit a:hover {
+	box-shadow:0 0 0 10px rgba({RGBcolor:Accent Alt},0.5);
+}
+
+.one .orbit a:hover {
+	box-shadow:0 0 0 6px rgba({RGBcolor:Accent},0.5);
+}
+
+/* ---------------- Menu ---------------- */
+
+.circle {
+    position:absolute;
+    top:-205px;
+    left:-225px;
+    width:600px;
+    height:640px;
+    z-index:2;
+	pointer-events:none;
+}
+
+.circle svg {
+    position:relative;
+    width:600px;
+    height:640px;
+    overflow:visible;
+}
+
+.circle svg path {
+    fill:var(--accent);
+	transition:0.4s ease-in-out;
+    filter:drop-shadow(-2px -2px 5px rgba({RGBcolor:shadows},0.1));
+}
+
+.slice {
+    cursor:pointer;
+    transform-origin:300px 280px;
+    transition:
+        transform .45s cubic-bezier(.22, 1, .36, 1),
+        opacity .25s,
+        filter .25s;
+	pointer-events:auto;
+}
+
+.slice:hover path {
+    fill:var(--accent-alt);
+}
+
+/* ---------------- Animations ---------------- */
+
+@keyframes spin-right {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spin-left {
+    to {
+        transform: rotate(-360deg);
+    }
+}
+
+/* ------ bottom bar ------ */
+
+#bottom {
+    background:{color:titles};
+    width:calc({select:post size}px + 20px);
+    position:fixed;
+    bottom:0px;
+    z-index:999;
+    padding:calc(0.75*var(--spacing-sm)) var(--spacing-sm);
+    height:calc(1.5*var(--spacing-sm));
+    line-height:var(--spacing-sm);
+    box-shadow:-2px -2px 5px rgba({RGBcolor:shadows},0.1);
+    font-family:"Datatype",consolas,monospace;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    display:flex;
+    flex-wrap:nowrap;
+}
+
+.right #bottom {
+    padding-left:100%;
+    margin-left:-100%;
+    border-top-right-radius:var(--spacing-sm);
+}
+
+.left #bottom {
+    margin-left:calc(-1*var(--spacing-sm));
+    padding-right:100%;
+    border-top-left-radius:var(--spacing-sm);
+}
+
+#bottom > a, #bottom > form {
+    background:var(--accent-alt);
+    color:var(--accent-alt-text);
+    height:var(--spacing-sm);
+    padding:calc(var(--spacing-sm)/4) 8px;
+    margin-right:5px;
+    display:inline-block;
+    vertical-align:middle;
+    border-radius:var(--spacing-sm);
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    overflow:hidden;
+}
+
+#bottom > form {
+    max-width:100px;
+    background:transparent;
+    color:{color:Title Text};
+    overflow:hidden;
+}
+
+#bottom > a.t {
+    background:var(--accent);
+    color:var(--accent-text);
+}
+
+#bottom > a:hover {
+    background:var(--accent);
+    color:var(--accent-text);
+}
+
+#bottom > form input {
+    height:var(--spacing-sm);
+    line-height:100%;
+    background:transparent;
+    border:0px solid transparent;
+    color:{color:title text};
+    outline:0;
+    padding:0;
+    float:left;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    max-width:100%;
+}
+
+#bottom > form input::placeholder {
+    color:{color:title text};
+}
+
+/* ------ footer ------ */
+
+#infscr-loading {display:none!important;}
+#manual {display:none;}
+
+{block:ifinfinitescroll}
+#pagination {display:none;}
+{block:ifmanualload}
+#manual {display:block;}
+{/block:ifmanualload}
+{/block:ifinfinitescroll}
+
+footer {
+    height:calc(3*var(--spacing-sm));
+    position:absolute;
+    top:0;
+    width:150px;
+    text-align:center;
+}
+
+.right footer {
+    margin-left:calc(var(--spacing-lg) - var(--spacing-sm));
+    left:100%;
+}
+
+.left footer {
+    margin-left:calc(-150px - var(--spacing-lg));
+}
+
+footer > span, footer a {
+    display:inline-block;
+    vertical-align:middle;
+    font:15px/var(--spacing-sm) "Datatype",consolas,monospace;
+    width:var(--spacing-sm);
+    height:var(--spacing-sm);
+    padding:calc(var(--spacing-sm)/2);
+    margin:calc(var(--spacing-sm)/2) calc(var(--spacing-sm)/4);
+    text-align:center;
+    border-radius:100%;
+    color:var(--accent-text);
+    background:var(--accent);
+}
+
+footer > span, footer a:hover {
+    background:var(--accent-alt);
+    color:var(--accent-alt-text);
+}
+
+#pagination a .ftr {
+    width:16px; 
+    height:16px; 
+}
+
+#manual a .ftr {
+    width:16px; 
+    height:16px; 
+}
+
+/* ------ media queries ------ */
+
+@media screen and (min-width:800px) and (max-width:960px){
+    .permalink {
+        margin-top:10px;
+        z-index:9999;
+        box-shadow:-2px 2px 5px rgba({RGBcolor:shadows},0.1);
+        width:calc(20px + var(--spacing-sm));
+    }
+    
+    .right .permalink {
+        margin-left:calc(-20px - 20px - var(--spacing-sm));
+    }
+    
+    .left .permalink {
+        margin-right:calc(-20px - 20px - var(--spacing-sm));
+    }
+    
+    .permalink .pi {
+        display:none;
+    }
+    
+    .btns {
+        border-radius:var(--spacing-sm);
+    }
+
+    .btns a.mobile {
+        display:block;
+    }
+
+    .btns a.pin {
+        display:none;
+    }
+    
+    .permalink::before {
+        display:none;
+    }
+    
+    .npf_container {
+        margin-top:-90px;
+    }
+    
+    .right main {
+        padding-left:calc(40px + var(--spacing-sm));
+    }
+    
+    .left main {
+        padding-right:calc(40px + var(--spacing-sm));
+    }
+}
+
+@media screen and (max-width:880px){
+    :root {
+        --spacing-lg:2em;
+    }
+}
+
+@media screen and (max-width:800px){
+    main {
+        padding-bottom:calc(7*var(--spacing-sm));
+        width:calc(100% - 120px - 32px - 2*var(--spacing-sm));
+    }
+    
+    .right main {
+        padding-right:0px;
+    }
+    
+    .left main {
+        padding-left:0px;
+    }
+    
+    #postmargin {
+        width:100%;
+    }
+    
+    #bottom {
+        width:calc(100% - 120px - 32px - 2*var(--spacing-sm));
+    }
+    
+    article, .posts {
+        width:calc(100% - 20px - 2px);
+    }
+    
+    footer {
+        position:fixed;
+        margin:auto;
+        left:0;
+        right:0;
+        bottom:calc(3.5*var(--spacing-sm));
+        text-align:center;
+        top:auto;
+        border:1px dashed {color:Borders};
+        box-shadow:2px 2px 5px rgba({RGBcolor:shadows},0.1);
+        border-radius:var(--spacing-sm);
+    }
+    
+    .left aside,
+    .right aside {
+        position:relative;
+        margin:0 auto 100px;
+        height:auto;
+        width:100%;
+    }
+    
+    aside::before {
+        content:"";
+        position:fixed;
+        width:100%;
+        height:calc(150px + var(--spacing-md) + 20px);
+        background:rgba({RGBcolor:background},0.5);
+        z-index:9999998;
+        top:0px;
+        left:0px;
+        right:0px;
+        backdrop-filter:blur(8px); 
+        -webkit-backdrop-filter:blur(8px); 
+    }
+    
+    #sidebar {
+        margin:var(--spacing-md) auto 0;
+        position:fixed;
+        top:0;
+        z-index:9999999;
+    }
+    
+    .right #sidebar {
+        left:calc(120px + 20px + var(--spacing-sm));
+        right:0;
+    }
+    
+    .left #sidebar {
+        right:calc(120px + 20px + var(--spacing-sm));
+        left:0;
+    }
+    
+    .desc {
+        width:100%;
+        opacity:1!important;
+        display:block!important;
+        margin-top:calc(var(--spacing-md) + 100px);
+        font-size:1rem;
+    }
+}
+
+@media screen and (max-width:660px){
+    #bottom form {
+        display:none;
+    }
+}
+
+@media screen and (max-width:560px){
+    .left .permalink,
+    .right .permalink {
+        margin-top:10px;
+        right:0px;
+        left:auto;
+        margin-left:auto;
+        margin-right:0px;
+        z-index:9999;
+        box-shadow:-2px 2px 5px rgba({RGBcolor:shadows},0.1);
+        width:calc(20px + var(--spacing-sm));
+    }
+    
+    .btns {
+        border-radius:var(--spacing-sm);
+    }
+
+    .btns a.mobile {
+        display:block;
+    }
+
+    .btns a.pin {
+        display:none;
+    }
+    
+    .permalink::before {
+        display:none;
+    }
+    
+    .permalink .pi {
+        display:none;
+    }
+    
+    .npf_container {
+        margin-top:-90px;
+    }
+    
+    main {
+        width:calc(100% - 2*var(--spacing-sm));
+    }
+    
+    .right main {
+        padding-left:0px;
+    }
+    
+    .left main {
+        padding-right:0px;
+    }
+    
+    #bottom {
+        width:calc(100% - 2*var(--spacing-sm));
+    }
+    
+    .right #sidebar {
+        left:0px;
+    }
+    
+    .left #sidebar {
+        right:0px;
+    }
+}
+
+@media screen and (max-width:420px){
+    :root {
+        --spacing-md:20px;
+        --spacing-lg:20px;
+    }
+}
+
+.tmblr-iframe-pushdown aside::before,
+.tmblr-iframe-pushdown #sidebar, 
+.tmblr-iframe-pushdown .permalink {
+    top:54px;
+}
+
+{CustomCSS}
+</style>    
+</head>
+
+<body class="{block:IndexPage}index-page{/block:IndexPage} {block:homepage}home{/block:homepage}{block:tagpage}tag{/block:tagpage}{block:searchpage}search{/block:searchpage}{block:submitpage}submit{/block:submitpage}{block:AskPage}ask{/block:AskPage}{block:permalinkpage}permalink{/block:permalinkpage}-page {select:sidebar location}">
+
+<!--<div id="top"></div>-->
+
+<main>
+    <aside>
+    	<div id="sidebar">
+    	    {block:HasPages}
+    		<div class="circle" id="menu">
+    			<svg viewBox="0 0 600 640"></svg>
+    			<nav id="links" hidden>
+    			    {block:Pages}
+    			    <a href="{URL}">{Label}</a>
+    			    {/block:Pages}
+    			</nav>
+    		</div>
+    		{/block:HasPages}
+    		<div class="one">
+    			<div class="orbit">
+    				<a href="/" title="refresh"></a>
+    			</div>
+    		</div>
+    		<div class="two">
+    			<div class="orbit">
+    				<a{block:HasPages} href="#" title="menu"{/block:HasPages}></a>
+    			</div>
+    		</div>
+    		<div id="imagePan">
+    			<div class="inner">
+    			    {block:ifsidebarimage}
+    				<img src="{image:sidebar}" class="panning"/>
+    				{/block:ifsidebarimage}
+    				{block:ifnotsidebarimage}
+    				<img src="{PortraitURL-128}" class="panning"/>
+    				{/block:ifnotsidebarimage}
+    			</div>
+    		</div>
+    	</div>
+    	<div class="desc visible">
+    	    <a href="/"><h1>{Title}</h1></a>
+    		{Description}
+    	</div>
+    </aside>
+
+    <nav id="bottom">
+        <a class="t" href="/">{Name}</a>
+        {block:AskEnabled}<a href="/ask">{AskLabel}</a>{/block:AskEnabled}
+        {block:SubmissionsEnabled}<a href="/submit">{SubmitLabel}</a>{/block:SubmissionsEnabled}
+        <a href="/archive">archive</a>
+        <form class="search" action="/search" method="get">
+            <input class="sb" type="search" name="q" value="{SearchQuery}" placeholder="Search...">
+        </form>
+    
+        {block:Pagination}
+        <footer id="pagination">
+            {block:PreviousPage}<a href="{PreviousPage}" title="back" class="prev"><span class="ftr" data-feather="arrow-left"></span></a>{/block:PreviousPage}
+            <span>{CurrentPage}</span>
+            {block:NextPage}<a href="{NextPage}" title="forth" class="next"><span class="ftr" data-feather="arrow-right"></span></a>{/block:NextPage}
+        </footer>
+        <footer id="manual">
+            <a href="#" id="load" title="load more posts..."><span class="ftr" data-feather="arrow-down"></span></a>
+        </footer>
+        {/block:Pagination}
+    </nav>
+
+    <section id="postmargin">
+        {block:Posts}
+        <article class="posts {block:IndexPage}{block:PinnedPostLabel}pin{/block:PinnedPostLabel}{/block:IndexPage}" id="{PostId}">
+        
+            {block:Date}
+            <div class="permalink post-info">
+                <div class="btns">
+                    {block:IndexPage}
+                    {block:PinnedPostLabel}
+                    <a href="{Permalink}" class="pin" title="pinned">
+                        <span class="ftr" data-feather="anchor"></span>
+                    </a>
+                    {/block:PinnedPostLabel}
+                    <a href="{Permalink}" class="mobile" title="{TimeAgo} + {NoteCount}">
+                        <span class="ftr" data-feather="edit-3"></span>
+                    </a>
+                    <a class="like" title="like this post?">
+                        {LikeButton size="15"}
+                        <span class="ftr" data-feather="heart"></span>
+                    </a>
+                    <a href="{ReblogURL}" title="reblog?">
+                        <span class="ftr" data-feather="refresh-cw"></span>
+                    </a>
+                    {/block:IndexPage}
+                    {block:PermalinkPage}
+                    {block:RebloggedFrom}
+                    <a href="{ReblogRootURL}" title="Originally posted by {ReblogRootName}"><img src="{ReblogRootPortraitURL-30}"/></a>
+                    <a><span class="ftr" data-feather="refresh-cw"></span></a>
+                    <a href="{ReblogParentURL}" title="Reblogged from {ReblogParentName}"><img src="{ReblogParentPortraitURL-30}"/></a>
+                    {/block:RebloggedFrom}
+                    {/block:PermalinkPage}
+                </div>
+                <a href="{Permalink}" class="pi" title="{TimeAgo}">
+                    <span class="num" data-month="{ShortMonth}">
+                        {DayOfMonthWithZero}
+                    </span>
+                    <span class="data-note">{l:{DayOfMonth},{MonthNumber},20,{ShortYear},{24Hour},{Minutes},{Seconds}</span>
+                    <span class="notecount">{NoteCount}<span class="ftr" data-feather="edit-2"></span></span>
+                </a>
+            </div>
+            {/block:Date}
+        
+            <!-- render all posts using json data -->
+            <div class="npf_container">
+                <script class="npf_data" type="application/json" data-permalink="{JSPermalink}" data-id="{JSPostId}">{JsNPF}</script>
+                {block:AskPage}<script class="npf_inbox" type="application/json" data-id="{JSPostId}">{Body}</script>{/block:AskPage}
+                {block:SubmitPage}<script class="npf_inbox" type="application/json" data-id="{JSPostId}">{Body}</script>{/block:SubmitPage}
+            </div>
+            {block:HasTags}
+            <div class="tags post-info">
+                {block:Tags}<a href="{TagURL}">#{Tag}</a>{/block:Tags}
+            </div>
+            {/block:HasTags}
+            
+        </article>
+        
+        {block:ContentSource}
+        <!-- {SourceURL}
+        {block:SourceLogo}<img src="{BlackLogoURL}"width="{LogoWidth}" height="{LogoHeight}" alt="{SourceTitle}" />{/block:SourceLogo}
+        {block:NoSourceLogo}{SourceLink}{/block:NoSourceLogo} -->
+        {/block:ContentSource}
+        <!--{block:NoRebloggedFrom}{block:RebloggedFrom}{ReblogParentName}{/block:RebloggedFrom}{/block:NoRebloggedFrom} -->
+        
+        {block:PostNotes}
+        <article class="notes">
+            <div class="npf_container">
+                {PostNotes}
+            </div>
+        </article>
+        {/block:PostNotes}
+        {/block:Posts} 
+    </section> 
+    
+</main>
+</body>
+
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script src="https://unpkg.com/tippy.js@6"></script>
+<script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+
+<script>
+let bodyElement = document.body.classList
+let container = document.getElementById('postmargin')
+let user = '{name}'
+{block:IndexPage}let indexPage = true{/block:IndexPage}
+{block:PermalinkPage}let indexPage = false{/block:PermalinkPage}
+</script>
+
+<script src="https://static.tumblr.com/p0knose/jK2tcaqqe/neue_posts_f.js"></script>
+<script src="https://static.tumblr.com/p0knose/xxNthppl8/tk.js"></script>
+<script src="https://static.tumblr.com/p0knose/DXTthppn9/evergarden_menu.js"></script>
+
+{block:ifsidebarpanning}
+<script src="https://static.tumblr.com/p0knose/dihthppmw/evergarden_sidebar.js"></script>
+{/block:ifsidebarpanning}
+
+{block:IndexPage}{block:ifinfinitescroll}
+<script src="https://unpkg.com/infinite-scroll@3/dist/infinite-scroll.pkgd.min.js"></script>
+<script>
+let infScroll = new InfiniteScroll(container,{
+    append: '.posts',
+    path: '#pagination .next'{block:ifmanualload},
+    button:'#manual #load',
+    scrollThreshold:false{/block:ifmanualload}
+});
+</script>
+<script src="https://static.tumblr.com/p0knose/icZsjh9ar/infscr.js"></script>
+{/block:ifinfinitescroll}{/block:IndexPage}
+
+</html>
