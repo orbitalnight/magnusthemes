@@ -138,7 +138,7 @@ function nocturne(sticky,accent,perma,relate,home,feature,name,tag){
                         var title = posts["regular-title"];
                         var cap = posts["regular-body"];
                         insert = '<'+'div class="feature"'+'>';
-                        if(titleText.length)
+                        if(title.length)
                             insert += '<'+'h2'+'>'+title+'<'+'/h2'+'>'; 
                         insert += '<'+'div class="ct"'+'>'+cap+'<'+'/div'+'>';
                         insert += '<'+'a class="tx" href="'+link+'">view post...<'+'/a'+'>';
